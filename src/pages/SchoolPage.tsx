@@ -1,118 +1,97 @@
 import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { MapPin, BookOpen, Cross, Award } from "lucide-react";
 import heroImg from "@/assets/hero-school.jpg";
 
 const SchoolPage = () => {
   return (
     <Layout>
-      <section className="gradient-hero py-20 sm:py-28">
-        <div className="container-wide px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: "hsl(var(--gold))" }}>Our Foundation</p>
-            <h1 className="text-4xl sm:text-5xl font-heading font-bold mb-6" style={{ color: "hsl(var(--primary-foreground))" }}>
+      <section className="page-hero">
+        <div className="container-wide px-6 sm:px-8 lg:px-12">
+          <div className="max-w-xl">
+            <p className="text-[12px] font-medium uppercase tracking-[0.15em] mb-5" style={{ color: "hsl(var(--gold))" }}>Our Foundation</p>
+            <h1 className="text-[40px] sm:text-[48px] font-bold tracking-tight leading-[1.08] mb-5" style={{ color: "hsl(var(--primary-foreground))" }}>
               About Bishop Cipriano Kihangire S.S.S.
             </h1>
-            <p className="text-lg" style={{ color: "hsl(var(--primary-foreground) / 0.8)" }}>
-              Bishop Cipriano Kihangire Senior Secondary School stands at the heart of the BICKOSA story — a school whose legacy continues to shape generations of students through faith, discipline, excellence, and community.
+            <p className="text-[16px] leading-[1.65]" style={{ color: "hsl(var(--primary-foreground) / 0.55)" }}>
+              The school at the heart of the BICKOSA story — shaping generations through faith, discipline, excellence, and community.
             </p>
           </div>
         </div>
       </section>
 
-      {/* School Overview */}
       <section className="section-padding bg-background">
         <div className="container-wide">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <span className="text-secondary text-sm font-semibold tracking-widest uppercase">The School</span>
-              <h2 className="text-3xl font-heading font-bold text-foreground mt-3 mb-6">A School with Identity and Purpose</h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-4">The School</p>
+              <h2 className="text-[28px] sm:text-[32px] font-bold tracking-tight text-foreground leading-[1.15] mb-6">A School with Identity and Purpose</h2>
+              <p className="text-[15px] text-muted-foreground leading-[1.7] mb-4">
                 Bishop Cipriano Kihangire Senior Secondary School, located in Bbiina/Luzira, Kampala, is a private Catholic secondary school offering both O-Level and A-Level education as a mixed day and boarding institution. Founded by Fr. John Scalabrini in 1999, the school began operations on 9 February 1999 with 120 students and was officially commissioned on 15 August 1999 by Emmanuel Cardinal Wamala.
               </p>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                Named in honour of Bishop Cipriano Biyehima Kihangire (1918–1990), the school is part of the Emmaus/Fondazione ecosystem that supports education and community services in the Luzira/Nakawa area. As of 2022, the school serves over 2,750 secondary students, with 2,310 in boarding.
+              <p className="text-[15px] text-muted-foreground leading-[1.7] mb-4">
+                Named in honour of Bishop Cipriano Biyehima Kihangire (1918–1990), the school is part of the Emmaus/Fondazione ecosystem. As of 2022, the school serves over 2,750 secondary students, with 2,310 in boarding.
               </p>
-              <div className="flex items-center gap-2 mt-6 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4 text-secondary" />
-                Bbiina/Luzira, Kampala, Uganda · P.O. Box 27477
-              </div>
+              <p className="text-[13px] text-muted-foreground mt-6">Bbiina/Luzira, Kampala, Uganda · P.O. Box 27477</p>
             </div>
-            <div className="rounded-2xl overflow-hidden shadow-elevated">
-              <img src={heroImg} alt="BCK SSS Campus" className="w-full h-80 object-cover" />
+            <div className="rounded-lg overflow-hidden">
+              <img src={heroImg} alt="BCK SSS Campus" className="w-full aspect-[4/3] object-cover" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Heritage & Foundation */}
-      <section className="section-padding bg-card">
-        <div className="container-wide max-w-3xl">
-          <h2 className="text-3xl font-heading font-bold text-foreground mb-6">Grounded in Heritage</h2>
-          <p className="text-muted-foreground leading-relaxed mb-4">
+      <section className="section-padding bg-muted">
+        <div className="container-wide max-w-2xl">
+          <h2 className="text-[28px] sm:text-[32px] font-bold tracking-tight text-foreground leading-[1.15] mb-6">Grounded in Heritage</h2>
+          <p className="text-[15px] text-muted-foreground leading-[1.7] mb-4">
             The story of BCK is tied to the broader Catholic educational and community tradition shaped by Fr. John Scalabrini, who built the school in memory of Bishop Cipriano Biyehima Kihangire. The school's identity reflects a commitment not only to learning, but also to character, service, and spiritual formation.
           </p>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-[15px] text-muted-foreground leading-[1.7]">
             It is this foundation — supported by the Fondazione Italia Uganda and the Emmaus Foundation Trust — that continues to make the school meaningful to both current students and old students.
           </p>
         </div>
       </section>
 
-      {/* Vision, Motto, Ethos */}
       <section className="section-padding bg-background">
         <div className="container-wide">
-          <div className="grid sm:grid-cols-3 gap-6">
-            <div className="bento-card text-center">
-              <Award className="w-8 h-8 text-secondary mx-auto mb-3" />
-              <h3 className="font-heading text-xl font-bold text-foreground mb-2">Vision</h3>
-              <p className="text-sm text-muted-foreground">For Unity, Academic Excellence, and Moral Uprightness.</p>
+          <div className="grid sm:grid-cols-3 gap-px bg-border rounded-lg overflow-hidden">
+            <div className="bg-card p-8 sm:p-10 text-center">
+              <p className="text-[14px] font-semibold text-foreground mb-2">Vision</p>
+              <p className="text-[13px] text-muted-foreground leading-relaxed">For Unity, Academic Excellence, and Moral Uprightness.</p>
             </div>
-            <div className="bento-card text-center bg-primary text-primary-foreground">
-              <BookOpen className="w-8 h-8 mx-auto mb-3 opacity-80" />
-              <h3 className="font-heading text-xl font-bold mb-2">Motto</h3>
-              <p className="text-sm opacity-80">Per Aspera Ad Astra — Through hardship to the stars.</p>
+            <div className="p-8 sm:p-10 text-center" style={{ background: "hsl(var(--navy))" }}>
+              <p className="text-[14px] font-semibold mb-2" style={{ color: "hsl(var(--primary-foreground))" }}>Motto</p>
+              <p className="text-[13px] leading-relaxed" style={{ color: "hsl(var(--primary-foreground) / 0.6)" }}>Per Aspera Ad Astra — Through hardship to the stars.</p>
             </div>
-            <div className="bento-card text-center">
-              <Cross className="w-8 h-8 text-accent mx-auto mb-3" />
-              <h3 className="font-heading text-xl font-bold text-foreground mb-2">Ethos</h3>
-              <p className="text-sm text-muted-foreground">A culture of discipline, faith, growth, leadership, and service.</p>
+            <div className="bg-card p-8 sm:p-10 text-center">
+              <p className="text-[14px] font-semibold text-foreground mb-2">Ethos</p>
+              <p className="text-[13px] text-muted-foreground leading-relaxed">A culture of discipline, faith, growth, leadership, and service.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Student Life */}
-      <section className="section-padding bg-card">
-        <div className="container-wide max-w-3xl">
-          <h2 className="text-3xl font-heading font-bold text-foreground mb-6">More Than the Classroom</h2>
-          <p className="text-muted-foreground leading-relaxed mb-4">
-            Life at BCK has always been shaped by more than academics alone. The school experience includes discipline, co-curricular participation, school identity, mentorship, sports, leadership, and the day-to-day relationships that leave a lasting impression on students long after they leave.
+      <section className="section-padding bg-muted">
+        <div className="container-wide max-w-2xl">
+          <h2 className="text-[28px] sm:text-[32px] font-bold tracking-tight text-foreground leading-[1.15] mb-6">More Than the Classroom</h2>
+          <p className="text-[15px] text-muted-foreground leading-[1.7] mb-4">
+            Life at BCK has always been shaped by more than academics alone. The school experience includes discipline, co-curricular participation, school identity, mentorship, sports, leadership, and the day-to-day relationships that leave a lasting impression.
           </p>
-          <p className="text-muted-foreground leading-relaxed">
-            The school maintains strong sports programming — including a football academy, upgraded sports equipment, and PE training supported by Fondazione Milan — alongside arts, choral traditions, gender equity programming through the MEMPROW Girls Network, and structured student leadership development.
+          <p className="text-[15px] text-muted-foreground leading-[1.7]">
+            The school maintains strong sports programming — including a football academy, upgraded sports equipment, and PE training supported by Fondazione Milan — alongside arts, choral traditions, gender equity programming, and structured student leadership development.
           </p>
         </div>
       </section>
 
-      {/* Legacy */}
       <section className="section-padding bg-background">
-        <div className="container-wide max-w-3xl">
-          <h2 className="text-3xl font-heading font-bold text-foreground mb-6">A Legacy That Continues Through Its Students</h2>
-          <p className="text-muted-foreground leading-relaxed">
-            From 120 students in 1999 to over 2,750 secondary learners in 2022, the story of the school is carried not only in buildings and classrooms, but also in the people it has shaped. Each generation of students becomes part of a larger heritage — one that continues through alumni, community, and the values they carry forward into the world.
+        <div className="container-wide max-w-2xl">
+          <h2 className="text-[28px] sm:text-[32px] font-bold tracking-tight text-foreground leading-[1.15] mb-6">A Legacy That Continues</h2>
+          <p className="text-[15px] text-muted-foreground leading-[1.7] mb-8">
+            From 120 students in 1999 to over 2,750 secondary learners in 2022, the story of the school is carried not only in buildings and classrooms, but also in the people it has shaped.
           </p>
-        </div>
-      </section>
-
-      {/* Link to BICKOSA */}
-      <section className="section-padding bg-card">
-        <div className="container-wide max-w-3xl">
-          <h2 className="text-3xl font-heading font-bold text-foreground mb-6">Where School Legacy Meets Alumni Community</h2>
-          <p className="text-muted-foreground leading-relaxed mb-8">
-            BICKOSA exists because the BCK experience does not end at graduation. The association extends the life of the school beyond its gates by bringing alumni together in ways that preserve memory, strengthen community, and create opportunities to give back.
-          </p>
-          <Button asChild><Link to="/about">Learn About BICKOSA</Link></Button>
+          <Link to="/about" className="inline-flex items-center h-10 px-5 text-[14px] font-medium text-primary-foreground bg-primary rounded-md hover:opacity-90 transition-opacity">
+            Learn about BICKOSA
+          </Link>
         </div>
       </section>
     </Layout>

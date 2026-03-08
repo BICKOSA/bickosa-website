@@ -1,78 +1,65 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import logo from "@/assets/bickosa-logo.png";
 
 const navLinks = [
-  { label: "Home", path: "/" },
-  { label: "About BICKOSA", path: "/about" },
-  { label: "About the School", path: "/school" },
-  { label: "History & Legacy", path: "/history" },
-  { label: "Alumni Stories", path: "/stories" },
-  { label: "News & Updates", path: "/news" },
+  { label: "About", path: "/about" },
+  { label: "School", path: "/school" },
+  { label: "History", path: "/history" },
+  { label: "Stories", path: "/stories" },
+  { label: "News", path: "/news" },
   { label: "Events", path: "/events" },
-  { label: "Projects & Giving", path: "/projects" },
+  { label: "Projects", path: "/projects" },
   { label: "Gallery", path: "/gallery" },
-  { label: "Contact", path: "/contact" },
 ];
 
-const utilityLinks = [
-  { label: "FAQs", path: "/faq" },
+const moreLinks = [
   { label: "Governance", path: "/governance" },
+  { label: "FAQs", path: "/faq" },
   { label: "Archive", path: "/archive" },
+  { label: "Contact", path: "/contact" },
 ];
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
+  const isActive = (path: string) => location.pathname === path;
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
-      <div className="container-wide flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="BICKOSA Logo" className="h-10 sm:h-12 w-auto" />
-          <div className="hidden sm:block">
-            <span className="text-lg font-heading font-bold text-primary">BICKOSA</span>
-          </div>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+      <div className="max-w-6xl mx-auto flex items-center justify-between h-14 px-6 sm:px-8 lg:px-12">
+        <Link to="/" className="flex items-center gap-2.5">
+          <img src={logo} alt="BICKOSA" className="h-8 w-auto" />
+          <span className="text-[15px] font-semibold tracking-tight text-foreground">BICKOSA</span>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-1">
-          {navLinks.slice(0, 7).map((link) => (
+        <nav className="hidden lg:flex items-center gap-0.5">
+          {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                location.pathname === link.path
-                  ? "text-secondary bg-primary/5"
-                  : "text-foreground/70 hover:text-foreground hover:bg-muted"
+              className={`px-3 py-1.5 text-[13px] font-medium transition-colors rounded-md ${
+                isActive(link.path)
+                  ? "text-foreground bg-muted"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {link.label}
             </Link>
           ))}
           <div className="relative group">
-            <button className="px-3 py-2 text-sm font-medium text-foreground/70 hover:text-foreground rounded-lg transition-colors">
-              More ▾
+            <button className="px-3 py-1.5 text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md">
+              More
             </button>
-            <div className="absolute right-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-              <div className="bg-card rounded-xl border border-border shadow-elevated p-2 min-w-[180px]">
-                {navLinks.slice(7).map((link) => (
+            <div className="absolute right-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150">
+              <div className="bg-card border border-border rounded-lg shadow-lg py-1 min-w-[160px]">
+                {moreLinks.map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}
-                    className="block px-3 py-2 text-sm rounded-lg text-foreground/70 hover:text-foreground hover:bg-muted transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-                <div className="border-t border-border my-1" />
-                {utilityLinks.map((link) => (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    className="block px-3 py-2 text-sm rounded-lg text-foreground/70 hover:text-foreground hover:bg-muted transition-colors"
+                    className="block px-4 py-2 text-[13px] text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -83,56 +70,39 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:block">
-          <Button asChild variant="default" size="sm">
-            <Link to="/contact">Get in Touch</Link>
-          </Button>
+          <Link
+            to="/contact"
+            className="text-[13px] font-medium text-primary-foreground bg-primary px-4 py-2 rounded-md hover:opacity-90 transition-opacity"
+          >
+            Get in Touch
+          </Link>
         </div>
 
-        {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden p-2 rounded-lg text-foreground hover:bg-muted"
+          className="lg:hidden p-1.5 rounded-md text-foreground hover:bg-muted transition-colors"
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
-      {/* Mobile Nav */}
       {isOpen && (
-        <div className="lg:hidden bg-card border-t border-border animate-fade-in">
-          <nav className="container-wide px-4 py-4 flex flex-col gap-1">
-            {navLinks.map((link) => (
+        <div className="lg:hidden bg-background border-t border-border">
+          <nav className="max-w-6xl mx-auto px-6 py-3 flex flex-col">
+            {[...navLinks, ...moreLinks].map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`px-4 py-3 text-sm font-medium rounded-lg transition-colors ${
-                  location.pathname === link.path
-                    ? "text-secondary bg-primary/5"
-                    : "text-foreground/70 hover:text-foreground hover:bg-muted"
+                className={`px-3 py-2.5 text-[14px] font-medium transition-colors ${
+                  isActive(link.path)
+                    ? "text-foreground"
+                    : "text-muted-foreground"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="border-t border-border my-2" />
-            {utilityLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={() => setIsOpen(false)}
-                className={`px-4 py-3 text-sm font-medium rounded-lg transition-colors ${
-                  location.pathname === link.path
-                    ? "text-secondary bg-primary/5"
-                    : "text-foreground/70 hover:text-foreground hover:bg-muted"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Button asChild className="mt-2">
-              <Link to="/contact" onClick={() => setIsOpen(false)}>Get in Touch</Link>
-            </Button>
           </nav>
         </div>
       )}

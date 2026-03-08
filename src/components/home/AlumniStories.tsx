@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 const stories = [
@@ -27,33 +26,29 @@ const AlumniStories = () => {
   return (
     <section className="section-padding bg-background">
       <div className="container-wide">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-12">
-          <div>
-            <span className="text-secondary text-sm font-semibold tracking-widest uppercase">Voices of BCK</span>
-            <h2 className="text-3xl sm:text-4xl font-heading font-bold text-foreground mt-3">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-14">
+          <div className="max-w-xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-4">Voices of BCK</p>
+            <h2 className="text-3xl sm:text-[36px] font-bold tracking-tight text-foreground leading-[1.15]">
               Stories from the Alumni Community
             </h2>
-            <p className="text-muted-foreground mt-3 max-w-2xl">
-              Every BICKOSA member carries a piece of the school's story. From leadership and service to entrepreneurship, public impact, and community work, these stories reflect the many paths that begin at BCK.
-            </p>
           </div>
-          <Button asChild variant="outline">
-            <Link to="/stories">View All Alumni Stories <ArrowRight className="ml-2 w-4 h-4" /></Link>
-          </Button>
+          <Link to="/stories" className="inline-flex items-center gap-2 text-[14px] font-medium text-foreground hover:opacity-70 transition-opacity flex-shrink-0">
+            All stories <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-px bg-border rounded-lg overflow-hidden">
           {stories.map((story) => (
-            <div key={story.name} className="bento-card group cursor-pointer">
-              <div className="w-16 h-16 rounded-full bg-muted mb-4 flex items-center justify-center">
-                <span className="text-2xl font-heading font-bold text-muted-foreground">{story.name[0]}</span>
+            <div key={story.name} className="bg-card p-8 sm:p-10">
+              <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center mb-6">
+                <span className="text-sm font-semibold text-muted-foreground">{story.name[0]}</span>
               </div>
-              <h3 className="font-heading text-xl font-semibold text-foreground mb-1">{story.name}</h3>
-              <p className="text-secondary text-sm font-medium mb-1">{story.role}</p>
-              <p className="text-muted-foreground text-xs mb-3">{story.cohort}</p>
-              <p className="text-muted-foreground text-sm leading-relaxed italic">"{story.excerpt}"</p>
-              <Link to="/stories" className="inline-flex items-center text-secondary text-sm font-medium mt-4 group-hover:underline">
-                Read Story <ArrowRight className="ml-1 w-3 h-3" />
-              </Link>
+              <p className="text-[14px] text-muted-foreground leading-[1.7] italic mb-6">"{story.excerpt}"</p>
+              <div>
+                <p className="text-[14px] font-semibold text-foreground">{story.name}</p>
+                <p className="text-[13px] text-muted-foreground mt-0.5">{story.role}</p>
+                <p className="text-[12px] text-muted-foreground/60 mt-0.5">{story.cohort}</p>
+              </div>
             </div>
           ))}
         </div>

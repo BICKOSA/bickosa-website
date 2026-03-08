@@ -13,27 +13,27 @@ const faqs = [
 const FAQPage = () => {
   return (
     <Layout>
-      <section className="gradient-hero py-20 sm:py-28">
-        <div className="container-wide px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: "hsl(var(--gold))" }}>Frequently Asked Questions</p>
-            <h1 className="text-4xl sm:text-5xl font-heading font-bold mb-6" style={{ color: "hsl(var(--primary-foreground))" }}>FAQs</h1>
-            <p className="text-lg" style={{ color: "hsl(var(--primary-foreground) / 0.8)" }}>
-              Answers to common questions about BICKOSA, the website, engagement, projects, and staying connected.
+      <section className="page-hero">
+        <div className="container-wide px-6 sm:px-8 lg:px-12">
+          <div className="max-w-xl">
+            <p className="text-[12px] font-medium uppercase tracking-[0.15em] mb-5" style={{ color: "hsl(var(--gold))" }}>Common Questions</p>
+            <h1 className="text-[40px] sm:text-[48px] font-bold tracking-tight leading-[1.08] mb-5" style={{ color: "hsl(var(--primary-foreground))" }}>FAQs</h1>
+            <p className="text-[16px] leading-[1.65]" style={{ color: "hsl(var(--primary-foreground) / 0.55)" }}>
+              Answers to common questions about BICKOSA, engagement, projects, and staying connected.
             </p>
           </div>
         </div>
       </section>
 
       <section className="section-padding bg-background">
-        <div className="container-wide max-w-3xl">
-          <Accordion type="single" collapsible className="space-y-4">
+        <div className="container-wide max-w-2xl">
+          <Accordion type="single" collapsible className="border-t border-border">
             {faqs.map((faq, i) => (
-              <AccordionItem key={i} value={`faq-${i}`} className="bento-card border-border">
-                <AccordionTrigger className="text-left font-heading font-semibold text-foreground hover:no-underline px-2">
+              <AccordionItem key={i} value={`faq-${i}`} className="border-b border-border py-1">
+                <AccordionTrigger className="text-left text-[15px] font-medium text-foreground hover:no-underline py-5">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed px-2 pb-2">
+                <AccordionContent className="text-[14px] text-muted-foreground leading-[1.7] pb-5">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>
