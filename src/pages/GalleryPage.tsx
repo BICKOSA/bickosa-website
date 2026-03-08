@@ -2,7 +2,7 @@ import { useState } from "react";
 import Layout from "@/components/Layout";
 import heroImg from "@/assets/hero-school.jpg";
 
-const categories = ["All", "School Life", "Alumni Events", "Sports", "Reunions", "Historic Moments", "Community", "Celebrations"];
+const categories = ["All", "School Life", "Reunions", "Sports", "Service", "Events"];
 
 const GalleryPage = () => {
   const [active, setActive] = useState("All");
@@ -11,12 +11,13 @@ const GalleryPage = () => {
     <Layout>
       <section className="page-hero">
         <div className="container-wide px-6 sm:px-8 lg:px-12">
-          <div className="max-w-xl">
-            <div className="gold-accent-bar" />
-            <p className="text-[12px] font-semibold uppercase tracking-[0.15em] mb-5 text-gold">Visual Archive</p>
-            <h1 className="text-[42px] sm:text-[52px] font-extrabold tracking-tight leading-[1.06] mb-5 text-primary-foreground">Gallery</h1>
-            <p className="text-[16px] leading-[1.7] text-primary-foreground/55">
-              A curated visual archive of school memories, alumni moments, events, and the shared experiences that define BICKOSA.
+          <div className="max-w-2xl">
+            <p className="overline text-gold mb-5">Visual Archive</p>
+            <h1 className="text-[40px] sm:text-[52px] lg:text-[56px] font-bold tracking-tight leading-[1.1] mb-6 text-primary-foreground">
+              Gallery
+            </h1>
+            <p className="text-[17px] sm:text-[18px] leading-[1.65] text-primary-foreground/50">
+              Moments that keep the community alive.
             </p>
           </div>
         </div>
@@ -29,7 +30,7 @@ const GalleryPage = () => {
               <button
                 key={cat}
                 onClick={() => setActive(cat)}
-                className={`px-4 py-2 text-[13px] font-medium rounded-md transition-all ${
+                className={`px-4 py-2 text-[13px] font-medium rounded-lg transition-colors duration-150 ${
                   active === cat
                     ? "bg-navy text-primary-foreground"
                     : "bg-muted text-muted-foreground hover:text-foreground hover:bg-border"
@@ -40,11 +41,11 @@ const GalleryPage = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {Array.from({ length: 12 }).map((_, i) => (
               <div
                 key={i}
-                className={`group cursor-pointer rounded-lg overflow-hidden ${i === 0 ? "col-span-2 row-span-2" : ""}`}
+                className={`group cursor-pointer rounded-xl overflow-hidden ${i === 0 ? "col-span-2 row-span-2" : ""}`}
               >
                 <div className={`${i === 0 ? "aspect-square" : "aspect-[4/3]"} relative`}>
                   <img
