@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 40 20% 97%;
+    --background: 40 18% 97%;
     --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
@@ -21,7 +21,7 @@
     --secondary: 214 32% 91%;
     --secondary-foreground: 222 47% 11%;
 
-    --muted: 220 14% 96%;
+    --muted: 38 15% 95%;
     --muted-foreground: 220 9% 46%;
 
     --accent: 38 55% 50%;
@@ -47,15 +47,24 @@
 
     /* Brand tokens */
     --navy: 222 47% 11%;
-    --navy-light: 222 30% 25%;
+    --navy-light: 222 30% 22%;
+    --navy-warm: 225 35% 16%;
     --sky: 214 100% 60%;
     --sky-light: 214 80% 72%;
-    --gold: 38 55% 50%;
-    --gold-light: 38 45% 65%;
-    --ivory: 40 20% 97%;
+    --gold: 38 72% 52%;
+    --gold-light: 38 55% 68%;
+    --gold-warm: 34 65% 46%;
+    --ivory: 40 18% 97%;
     --warm-gray: 220 9% 46%;
-    --surface: 220 14% 96%;
+    --surface: 38 15% 95%;
     --surface-raised: 0 0% 100%;
+
+    /* Vibrant accents */
+    --cobalt: 217 91% 50%;
+    --coral: 12 76% 61%;
+    --teal: 173 58% 39%;
+    --crimson: 348 83% 47%;
+    --amber: 32 95% 44%;
   }
 
   .dark {
@@ -108,7 +117,7 @@
 
 @layer components {
   .section-padding {
-    @apply px-6 sm:px-8 lg:px-12 py-20 sm:py-24 lg:py-32;
+    @apply px-6 sm:px-8 lg:px-12 py-20 sm:py-24 lg:py-28;
   }
   .section-padding-sm {
     @apply px-6 sm:px-8 lg:px-12 py-12 sm:py-16;
@@ -123,5 +132,15 @@
   .serif-accent {
     font-family: 'Source Serif 4', Georgia, serif;
     font-style: italic;
+  }
+  .serif-heading {
+    font-family: 'Source Serif 4', Georgia, serif;
+  }
+  .gold-accent-bar {
+    @apply w-10 h-1 rounded-full mb-6;
+    background: hsl(var(--gold));
+  }
+  .warm-section {
+    background: hsl(var(--navy-warm));
   }
 }
