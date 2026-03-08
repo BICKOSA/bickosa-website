@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Quote } from "lucide-react";
 
 const featured = {
   name: "Teopista Nabakiibi",
@@ -10,12 +10,12 @@ const featured = {
 };
 
 const stories = [
-  { name: "James Ssenyonga", cohort: "Class of 2003", role: "Entrepreneur & Community Leader", excerpt: "BCK friendships shaped my business journey. BICKOSA keeps those bonds alive.", tag: "Entrepreneurship" },
-  { name: "Grace Namutebi", cohort: "Class of 2010", role: "Educator & Mentor", excerpt: "I returned to teach because BCK gave me everything.", tag: "Education" },
-  { name: "Peter Lubega", cohort: "Class of 1998", role: "Public Health Advisor", excerpt: "The values of integrity and service from BCK guide my work in national health policy.", tag: "Public Service" },
-  { name: "Agnes Namuli", cohort: "Class of 2005", role: "Creative Arts Director", excerpt: "BCK nurtured my creativity. Today I lead arts programs across East Africa.", tag: "Creative Arts" },
-  { name: "David Kateregga", cohort: "Class of 2001", role: "Sports Coach & Youth Mentor", excerpt: "The sports culture at BCK set me on a path to coaching the next generation.", tag: "Sports" },
-  { name: "Florence Aber", cohort: "Class of 2008", role: "NGO Director", excerpt: "Community impact was a value I learned at BCK. BICKOSA reminds me of that mission.", tag: "Community Impact" },
+  { name: "James Ssenyonga", cohort: "Class of 2003", role: "Entrepreneur & Community Leader", excerpt: "BCK friendships shaped my business journey. BICKOSA keeps those bonds alive.", tag: "Business", accent: "bg-cobalt" },
+  { name: "Grace Namutebi", cohort: "Class of 2010", role: "Educator & Mentor", excerpt: "I returned to teach because BCK gave me everything.", tag: "Education", accent: "bg-teal" },
+  { name: "Peter Lubega", cohort: "Class of 1998", role: "Public Health Advisor", excerpt: "The values of integrity and service from BCK guide my work in national health policy.", tag: "Public Service", accent: "bg-coral" },
+  { name: "Agnes Namuli", cohort: "Class of 2005", role: "Creative Arts Director", excerpt: "BCK nurtured my creativity. Today I lead arts programs across East Africa.", tag: "Creative Arts", accent: "bg-gold" },
+  { name: "David Kateregga", cohort: "Class of 2001", role: "Sports Coach & Youth Mentor", excerpt: "The sports culture at BCK set me on a path to coaching the next generation.", tag: "Sports", accent: "bg-cobalt" },
+  { name: "Florence Aber", cohort: "Class of 2008", role: "NGO Director", excerpt: "Community impact was a value I learned at BCK. BICKOSA reminds me of that mission.", tag: "Community", accent: "bg-teal" },
 ];
 
 const StoriesPage = () => {
@@ -24,10 +24,11 @@ const StoriesPage = () => {
       <section className="page-hero">
         <div className="container-wide px-6 sm:px-8 lg:px-12">
           <div className="max-w-xl">
-            <p className="text-[12px] font-medium uppercase tracking-[0.15em] mb-5" style={{ color: "hsl(var(--gold))" }}>Our People</p>
-            <h1 className="text-[40px] sm:text-[48px] font-bold tracking-tight leading-[1.08] mb-5" style={{ color: "hsl(var(--primary-foreground))" }}>Alumni Stories</h1>
-            <p className="text-[16px] leading-[1.65]" style={{ color: "hsl(var(--primary-foreground) / 0.55)" }}>
-              The BICKOSA community is made up of many journeys — shaped by different callings, experiences, and paths, but connected by one shared foundation.
+            <div className="gold-accent-bar" />
+            <p className="text-[12px] font-semibold uppercase tracking-[0.15em] mb-5 text-gold">Our People</p>
+            <h1 className="text-[42px] sm:text-[52px] font-extrabold tracking-tight leading-[1.06] mb-5 text-primary-foreground">Alumni Stories</h1>
+            <p className="text-[16px] leading-[1.7] text-primary-foreground/55">
+              The BICKOSA community is made up of many journeys — shaped by different callings but connected by one shared foundation.
             </p>
           </div>
         </div>
@@ -35,44 +36,57 @@ const StoriesPage = () => {
 
       <section className="section-padding bg-background">
         <div className="container-wide max-w-2xl">
-          <h2 className="text-[28px] sm:text-[32px] font-bold tracking-tight text-foreground leading-[1.15] mb-6">Every Story Carries the Legacy Forward</h2>
-          <p className="text-[16px] text-muted-foreground leading-[1.7]">
-            Alumni stories do more than celebrate achievement. They preserve memory, build pride, inspire younger generations, and remind the community of the many ways a BCK foundation can shape a life.
+          <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-6">Every Story Carries the Legacy Forward</h2>
+          <p className="text-[16px] text-muted-foreground leading-[1.75]">
+            Alumni stories preserve memory, build pride, inspire younger generations, and remind the community of the many ways a BCK foundation can shape a life.
           </p>
         </div>
       </section>
 
+      {/* Featured story */}
       <section className="section-padding bg-muted">
         <div className="container-wide">
-          <p className="text-[11px] font-medium uppercase tracking-[0.12em] mb-6" style={{ color: "hsl(var(--gold))" }}>Featured Story</p>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/10 border border-gold/20 mb-8">
+            <span className="w-2 h-2 rounded-full bg-gold" />
+            <span className="text-[11px] font-semibold uppercase tracking-wider text-gold">Featured Story</span>
+          </div>
           <div className="grid md:grid-cols-[280px_1fr] gap-10 items-start">
             <div>
-              <div className="w-20 h-20 rounded-full bg-border flex items-center justify-center mb-5">
-                <span className="text-2xl font-bold text-muted-foreground">{featured.name[0]}</span>
+              <div className="w-20 h-20 rounded-full bg-navy flex items-center justify-center mb-5">
+                <span className="text-2xl font-bold text-gold">{featured.name[0]}</span>
               </div>
               <h3 className="text-[18px] font-bold text-foreground">{featured.name}</h3>
-              <p className="text-[13px] text-muted-foreground mt-1">{featured.role}</p>
-              <p className="text-[12px] text-muted-foreground/60 mt-0.5">{featured.cohort}</p>
+              <p className="text-[13px] text-cobalt font-medium mt-1">{featured.role}</p>
+              <p className="text-[12px] text-muted-foreground mt-0.5">{featured.cohort}</p>
             </div>
             <div>
-              <p className="text-[16px] text-muted-foreground leading-[1.75]">{featured.story}</p>
+              <Quote className="w-6 h-6 text-gold/30 mb-4" />
+              <p className="text-[16px] text-foreground/80 leading-[1.8]">{featured.story}</p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* More stories */}
       <section className="section-padding bg-background">
         <div className="container-wide">
-          <h2 className="text-[28px] sm:text-[32px] font-bold tracking-tight text-foreground leading-[1.15] mb-10">More Stories from the Community</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-lg overflow-hidden">
+          <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-10">More Stories from the Community</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {stories.map((s) => (
-              <div key={s.name} className="bg-card p-8">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.12em] mb-5" style={{ color: "hsl(var(--gold))" }}>{s.tag}</p>
-                <p className="text-[14px] text-muted-foreground leading-[1.7] italic mb-6">"{s.excerpt}"</p>
-                <div>
-                  <p className="text-[14px] font-semibold text-foreground">{s.name}</p>
-                  <p className="text-[13px] text-muted-foreground mt-0.5">{s.role}</p>
-                  <p className="text-[12px] text-muted-foreground/60 mt-0.5">{s.cohort}</p>
+              <div key={s.name} className="bg-card border border-border rounded-xl p-7 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 group">
+                <div className="flex items-center gap-2 mb-5">
+                  <div className={`w-2 h-2 rounded-full ${s.accent}`} />
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{s.tag}</span>
+                </div>
+                <p className="text-[14px] text-foreground/75 leading-[1.75] mb-6 serif-heading">"{s.excerpt}"</p>
+                <div className="pt-4 border-t border-border flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-navy flex items-center justify-center flex-shrink-0">
+                    <span className="text-[12px] font-bold text-gold">{s.name[0]}</span>
+                  </div>
+                  <div>
+                    <p className="text-[13px] font-semibold text-foreground">{s.name}</p>
+                    <p className="text-[11px] text-muted-foreground">{s.role} · {s.cohort}</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -80,13 +94,13 @@ const StoriesPage = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-muted">
-        <div className="container-wide text-center max-w-lg">
-          <h2 className="text-[28px] sm:text-[32px] font-bold tracking-tight text-foreground leading-[1.15] mb-4">Have a Story to Share?</h2>
-          <p className="text-[15px] text-muted-foreground leading-[1.7] mb-8">
+      <section className="bg-navy">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-20 sm:py-24 text-center">
+          <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-primary-foreground leading-[1.15] mb-4">Have a Story to Share?</h2>
+          <p className="text-[15px] text-primary-foreground/50 leading-[1.75] mb-8 max-w-md mx-auto">
             If you would like to share your story, reflection, or experience, we would love to hear from you.
           </p>
-          <Link to="/contact" className="inline-flex items-center gap-2 text-[14px] font-medium text-primary-foreground bg-primary h-10 px-5 rounded-md hover:opacity-90 transition-opacity">
+          <Link to="/contact" className="inline-flex items-center gap-2 h-11 px-6 text-[14px] font-semibold bg-gold text-navy rounded-md hover:bg-gold-light transition-colors">
             Contact BICKOSA <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
