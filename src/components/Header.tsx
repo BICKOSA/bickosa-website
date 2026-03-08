@@ -17,6 +17,12 @@ const navLinks = [
   { label: "Contact", path: "/contact" },
 ];
 
+const utilityLinks = [
+  { label: "FAQs", path: "/faq" },
+  { label: "Governance", path: "/governance" },
+  { label: "Archive", path: "/archive" },
+];
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -61,6 +67,16 @@ const Header = () => {
                     {link.label}
                   </Link>
                 ))}
+                <div className="border-t border-border my-1" />
+                {utilityLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className="block px-3 py-2 text-sm rounded-lg text-foreground/70 hover:text-foreground hover:bg-muted transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
@@ -86,6 +102,21 @@ const Header = () => {
         <div className="lg:hidden bg-card border-t border-border animate-fade-in">
           <nav className="container-wide px-4 py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setIsOpen(false)}
+                className={`px-4 py-3 text-sm font-medium rounded-lg transition-colors ${
+                  location.pathname === link.path
+                    ? "text-secondary bg-primary/5"
+                    : "text-foreground/70 hover:text-foreground hover:bg-muted"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className="border-t border-border my-2" />
+            {utilityLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
