@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 const featured = {
-  name: "Dr. Sarah Nakamya",
-  cohort: "Class of 1995",
-  role: "Medical Practitioner & Community Health Advocate",
-  story: "From the classrooms of BCK to the wards of Mulago Hospital, Dr. Nakamya's journey embodies the school's motto. After graduating, she pursued medicine at Makerere University, driven by the discipline and compassion instilled at BCK. Today, she leads a community health initiative serving thousands in rural Uganda.",
+  name: "Teopista Nabakiibi",
+  cohort: "O-Level & A-Level at BCK SSS",
+  role: "Law Student & Social Initiative Founder",
+  story: "Teopista Nabakiibi attended Bishop Cipriano Kihangire SSS, Biina Luzira, for both O-Level and A-Level. With scholarship support tied to Fr. Scalabrini's educational initiatives, she went on to pursue law and founded a social initiative aimed at empowering young people in her community. Her journey from BCK to national recognition reflects the school's commitment to producing leaders who serve.",
 };
 
 const stories = [
@@ -97,7 +97,7 @@ const StoriesPage = () => {
         </div>
       </section>
 
-      {/* Why stories matter */}
+      {/* Submit story CTA */}
       <section className="section-padding bg-card">
         <div className="container-wide text-center max-w-2xl">
           <h2 className="text-3xl font-heading font-bold text-foreground mb-4">Have a Story to Share?</h2>

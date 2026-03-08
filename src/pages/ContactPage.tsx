@@ -43,14 +43,14 @@ const ContactPage = () => {
               <Mail className="w-6 h-6 text-secondary flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-heading font-semibold text-foreground mb-1">Email</h3>
-                <p className="text-muted-foreground text-sm">[Contact Email]</p>
+                <p className="text-muted-foreground text-sm">info@bickosa.org</p>
               </div>
             </div>
             <div className="bento-card flex items-start gap-4">
               <Phone className="w-6 h-6 text-secondary flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-heading font-semibold text-foreground mb-1">Phone</h3>
-                <p className="text-muted-foreground text-sm">[Contact Number]</p>
+                <p className="text-muted-foreground text-sm">+256 700 000 000</p>
               </div>
             </div>
             <div className="bento-card flex items-start gap-4">
@@ -58,6 +58,7 @@ const ContactPage = () => {
               <div>
                 <h3 className="font-heading font-semibold text-foreground mb-1">Location</h3>
                 <p className="text-muted-foreground text-sm">Bbiina/Luzira, Kampala, Uganda</p>
+                <p className="text-muted-foreground text-xs">P.O. Box 27477, Kampala</p>
               </div>
             </div>
             <div className="bento-card">

@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import { BookOpen, Star } from "lucide-react";
 
 const timeline = [
-  { year: "[Year]", title: "Foundation and Early Growth", description: "Bishop Cipriano Kihangire Senior Secondary School is established in Bbiina/Luzira, Kampala." },
-  { year: "[Year]", title: "First Major Student Milestone", description: "Early cohort growth and the school builds a reputation for academic discipline and Catholic values." },
-  { year: "[Year]", title: "School Development and Expansion", description: "New facilities, expanded programs, and growing recognition as a leading secondary school in Kampala." },
-  { year: "[Year]", title: "Significant Anniversary", description: "Major institutional milestone celebrating the school's journey and achievements." },
-  { year: "[Year]", title: "Growth of Alumni Engagement", description: "Alumni begin organizing formally under BICKOSA, strengthening bonds and collective action." },
-  { year: "[Year]", title: "Silver Jubilee", description: "A commemorative milestone celebrating decades of education, faith, and community formation." },
+  { year: "1999", title: "School Founded", description: "Bishop Cipriano Kihangire Senior Secondary School begins operations on 9 February 1999 with 120 students, founded by Fr. John Scalabrini in memory of Bishop Cipriano Biyehima Kihangire." },
+  { year: "1999", title: "Official Commissioning", description: "The school is officially commissioned on 15 August 1999 by Emmanuel Cardinal Wamala, marking its formal recognition as a Catholic educational institution." },
+  { year: "Early 2000s", title: "Growth & Expansion", description: "The school expands its student body, facilities, and academic programs, establishing a reputation for discipline, academic rigour, and Catholic values." },
+  { year: "2010s", title: "Institutional Maturity", description: "BCK SSS grows into a large-scale institution with boarding facilities, expanded O-Level and A-Level programs, and a thriving co-curricular life including sports, arts, and leadership programs." },
+  { year: "2020", title: "BICKOSA COVID-19 Relief Drive", description: "The alumni association organises a COVID-19 Relief Drive at BCK SSS staff quarters, including tree planting and urban backyard farming demonstrations — demonstrating alumni service in action." },
+  { year: "2022", title: "Post-COVID Reopening at Scale", description: "The school reopens after 83 weeks of COVID closure. Fondazione Italia Uganda reports 2,754 secondary students and 3,952 total learners across the BCK schools ecosystem." },
+  { year: "2023", title: "BICKOSA League Launched", description: "The Old Students Association launches the BICKOSA League — a structured alumni football competition with 13 teams. Basketball is later added, with plans for volleyball, netball, and indoor sports." },
+  { year: "2024", title: "Silver Jubilee", description: "BCK SSS celebrates 25 years since its founding. The Silver Jubilee includes fundraising toward a new academic block and milestone celebrations bringing alumni and the school community together." },
 ];
 
 const HistoryPage = () => {
@@ -91,8 +93,11 @@ const HistoryPage = () => {
         <div className="container-wide max-w-3xl">
           <span className="text-secondary text-sm font-semibold tracking-widest uppercase">Heritage</span>
           <h2 className="text-3xl font-heading font-bold text-foreground mt-3 mb-6">The Meaning Behind the Name</h2>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            The school is named in honour of <strong className="text-foreground">Bishop Cipriano Biyehima Kihangire</strong> (1918–1990), a Ugandan Catholic bishop whose ecclesiastical service included major roles in Gulu and Hoima. His life embodied the values of faith, service, and dedication to community that continue to define the school's identity.
+          </p>
           <p className="text-muted-foreground leading-relaxed">
-            The school's name carries significance beyond identity alone. It connects the institution to a wider spiritual and historical legacy, and gives the school a sense of rootedness that continues to shape how students and alumni understand belonging, character, and service.
+            The school was built by <strong className="text-foreground">Fr. John Scalabrini</strong>, a Catholic missionary who established schools and social services across the Luzira/Nakawa area of Kampala, as part of a broader mission to provide education and community development rooted in Catholic values. The school stands as part of the Emmaus/Fondazione ecosystem that continues Fr. Scalabrini's vision.
           </p>
         </div>
       </section>
