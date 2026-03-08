@@ -1,11 +1,13 @@
-import { Cross, BookOpen, Award, Star, Landmark } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Cross, BookOpen, Award, Star, Landmark, ArrowRight } from "lucide-react";
 
 const legacyCards = [
-  { icon: Cross, title: "Catholic Identity", description: "Rooted in faith, moral formation, and service to the community." },
-  { icon: Award, title: "Academic Excellence", description: "A tradition of high academic standards and discipline." },
-  { icon: Star, title: "Unity & Moral Uprightness", description: "Building character through shared values and integrity." },
-  { icon: BookOpen, title: "Per Aspera Ad Astra", description: "Through hardship to the stars — our guiding motto." },
-  { icon: Landmark, title: "Decades of Growth", description: "From humble beginnings to a beacon of education in Kampala." },
+  { icon: Cross, title: "Catholic Foundation", description: "A school grounded in faith, character formation, and service." },
+  { icon: Award, title: "Academic Excellence", description: "A longstanding commitment to learning, discipline, and growth." },
+  { icon: Star, title: "Moral Uprightness", description: "A culture that values integrity, responsibility, and leadership." },
+  { icon: Landmark, title: "Unity in Diversity", description: "A community that has brought together students from different backgrounds under one identity." },
+  { icon: BookOpen, title: "Per Aspera Ad Astra", description: "Through hardship to the stars — a motto that continues to inspire generations." },
 ];
 
 const LegacySection = () => {
@@ -15,8 +17,11 @@ const LegacySection = () => {
         <div className="text-center mb-12">
           <span className="text-secondary text-sm font-semibold tracking-widest uppercase">Our Foundation</span>
           <h2 className="text-3xl sm:text-4xl font-heading font-bold text-foreground mt-3">
-            Legacy of the School
+            A Legacy Worth Preserving
           </h2>
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            The story of BICKOSA begins with the story of Bishop Cipriano Kihangire Senior Secondary School — a school shaped by faith, discipline, excellence, and the values that continue to live on through its students and alumni.
+          </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {legacyCards.map((card, i) => (
@@ -31,6 +36,11 @@ const LegacySection = () => {
               <p className="text-muted-foreground text-sm leading-relaxed">{card.description}</p>
             </div>
           ))}
+        </div>
+        <div className="text-center mt-10">
+          <Button asChild variant="outline">
+            <Link to="/school">Discover the School's Story <ArrowRight className="ml-2 w-4 h-4" /></Link>
+          </Button>
         </div>
       </div>
     </section>

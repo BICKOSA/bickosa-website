@@ -31,11 +31,14 @@ const AlumniStories = () => {
           <div>
             <span className="text-secondary text-sm font-semibold tracking-widest uppercase">Voices of BCK</span>
             <h2 className="text-3xl sm:text-4xl font-heading font-bold text-foreground mt-3">
-              Featured Alumni Stories
+              Stories from the Alumni Community
             </h2>
+            <p className="text-muted-foreground mt-3 max-w-2xl">
+              Every BICKOSA member carries a piece of the school's story. From leadership and service to entrepreneurship, public impact, and community work, these stories reflect the many paths that begin at BCK.
+            </p>
           </div>
           <Button asChild variant="outline">
-            <Link to="/stories">View All Stories <ArrowRight className="ml-2 w-4 h-4" /></Link>
+            <Link to="/stories">View All Alumni Stories <ArrowRight className="ml-2 w-4 h-4" /></Link>
           </Button>
         </div>
         <div className="grid md:grid-cols-3 gap-6">

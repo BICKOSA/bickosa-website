@@ -1,10 +1,10 @@
-import { GraduationCap, Calendar, Users, Heart } from "lucide-react";
+import { GraduationCap, Users, Calendar, Heart } from "lucide-react";
 
 const stats = [
-  { icon: GraduationCap, label: "Legacy Since 1960s", description: "Decades of academic excellence" },
-  { icon: Users, label: "Proud Alumni Community", description: "Thousands of alumni worldwide" },
-  { icon: Calendar, label: "Active Events", description: "Reunions, AGMs & community drives" },
-  { icon: Heart, label: "Giving Back", description: "Supporting school & community" },
+  { icon: GraduationCap, label: "Rooted in Legacy", description: "Built on the shared history and values of Bishop Cipriano Kihangire S.S.S." },
+  { icon: Users, label: "Community First", description: "Connecting alumni across generations, professions, and geographies." },
+  { icon: Calendar, label: "Active Engagement", description: "From reunions and sports to service and school support initiatives." },
+  { icon: Heart, label: "Giving Back", description: "Mobilizing alumni to support meaningful projects and opportunities." },
 ];
 
 const TrustStrip = () => {

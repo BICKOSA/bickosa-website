@@ -37,14 +37,16 @@ const EventsSection = () => {
             <h2 className="text-3xl sm:text-4xl font-heading font-bold text-foreground mt-3">
               Upcoming Events
             </h2>
+            <p className="text-muted-foreground mt-3 max-w-2xl">
+              BICKOSA stays alive through gatherings, celebrations, sports, meetings, and moments of reconnection. Explore what is coming up and be part of the next chapter.
+            </p>
           </div>
           <Button asChild variant="outline">
-            <Link to="/events">All Events <ArrowRight className="ml-2 w-4 h-4" /></Link>
+            <Link to="/events">See All Events <ArrowRight className="ml-2 w-4 h-4" /></Link>
           </Button>
         </div>
 
         <div className="grid lg:grid-cols-5 gap-6">
-          {/* Featured */}
           {featured && (
             <div className="lg:col-span-3 rounded-2xl overflow-hidden gradient-hero p-8 sm:p-10 flex flex-col justify-end min-h-[320px]" style={{ color: "hsl(var(--primary-foreground))" }}>
               <span className="text-xs font-semibold tracking-wider uppercase mb-3" style={{ color: "hsl(var(--gold))" }}>Featured Event</span>
@@ -57,7 +59,6 @@ const EventsSection = () => {
             </div>
           )}
 
-          {/* Others */}
           <div className="lg:col-span-2 flex flex-col gap-4">
             {others.map((event) => (
               <div key={event.title} className="bento-card flex-1">

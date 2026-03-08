@@ -8,8 +8,11 @@ const GalleryPreview = () => {
         <div className="text-center mb-12">
           <span className="text-secondary text-sm font-semibold tracking-widest uppercase">Memories</span>
           <h2 className="text-3xl sm:text-4xl font-heading font-bold text-foreground mt-3">
-            Gallery
+            Moments That Matter
           </h2>
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            A visual archive of school life, alumni memories, events, celebrations, and community moments that continue to define the BICKOSA story.
+          </p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
           {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
@@ -34,7 +37,7 @@ const GalleryPreview = () => {
         </div>
         <div className="text-center mt-8">
           <Link to="/gallery" className="text-secondary text-sm font-medium hover:underline">
-            View Full Gallery →
+            Explore the Gallery →
           </Link>
         </div>
       </div>

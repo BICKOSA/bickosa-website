@@ -30,11 +30,14 @@ const NewsSection = () => {
           <div>
             <span className="text-secondary text-sm font-semibold tracking-widest uppercase">Latest</span>
             <h2 className="text-3xl sm:text-4xl font-heading font-bold text-foreground mt-3">
-              News & Updates
+              Latest News & Updates
             </h2>
+            <p className="text-muted-foreground mt-3 max-w-2xl">
+              Stay informed with the latest from BICKOSA and the wider BCK community — including association announcements, school milestones, event recaps, alumni achievements, and important notices.
+            </p>
           </div>
           <Link to="/news" className="text-secondary text-sm font-medium flex items-center gap-1 hover:underline">
-            All News <ArrowRight className="w-4 h-4" />
+            View All News <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
