@@ -1,19 +1,19 @@
 import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { School, Users, Heart, Shield, ArrowRight } from "lucide-react";
+import { School, Users, Heart, Shield, ArrowRight, Handshake, Star, Mail } from "lucide-react";
 
 const projects = [
-  { icon: School, title: "Classroom Renovation Project", status: "Ongoing", description: "Renovating and equipping classrooms at BCK SSS to provide a better learning environment for current students.", impact: "Supporting over 800 students with improved learning facilities." },
-  { icon: Users, title: "Community Outreach Program", status: "Active", description: "Alumni-driven outreach programs serving the Bbiina/Luzira community through health camps, mentorship, and resource distribution.", impact: "Reaching hundreds of community members annually." },
-  { icon: Heart, title: "Student Scholarship Fund", status: "Ongoing", description: "Providing financial support to brilliant but financially challenged students to continue their education at BCK SSS.", impact: "Supporting students who would otherwise miss out on quality education." },
+  { icon: School, title: "School Infrastructure Support", status: "Ongoing", description: "Projects that contribute to the learning environment and growth of the school.", impact: "This initiative reflects the power of alumni working together around a shared purpose." },
+  { icon: Users, title: "Community Support Drives", status: "Active", description: "Activities and drives that reflect the association's spirit of service to the Bbiina/Luzira community.", impact: "By supporting clearly defined projects, BICKOSA can turn goodwill into visible, measurable contribution." },
+  { icon: Heart, title: "Student-Focused Initiatives", status: "Ongoing", description: "Providing financial support and resources for students to continue their education at BCK SSS.", impact: "Supporting students who would otherwise miss out on quality education." },
 ];
 
 const waysToSupport = [
-  "Partner with BICKOSA on community initiatives",
-  "Sponsor an alumni event or school celebration",
-  "Contribute to a school infrastructure project",
-  "Contact the association to discuss giving opportunities",
+  { icon: Handshake, title: "Partner with BICKOSA", description: "Collaborate with the association on initiatives, events, or community projects." },
+  { icon: School, title: "Support a School Initiative", description: "Contribute toward projects that directly strengthen the BCK experience." },
+  { icon: Star, title: "Sponsor an Event", description: "Help power meaningful gatherings and community activities." },
+  { icon: Mail, title: "Reach Out to Contribute", description: "Get in touch to explore how you or your organization can support." },
 ];
 
 const ProjectsPage = () => {
@@ -21,18 +21,21 @@ const ProjectsPage = () => {
     <Layout>
       <section className="gradient-hero py-20 sm:py-28">
         <div className="container-wide px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl font-heading font-bold mb-6" style={{ color: "hsl(var(--primary-foreground))" }}>Projects & Giving Back</h1>
-          <p className="text-lg max-w-2xl" style={{ color: "hsl(var(--primary-foreground) / 0.8)" }}>
-            Through collective alumni contribution, BICKOSA supports projects that strengthen the school and serve the wider community.
-          </p>
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: "hsl(var(--gold))" }}>Collective Impact</p>
+            <h1 className="text-4xl sm:text-5xl font-heading font-bold mb-6" style={{ color: "hsl(var(--primary-foreground))" }}>Projects & Giving Back</h1>
+            <p className="text-lg" style={{ color: "hsl(var(--primary-foreground) / 0.8)" }}>
+              BICKOSA exists not only to keep alumni connected, but also to create meaningful ways for the community to give back through support, partnership, and shared action.
+            </p>
+          </div>
         </div>
       </section>
 
       <section className="section-padding bg-background">
         <div className="container-wide max-w-3xl">
-          <h2 className="text-3xl font-heading font-bold text-foreground mb-6">Why Giving Matters</h2>
+          <h2 className="text-3xl font-heading font-bold text-foreground mb-6">Why Giving Back Matters</h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            BICKOSA exists not just to remember, but also to contribute. The school gave us a foundation — and through giving back, we ensure that foundation remains strong for generations to come. Every contribution, big or small, helps build the future of BCK.
+            A strong alumni association does more than preserve memory — it helps build the future. Through projects, campaigns, and collective support, alumni can contribute toward initiatives that strengthen the school experience, support the community, and reflect the values that continue to define BCK.
           </p>
         </div>
       </section>
@@ -61,13 +64,18 @@ const ProjectsPage = () => {
       </section>
 
       <section className="section-padding bg-background">
-        <div className="container-wide max-w-3xl">
+        <div className="container-wide">
           <h2 className="text-3xl font-heading font-bold text-foreground mb-8">Ways to Support</h2>
-          <div className="space-y-3 mb-10">
+          <div className="grid sm:grid-cols-2 gap-6 mb-10">
             {waysToSupport.map((w) => (
-              <div key={w} className="flex items-start gap-3 p-4 bg-card rounded-xl">
-                <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                <p className="text-foreground">{w}</p>
+              <div key={w.title} className="bento-card flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                  <w.icon className="w-6 h-6 text-secondary" />
+                </div>
+                <div>
+                  <h3 className="font-heading font-semibold text-foreground mb-1">{w.title}</h3>
+                  <p className="text-muted-foreground text-sm">{w.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -78,9 +86,9 @@ const ProjectsPage = () => {
       <section className="section-padding bg-card">
         <div className="container-wide text-center max-w-2xl">
           <Shield className="w-10 h-10 text-secondary mx-auto mb-4" />
-          <h2 className="text-3xl font-heading font-bold text-foreground mb-4">Transparency & Accountability</h2>
+          <h2 className="text-3xl font-heading font-bold text-foreground mb-4">Built on Trust and Accountability</h2>
           <p className="text-muted-foreground leading-relaxed">
-            BICKOSA is committed to operating with trust, clarity, and structured impact. All projects are managed with accountability to the alumni community, and progress updates are shared regularly through our communications channels.
+            Impact grows where trust is strong. BICKOSA aims to approach projects and contributions with clarity, responsibility, and a commitment to stewardship — ensuring that support is tied to purpose and communicated with transparency.
           </p>
         </div>
       </section>
