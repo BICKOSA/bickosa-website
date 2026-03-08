@@ -70,8 +70,8 @@ const Footer = () => {
             <h4 className="font-heading font-semibold text-lg mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-primary-foreground/60">
               <li>Bbiina/Luzira, Kampala</li>
-              <li>[Contact Email]</li>
-              <li>[Contact Number]</li>
+              <li>P.O. Box 27477, Kampala</li>
+              <li>info@bickosa.org</li>
             </ul>
           </div>
         </div>

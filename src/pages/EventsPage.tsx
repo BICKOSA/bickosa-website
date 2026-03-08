@@ -3,18 +3,20 @@ import { CalendarDays, MapPin } from "lucide-react";
 
 const upcoming = [
   { title: "BICKOSA Annual General Meeting 2026", date: "April 15, 2026", location: "BCK SSS Main Hall, Luzira", description: "Join fellow alumni for the annual gathering to review progress, elect leaders, and chart the way forward.", type: "AGM", featured: true },
-  { title: "Class of 2000 Reunion", date: "May 22, 2026", location: "Kampala Serena Hotel", description: "A special reunion celebrating 26 years since graduation.", type: "Reunion" },
-  { title: "BICKOSA Community Football League", date: "June 8, 2026", location: "BCK Sports Ground", description: "Annual alumni football tournament.", type: "Sports" },
-  { title: "School Founder's Day Celebration", date: "July 20, 2026", location: "BCK SSS Campus", description: "Celebrating the legacy of Bishop Cipriano Kihangire.", type: "Milestone" },
+  { title: "Class of 2005 Reunion", date: "May 22, 2026", location: "Kampala Serena Hotel", description: "A special reunion celebrating over 20 years since graduation.", type: "Reunion" },
+  { title: "BICKOSA League Season 3", date: "June 8, 2026", location: "BCK Sports Ground", description: "The alumni football and basketball tournament returns, building on the success of 13 teams in Season 2.", type: "Sports" },
+  { title: "School Founder's Day Celebration", date: "July 20, 2026", location: "BCK SSS Campus", description: "Celebrating the legacy of Bishop Cipriano Biyehima Kihangire and the vision of Fr. John Scalabrini.", type: "Milestone" },
 ];
 
 const past = [
-  { title: "2025 End-of-Year Alumni Reunion", date: "December 14, 2025", location: "BCK SSS", description: "Over 500 alumni gathered for celebration and fellowship." },
-  { title: "BICKOSA Charity Run 2025", date: "October 5, 2025", location: "Kampala", description: "Alumni raised funds for school infrastructure through a 10km charity run." },
+  { title: "BCK SSS Silver Jubilee (25 Years)", date: "2024", location: "BCK SSS Campus", description: "A landmark celebration marking 25 years since the school's founding in 1999, including fundraising toward a new academic block." },
+  { title: "BICKOSA League Season 2", date: "2024", location: "BCK Sports Ground", description: "13 teams competed in the structured alumni football competition, managed via the Kapeesa tournament platform with live standings." },
+  { title: "BICKOSA League Launch", date: "2023", location: "BCK Sports Ground", description: "The Old Students Association launched its first structured alumni football competition, later expanding to include basketball." },
+  { title: "BICKOSA COVID-19 Relief Drive", date: "August 22, 2020", location: "BCK SSS Staff Quarters", description: "Alumni organized a relief drive including tree planting and urban backyard farming demonstration at the school." },
 ];
 
 const eventTypes = [
-  "Reunions", "Annual Meetings", "Sports Activities", "Fundraising Gatherings", "Milestone Celebrations", "School-Focused Activities", "Community Outreach"
+  "Reunions", "Annual General Meetings", "BICKOSA League (Football & Basketball)", "Fundraising Gatherings", "Silver Jubilee & Milestone Celebrations", "School-Focused Activities", "Community Outreach"
 ];
 
 const EventsPage = () => {
@@ -77,7 +79,7 @@ const EventsPage = () => {
         <div className="container-wide max-w-3xl">
           <h2 className="text-3xl font-heading font-bold text-foreground mb-4">The Kinds of Moments That Bring Us Together</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            BICKOSA events may include reunions, annual meetings, sports activities, fundraising gatherings, milestone celebrations, school-focused activities, and community outreach efforts.
+            BICKOSA events include reunions, annual meetings, the BICKOSA League (football and basketball), fundraising gatherings, milestone celebrations like the Silver Jubilee, school-focused activities, and community outreach efforts.
           </p>
           <div className="flex flex-wrap gap-2">
             {eventTypes.map((t) => (

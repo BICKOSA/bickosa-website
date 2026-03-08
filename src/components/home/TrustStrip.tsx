@@ -1,9 +1,9 @@
 import { GraduationCap, Users, Calendar, Heart } from "lucide-react";
 
 const stats = [
-  { icon: GraduationCap, label: "Rooted in Legacy", description: "Built on the shared history and values of Bishop Cipriano Kihangire S.S.S." },
-  { icon: Users, label: "Community First", description: "Connecting alumni across generations, professions, and geographies." },
-  { icon: Calendar, label: "Active Engagement", description: "From reunions and sports to service and school support initiatives." },
+  { icon: GraduationCap, label: "Founded in 1999", description: "Over 25 years of academic excellence since 9 February 1999." },
+  { icon: Users, label: "2,750+ Students", description: "A thriving community of learners across O-Level and A-Level." },
+  { icon: Calendar, label: "Active Engagement", description: "From the BICKOSA League to reunions, AGMs, and community drives." },
   { icon: Heart, label: "Giving Back", description: "Mobilizing alumni to support meaningful projects and opportunities." },
 ];
 
