@@ -28,11 +28,11 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-      <div className="max-w-6xl mx-auto flex items-center justify-between h-14 px-6 sm:px-8 lg:px-12">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/60">
+      <div className="max-w-6xl mx-auto flex items-center justify-between h-[56px] px-6 sm:px-8 lg:px-12">
         <Link to="/" className="flex items-center gap-2.5">
           <img src={logo} alt="BICKOSA" className="h-8 w-auto" />
-          <span className="text-[15px] font-semibold tracking-tight text-foreground">BICKOSA</span>
+          <span className="text-[15px] font-bold tracking-tight text-foreground">BICKOSA</span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-0.5">
@@ -72,7 +72,7 @@ const Header = () => {
         <div className="hidden lg:block">
           <Link
             to="/contact"
-            className="text-[13px] font-medium text-primary-foreground bg-primary px-4 py-2 rounded-md hover:opacity-90 transition-opacity"
+            className="text-[13px] font-semibold text-primary-foreground bg-navy px-4 py-2 rounded-md hover:bg-navy-light transition-colors"
           >
             Get in Touch
           </Link>
@@ -88,21 +88,30 @@ const Header = () => {
 
       {isOpen && (
         <div className="lg:hidden bg-background border-t border-border">
-          <nav className="max-w-6xl mx-auto px-6 py-3 flex flex-col">
+          <nav className="max-w-6xl mx-auto px-6 py-4 flex flex-col">
             {[...navLinks, ...moreLinks].map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`px-3 py-2.5 text-[14px] font-medium transition-colors ${
+                className={`px-3 py-2.5 text-[14px] font-medium transition-colors rounded-md ${
                   isActive(link.path)
-                    ? "text-foreground"
-                    : "text-muted-foreground"
+                    ? "text-foreground bg-muted"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
+            <div className="mt-3 pt-3 border-t border-border">
+              <Link
+                to="/contact"
+                onClick={() => setIsOpen(false)}
+                className="inline-flex items-center justify-center w-full h-10 text-[14px] font-semibold text-primary-foreground bg-navy rounded-md"
+              >
+                Get in Touch
+              </Link>
+            </div>
           </nav>
         </div>
       )}
