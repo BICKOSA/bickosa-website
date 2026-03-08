@@ -1,26 +1,19 @@
-import { GraduationCap, Users, Calendar, Heart } from "lucide-react";
-
 const stats = [
-  { icon: GraduationCap, label: "Founded in 1999", description: "Over 25 years of academic excellence since 9 February 1999." },
-  { icon: Users, label: "2,750+ Students", description: "A thriving community of learners across O-Level and A-Level." },
-  { icon: Calendar, label: "Active Engagement", description: "From the BICKOSA League to reunions, AGMs, and community drives." },
-  { icon: Heart, label: "Giving Back", description: "Mobilizing alumni to support meaningful projects and opportunities." },
+  { value: "1999", label: "Year Founded" },
+  { value: "2,750+", label: "Students Enrolled" },
+  { value: "25+", label: "Years of Excellence" },
+  { value: "Active", label: "Alumni Engagement" },
 ];
 
 const TrustStrip = () => {
   return (
-    <section className="section-padding-sm bg-card border-b border-border">
-      <div className="container-wide">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+    <section className="border-b border-border bg-background">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-12 sm:py-14">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {stats.map((stat) => (
-            <div key={stat.label} className="flex items-start gap-4 p-4">
-              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center">
-                <stat.icon className="w-6 h-6 text-secondary" />
-              </div>
-              <div>
-                <h3 className="font-heading font-semibold text-foreground text-sm sm:text-base">{stat.label}</h3>
-                <p className="text-muted-foreground text-xs sm:text-sm">{stat.description}</p>
-              </div>
+            <div key={stat.label}>
+              <p className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">{stat.value}</p>
+              <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
             </div>
           ))}
         </div>

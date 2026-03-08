@@ -24,31 +24,28 @@ const articles = [
 
 const NewsSection = () => {
   return (
-    <section className="section-padding bg-card">
+    <section className="section-padding bg-muted">
       <div className="container-wide">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-12">
-          <div>
-            <span className="text-secondary text-sm font-semibold tracking-widest uppercase">Latest</span>
-            <h2 className="text-3xl sm:text-4xl font-heading font-bold text-foreground mt-3">
-              Latest News & Updates
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-14">
+          <div className="max-w-xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-4">Latest</p>
+            <h2 className="text-3xl sm:text-[36px] font-bold tracking-tight text-foreground leading-[1.15]">
+              News & Updates
             </h2>
-            <p className="text-muted-foreground mt-3 max-w-2xl">
-              Stay informed with the latest from BICKOSA and the wider BCK community — including association announcements, school milestones, event recaps, alumni achievements, and important notices.
-            </p>
           </div>
-          <Link to="/news" className="text-secondary text-sm font-medium flex items-center gap-1 hover:underline">
-            View All News <ArrowRight className="w-4 h-4" />
+          <Link to="/news" className="inline-flex items-center gap-2 text-[14px] font-medium text-foreground hover:opacity-70 transition-opacity flex-shrink-0">
+            All news <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-px bg-border rounded-lg overflow-hidden">
           {articles.map((article) => (
-            <article key={article.title} className="bento-card group cursor-pointer">
-              <span className="text-xs font-semibold tracking-wider uppercase text-accent">{article.category}</span>
-              <h3 className="font-heading text-lg font-semibold text-foreground mt-2 mb-3 group-hover:text-secondary transition-colors">
+            <article key={article.title} className="bg-card p-8 sm:p-10 group cursor-pointer">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.12em] mb-4" style={{ color: "hsl(var(--gold))" }}>{article.category}</p>
+              <h3 className="text-[16px] font-semibold text-foreground leading-snug mb-3 group-hover:opacity-70 transition-opacity">
                 {article.title}
               </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4">{article.excerpt}</p>
-              <span className="text-xs text-muted-foreground">{article.date}</span>
+              <p className="text-[14px] text-muted-foreground leading-[1.65] mb-5">{article.excerpt}</p>
+              <span className="text-[12px] text-muted-foreground/60">{article.date}</span>
             </article>
           ))}
         </div>

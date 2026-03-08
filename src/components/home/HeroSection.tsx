@@ -1,45 +1,43 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-school.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-      <div className="absolute inset-0">
+    <section className="relative min-h-[90vh] flex items-center" style={{ background: "hsl(var(--navy))" }}>
+      <div className="absolute inset-0 opacity-20">
         <img src={heroImg} alt="BCK SSS Campus" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 gradient-hero opacity-85" />
       </div>
+      <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, hsl(222 47% 11% / 0.85) 0%, hsl(222 47% 11% / 0.95) 100%)" }} />
 
-      <div className="relative container-wide px-4 sm:px-6 lg:px-8 py-20">
-        <div className="max-w-3xl">
-          <p className="text-sky-light font-body text-sm sm:text-base font-medium tracking-widest uppercase mb-4 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+      <div className="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-24 sm:py-32">
+        <div className="max-w-[640px]">
+          <p className="text-[13px] font-medium tracking-[0.15em] uppercase mb-6 animate-fade-in-up" style={{ color: "hsl(var(--gold))", animationDelay: "0.1s" }}>
             Bishop Cipriano Kihangire Old Students Association
           </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold leading-[1.1] mb-6 animate-fade-in-up" style={{ animationDelay: "0.2s", color: "hsl(var(--primary-foreground))" }}>
-            Preserving Legacy. Building Community. Giving Back.
+          <h1 className="text-[40px] sm:text-[52px] lg:text-[60px] font-bold leading-[1.08] tracking-tight mb-6 animate-fade-in-up" style={{ color: "hsl(var(--primary-foreground))", animationDelay: "0.2s" }}>
+            Preserving Legacy.<br />
+            Building Community.<br />
+            Giving Back.
           </h1>
-          <p className="text-lg sm:text-xl leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: "0.3s", color: "hsl(var(--primary-foreground) / 0.8)" }}>
+          <p className="text-[17px] leading-[1.65] mb-10 animate-fade-in-up" style={{ color: "hsl(var(--primary-foreground) / 0.6)", animationDelay: "0.3s" }}>
             BICKOSA is the home of the Bishop Cipriano Kihangire alumni community — bringing together former students through shared identity, lasting connections, collective pride, and a commitment to support one another and the growth of our school.
           </p>
-          <div className="flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-            <Button asChild variant="hero" size="lg">
-              <Link to="/about">Explore Our Story</Link>
-            </Button>
-            <Button asChild variant="hero-outline" size="lg">
-              <Link to="/events">View Events</Link>
-            </Button>
+          <div className="flex flex-wrap gap-3 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+            <Link
+              to="/about"
+              className="inline-flex items-center h-11 px-6 text-[14px] font-medium rounded-md transition-opacity hover:opacity-90"
+              style={{ background: "hsl(var(--primary-foreground))", color: "hsl(var(--navy))" }}
+            >
+              Explore Our Story
+            </Link>
+            <Link
+              to="/events"
+              className="inline-flex items-center h-11 px-6 text-[14px] font-medium rounded-md border transition-colors hover:bg-white/10"
+              style={{ borderColor: "hsl(var(--primary-foreground) / 0.2)", color: "hsl(var(--primary-foreground))" }}
+            >
+              View Events
+            </Link>
           </div>
-          <div className="flex flex-wrap gap-4 mt-4 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-            <Button asChild variant="hero-outline" size="default">
-              <Link to="/projects">Support a Project</Link>
-            </Button>
-            <Button asChild variant="hero-outline" size="default">
-              <Link to="/contact">Contact BICKOSA</Link>
-            </Button>
-          </div>
-          <p className="text-sm mt-6 animate-fade-in-up" style={{ animationDelay: "0.6s", color: "hsl(var(--primary-foreground) / 0.5)" }}>
-            Proudly rooted in the heritage of Bishop Cipriano Kihangire S.S.S., Bbiina/Luzira.
-          </p>
         </div>
       </div>
     </section>

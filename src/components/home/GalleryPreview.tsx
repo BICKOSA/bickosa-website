@@ -5,39 +5,35 @@ const GalleryPreview = () => {
   return (
     <section className="section-padding bg-background">
       <div className="container-wide">
-        <div className="text-center mb-12">
-          <span className="text-secondary text-sm font-semibold tracking-widest uppercase">Memories</span>
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-foreground mt-3">
+        <div className="max-w-xl mb-14">
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-4">Memories</p>
+          <h2 className="text-3xl sm:text-[36px] font-bold tracking-tight text-foreground leading-[1.15] mb-5">
             Moments That Matter
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            A visual archive of school life, alumni memories, events, celebrations, and community moments that continue to define the BICKOSA story.
+          <p className="text-[15px] text-muted-foreground leading-[1.7]">
+            A visual archive of school life, alumni memories, events, celebrations, and community moments.
           </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+        <div className="grid grid-cols-3 md:grid-cols-4 gap-1 rounded-lg overflow-hidden">
           {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
-            <Link
+            <div
               key={i}
-              to="/gallery"
-              className={`relative rounded-2xl overflow-hidden group ${
-                i === 0 ? "col-span-2 row-span-2" : ""
-              }`}
+              className={`relative group cursor-pointer ${i === 0 ? "col-span-2 row-span-2" : ""}`}
             >
-              <div className={`${i === 0 ? "aspect-square" : "aspect-[4/3]"} bg-muted`}>
+              <div className={`${i === 0 ? "aspect-square" : "aspect-[4/3]"}`}>
                 <img
                   src={heroImg}
                   alt="Gallery"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  style={{ filter: `hue-rotate(${i * 30}deg) saturate(${0.6 + i * 0.1})` }}
+                  className="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-300"
+                  style={{ filter: `hue-rotate(${i * 30}deg) saturate(${0.5 + i * 0.08})` }}
                 />
-                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors" />
               </div>
-            </Link>
+            </div>
           ))}
         </div>
-        <div className="text-center mt-8">
-          <Link to="/gallery" className="text-secondary text-sm font-medium hover:underline">
-            Explore the Gallery →
+        <div className="mt-8">
+          <Link to="/gallery" className="text-[14px] font-medium text-foreground hover:opacity-70 transition-opacity">
+            Explore the gallery →
           </Link>
         </div>
       </div>
