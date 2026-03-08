@@ -16,9 +16,10 @@ const FAQPage = () => {
       <section className="page-hero">
         <div className="container-wide px-6 sm:px-8 lg:px-12">
           <div className="max-w-xl">
-            <p className="text-[12px] font-medium uppercase tracking-[0.15em] mb-5" style={{ color: "hsl(var(--gold))" }}>Common Questions</p>
-            <h1 className="text-[40px] sm:text-[48px] font-bold tracking-tight leading-[1.08] mb-5" style={{ color: "hsl(var(--primary-foreground))" }}>FAQs</h1>
-            <p className="text-[16px] leading-[1.65]" style={{ color: "hsl(var(--primary-foreground) / 0.55)" }}>
+            <div className="gold-accent-bar" />
+            <p className="text-[12px] font-semibold uppercase tracking-[0.15em] mb-5 text-gold">Common Questions</p>
+            <h1 className="text-[42px] sm:text-[52px] font-extrabold tracking-tight leading-[1.06] mb-5 text-primary-foreground">FAQs</h1>
+            <p className="text-[16px] leading-[1.7] text-primary-foreground/55">
               Answers to common questions about BICKOSA, engagement, projects, and staying connected.
             </p>
           </div>
@@ -27,13 +28,13 @@ const FAQPage = () => {
 
       <section className="section-padding bg-background">
         <div className="container-wide max-w-2xl">
-          <Accordion type="single" collapsible className="border-t border-border">
+          <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq, i) => (
-              <AccordionItem key={i} value={`faq-${i}`} className="border-b border-border py-1">
-                <AccordionTrigger className="text-left text-[15px] font-medium text-foreground hover:no-underline py-5">
+              <AccordionItem key={i} value={`faq-${i}`} className="bg-card border border-border rounded-xl px-6 overflow-hidden">
+                <AccordionTrigger className="text-left text-[15px] font-semibold text-foreground hover:no-underline py-5">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-[14px] text-muted-foreground leading-[1.7] pb-5">
+                <AccordionContent className="text-[14px] text-muted-foreground leading-[1.75] pb-5">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>
