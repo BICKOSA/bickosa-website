@@ -3,9 +3,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, School, Users, Heart } from "lucide-react";
 
 const projects = [
-  { icon: School, title: "School Infrastructure", description: "Supporting classroom renovations, library expansion, and facility improvements at BCK SSS." },
-  { icon: Users, title: "Community Initiatives", description: "Alumni-driven outreach programs that serve the Bbiina/Luzira community and beyond." },
-  { icon: Heart, title: "Student Support Fund", description: "Providing scholarships and resources for current students in financial need." },
+  { icon: School, title: "School Support Initiatives", description: "Projects that contribute to the learning environment and growth of the school." },
+  { icon: Users, title: "Community Outreach", description: "Activities and drives that reflect the association's spirit of service." },
+  { icon: Heart, title: "Fundraising & Development", description: "Collective efforts to mobilize alumni support for meaningful causes." },
 ];
 
 const ProjectsPreview = () => {
@@ -15,10 +15,10 @@ const ProjectsPreview = () => {
         <div className="text-center mb-12">
           <span className="text-secondary text-sm font-semibold tracking-widest uppercase">Making a Difference</span>
           <h2 className="text-3xl sm:text-4xl font-heading font-bold text-foreground mt-3">
-            Projects & Giving Back
+            Giving Back Together
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            BICKOSA is committed not only to connection, but also to contribution. Through collective action, alumni support projects that strengthen the school and its community.
+            BICKOSA is not only about remembering where we came from — it is also about shaping what comes next. Through collective support, alumni can contribute to initiatives that strengthen the school, support the wider community, and preserve the legacy we share.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
@@ -34,7 +34,7 @@ const ProjectsPreview = () => {
         </div>
         <div className="text-center mt-10">
           <Button asChild>
-            <Link to="/projects">Explore Projects <ArrowRight className="ml-2 w-4 h-4" /></Link>
+            <Link to="/projects">Explore Projects & Giving <ArrowRight className="ml-2 w-4 h-4" /></Link>
           </Button>
         </div>
       </div>

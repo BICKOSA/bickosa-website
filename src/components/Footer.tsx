@@ -13,9 +13,12 @@ const Footer = () => {
               <span className="text-xl font-heading font-bold">BICKOSA</span>
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed">
-              Bishop Cipriano Kihangire Old Students Association — preserving legacy, building community, giving back.
+              BICKOSA — Bishop Cipriano Kihangire Old Students Association. A home for legacy, connection, and collective impact.
             </p>
-            <p className="text-primary-foreground/50 text-xs mt-4 italic font-heading">
+            <p className="text-primary-foreground/50 text-xs mt-4">
+              Rooted in the heritage of Bishop Cipriano Kihangire S.S.S., Bbiina/Luzira, Kampala.
+            </p>
+            <p className="text-primary-foreground/40 text-xs mt-2 italic font-heading">
               "Per Aspera Ad Astra"
             </p>
           </div>
@@ -48,6 +51,9 @@ const Footer = () => {
                 { label: "Projects & Giving", path: "/projects" },
                 { label: "News & Updates", path: "/news" },
                 { label: "Gallery", path: "/gallery" },
+                { label: "Governance", path: "/governance" },
+                { label: "FAQs", path: "/faq" },
+                { label: "Archive", path: "/archive" },
                 { label: "Contact Us", path: "/contact" },
               ].map((link) => (
                 <li key={link.path}>
@@ -64,8 +70,8 @@ const Footer = () => {
             <h4 className="font-heading font-semibold text-lg mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-primary-foreground/60">
               <li>Bbiina/Luzira, Kampala</li>
-              <li>info@bickosa.org</li>
-              <li>+256 700 000 000</li>
+              <li>[Contact Email]</li>
+              <li>[Contact Number]</li>
             </ul>
           </div>
         </div>

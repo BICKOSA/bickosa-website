@@ -19,22 +19,35 @@ const stories = [
   { name: "Florence Aber", cohort: "Class of 2008", role: "NGO Director", excerpt: "Community impact was a value I learned at BCK. BICKOSA reminds me of that mission.", tag: "Community Impact" },
 ];
 
+const tags = ["Leadership", "Entrepreneurship", "Education", "Public Service", "Creative Arts", "Sports", "Community Impact"];
+
 const StoriesPage = () => {
   return (
     <Layout>
       <section className="gradient-hero py-20 sm:py-28">
         <div className="container-wide px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
+            <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: "hsl(var(--gold))" }}>Our People</p>
             <h1 className="text-4xl sm:text-5xl font-heading font-bold mb-6" style={{ color: "hsl(var(--primary-foreground))" }}>Alumni Stories</h1>
             <p className="text-lg" style={{ color: "hsl(var(--primary-foreground) / 0.8)" }}>
-              Journeys of resilience, service, leadership, and pride — told by the alumni of BCK.
+              The BICKOSA community is made up of many journeys — shaped by different callings, experiences, and paths, but connected by one shared foundation.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Featured */}
+      {/* Intro */}
       <section className="section-padding bg-background">
+        <div className="container-wide max-w-3xl">
+          <h2 className="text-3xl font-heading font-bold text-foreground mb-6">Every Story Carries the Legacy Forward</h2>
+          <p className="text-muted-foreground text-lg leading-relaxed">
+            Alumni stories do more than celebrate achievement. They preserve memory, build pride, inspire younger generations, and remind the community of the many ways a BCK foundation can shape a life.
+          </p>
+        </div>
+      </section>
+
+      {/* Featured */}
+      <section className="section-padding bg-card">
         <div className="container-wide">
           <div className="bento-card grid md:grid-cols-3 gap-8 p-8 sm:p-12">
             <div className="md:col-span-1">
@@ -53,10 +66,16 @@ const StoriesPage = () => {
         </div>
       </section>
 
-      {/* Grid */}
-      <section className="section-padding bg-card">
+      {/* Story Grid */}
+      <section className="section-padding bg-background">
         <div className="container-wide">
-          <h2 className="text-3xl font-heading font-bold text-foreground mb-10">More Alumni Stories</h2>
+          <h2 className="text-3xl font-heading font-bold text-foreground mb-3">More Stories from the Community</h2>
+          <p className="text-muted-foreground mb-6">Explore journeys across leadership, entrepreneurship, education, public service, sports, community impact, and more.</p>
+          <div className="flex flex-wrap gap-2 mb-10">
+            {tags.map((tag) => (
+              <span key={tag} className="px-3 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground">{tag}</span>
+            ))}
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {stories.map((s) => (
               <div key={s.name} className="bento-card group">
@@ -78,15 +97,15 @@ const StoriesPage = () => {
         </div>
       </section>
 
-      {/* Why stories matter + CTA */}
-      <section className="section-padding bg-background">
+      {/* Why stories matter */}
+      <section className="section-padding bg-card">
         <div className="container-wide text-center max-w-2xl">
-          <h2 className="text-3xl font-heading font-bold text-foreground mb-4">Why Our Stories Matter</h2>
+          <h2 className="text-3xl font-heading font-bold text-foreground mb-4">Have a Story to Share?</h2>
           <p className="text-muted-foreground leading-relaxed mb-8">
-            Alumni stories inspire current students, preserve our history, and strengthen the shared identity that makes BICKOSA a living community. Every story is a thread in the fabric of our legacy.
+            BICKOSA is built by the many journeys of its people. If you would like to share your story, reflection, or experience, we would love to hear from you.
           </p>
           <Button asChild variant="default">
-            <Link to="/contact">Share Your Story <ArrowRight className="ml-2 w-4 h-4" /></Link>
+            <Link to="/contact">Contact BICKOSA <ArrowRight className="ml-2 w-4 h-4" /></Link>
           </Button>
         </div>
       </section>

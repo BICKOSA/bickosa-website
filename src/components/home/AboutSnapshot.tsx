@@ -13,14 +13,14 @@ const AboutSnapshot = () => {
               About BICKOSA
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-              BICKOSA is the alumni association of Bishop Cipriano Kihangire Senior Secondary School. It exists to bring together former students, preserve the school's heritage, strengthen alumni bonds, and support meaningful initiatives.
+              BICKOSA, the Bishop Cipriano Kihangire Old Students Association, exists to bring together former students of Bishop Cipriano Kihangire Senior Secondary School under one shared home. It is a space for connection, memory, collaboration, and contribution — helping alumni remain linked to one another and to the school that shaped them.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Through community, mentorship, events, and development efforts, BICKOSA creates opportunities for alumni to give back and stay connected to the school they call home.
+              Through events, storytelling, community engagement, and support for school-focused initiatives, BICKOSA helps preserve the spirit of BCK while creating room for future impact.
             </p>
             <Button asChild variant="default">
               <Link to="/about">
-                Learn More <ArrowRight className="ml-2 w-4 h-4" />
+                Learn More About BICKOSA <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
           </div>
