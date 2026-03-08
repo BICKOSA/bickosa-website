@@ -52,9 +52,17 @@ export default {
           light: "hsl(var(--navy-light))",
           warm: "hsl(var(--navy-warm))",
         },
-        sky: {
-          DEFAULT: "hsl(var(--sky))",
-          light: "hsl(var(--sky-light))",
+        cobalt: {
+          DEFAULT: "hsl(var(--cobalt))",
+          light: "hsl(var(--cobalt-light))",
+        },
+        teal: {
+          DEFAULT: "hsl(var(--teal))",
+          light: "hsl(var(--teal-light))",
+        },
+        coral: {
+          DEFAULT: "hsl(var(--coral))",
+          light: "hsl(var(--coral-light))",
         },
         gold: {
           DEFAULT: "hsl(var(--gold))",
@@ -65,11 +73,11 @@ export default {
         "warm-gray": "hsl(var(--warm-gray))",
         surface: "hsl(var(--surface))",
         "surface-raised": "hsl(var(--surface-raised))",
-        cobalt: "hsl(var(--cobalt))",
-        coral: "hsl(var(--coral))",
-        teal: "hsl(var(--teal))",
         crimson: "hsl(var(--crimson))",
         amber: "hsl(var(--amber))",
+        success: "hsl(var(--success))",
+        warning: "hsl(var(--warning))",
+        danger: "hsl(var(--danger))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -85,6 +93,14 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      spacing: {
+        "18": "4.5rem",
+        "22": "5.5rem",
+      },
+      maxWidth: {
+        "content": "1200px",
+        "readable": "680px",
       },
       keyframes: {
         "accordion-down": {
@@ -111,9 +127,9 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in-up": "fade-in-up 0.6s ease-out forwards",
-        "fade-in": "fade-in 0.5s ease-out forwards",
-        "scale-in": "scale-in 0.5s ease-out forwards",
+        "fade-in-up": "fade-in-up 0.5s ease-out forwards",
+        "fade-in": "fade-in 0.4s ease-out forwards",
+        "scale-in": "scale-in 0.4s ease-out forwards",
       },
     },
   },
