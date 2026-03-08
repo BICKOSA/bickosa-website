@@ -10,13 +10,9 @@ const upcoming = [
 
 const past = [
   { title: "BCK SSS Silver Jubilee (25 Years)", date: "2024", location: "BCK SSS Campus", description: "A landmark celebration marking 25 years since the school's founding in 1999, including fundraising toward a new academic block." },
-  { title: "BICKOSA League Season 2", date: "2024", location: "BCK Sports Ground", description: "13 teams competed in the structured alumni football competition, managed via the Kapeesa tournament platform with live standings." },
-  { title: "BICKOSA League Launch", date: "2023", location: "BCK Sports Ground", description: "The Old Students Association launched its first structured alumni football competition, later expanding to include basketball." },
-  { title: "BICKOSA COVID-19 Relief Drive", date: "August 22, 2020", location: "BCK SSS Staff Quarters", description: "Alumni organized a relief drive including tree planting and urban backyard farming demonstration at the school." },
-];
-
-const eventTypes = [
-  "Reunions", "Annual General Meetings", "BICKOSA League (Football & Basketball)", "Fundraising Gatherings", "Silver Jubilee & Milestone Celebrations", "School-Focused Activities", "Community Outreach"
+  { title: "BICKOSA League Season 2", date: "2024", location: "BCK Sports Ground", description: "13 teams competed in the structured alumni football competition." },
+  { title: "BICKOSA League Launch", date: "2023", location: "BCK Sports Ground", description: "The Old Students Association launched its first structured alumni football competition." },
+  { title: "BICKOSA COVID-19 Relief Drive", date: "August 22, 2020", location: "BCK SSS Staff Quarters", description: "Alumni organized a relief drive including tree planting and urban backyard farming demonstration." },
 ];
 
 const EventsPage = () => {
@@ -25,13 +21,13 @@ const EventsPage = () => {
 
   return (
     <Layout>
-      <section className="gradient-hero py-20 sm:py-28">
-        <div className="container-wide px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: "hsl(var(--gold))" }}>Gatherings & Community Life</p>
-            <h1 className="text-4xl sm:text-5xl font-heading font-bold mb-6" style={{ color: "hsl(var(--primary-foreground))" }}>Events</h1>
-            <p className="text-lg" style={{ color: "hsl(var(--primary-foreground) / 0.8)" }}>
-              BICKOSA events bring the alumni community to life — from reunions and meetings to sports, celebrations, outreach, and shared moments that keep the association active.
+      <section className="page-hero">
+        <div className="container-wide px-6 sm:px-8 lg:px-12">
+          <div className="max-w-xl">
+            <p className="text-[12px] font-medium uppercase tracking-[0.15em] mb-5" style={{ color: "hsl(var(--gold))" }}>Gatherings & Community Life</p>
+            <h1 className="text-[40px] sm:text-[48px] font-bold tracking-tight leading-[1.08] mb-5" style={{ color: "hsl(var(--primary-foreground))" }}>Events</h1>
+            <p className="text-[16px] leading-[1.65]" style={{ color: "hsl(var(--primary-foreground) / 0.55)" }}>
+              BICKOSA events bring the alumni community to life — from reunions and meetings to sports, celebrations, and shared moments.
             </p>
           </div>
         </div>
@@ -40,33 +36,36 @@ const EventsPage = () => {
       {featured && (
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <span className="text-secondary text-sm font-semibold tracking-widest uppercase">Featured Event</span>
-            <div className="bento-card gradient-hero mt-4 p-8 sm:p-12 min-h-[280px] flex flex-col justify-end" style={{ color: "hsl(var(--primary-foreground))" }}>
-              <span className="text-xs font-semibold tracking-wider uppercase mb-2" style={{ color: "hsl(var(--gold))" }}>{featured.type}</span>
-              <h2 className="font-heading text-3xl font-bold mb-4">{featured.title}</h2>
-              <p className="opacity-80 mb-4 max-w-xl">{featured.description}</p>
-              <div className="flex flex-wrap gap-4 text-sm opacity-70">
-                <span className="flex items-center gap-1"><CalendarDays className="w-4 h-4" /> {featured.date}</span>
-                <span className="flex items-center gap-1"><MapPin className="w-4 h-4" /> {featured.location}</span>
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-4">Featured Event</p>
+            <div className="rounded-lg p-8 sm:p-12" style={{ background: "hsl(var(--navy))" }}>
+              <p className="text-[11px] font-medium uppercase tracking-[0.12em] mb-4" style={{ color: "hsl(var(--gold))" }}>{featured.type}</p>
+              <h2 className="text-[24px] sm:text-[28px] font-bold tracking-tight leading-[1.15] mb-4" style={{ color: "hsl(var(--primary-foreground))" }}>{featured.title}</h2>
+              <p className="text-[15px] leading-[1.7] mb-5 max-w-lg" style={{ color: "hsl(var(--primary-foreground) / 0.6)" }}>{featured.description}</p>
+              <div className="flex flex-wrap gap-5 text-[13px]" style={{ color: "hsl(var(--primary-foreground) / 0.4)" }}>
+                <span className="flex items-center gap-1.5"><CalendarDays className="w-3.5 h-3.5" /> {featured.date}</span>
+                <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" /> {featured.location}</span>
               </div>
             </div>
           </div>
         </section>
       )}
 
-      <section className="section-padding bg-card">
+      <section className="section-padding bg-muted">
         <div className="container-wide">
-          <h2 className="text-3xl font-heading font-bold text-foreground mb-3">Upcoming Events</h2>
-          <p className="text-muted-foreground mb-8">Explore what is coming up and take part in the next chapter of the BICKOSA community.</p>
-          <div className="grid md:grid-cols-3 gap-6">
+          <h2 className="text-[28px] sm:text-[32px] font-bold tracking-tight text-foreground leading-[1.15] mb-10">Upcoming Events</h2>
+          <div className="border-t border-border">
             {others.map((e) => (
-              <div key={e.title} className="bento-card">
-                <span className="text-xs font-semibold tracking-wider uppercase text-accent">{e.type}</span>
-                <h3 className="font-heading text-lg font-semibold text-foreground mt-2 mb-3">{e.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">{e.description}</p>
-                <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
-                  <span className="flex items-center gap-1"><CalendarDays className="w-3 h-3" /> {e.date}</span>
-                  <span className="flex items-center gap-1"><MapPin className="w-3 h-3" /> {e.location}</span>
+              <div key={e.title} className="py-7 border-b border-border">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.12em] mb-2" style={{ color: "hsl(var(--gold))" }}>{e.type}</p>
+                    <h3 className="text-[16px] font-semibold text-foreground mb-2">{e.title}</h3>
+                    <p className="text-[14px] text-muted-foreground leading-relaxed mb-3">{e.description}</p>
+                    <div className="flex flex-wrap gap-4 text-[12px] text-muted-foreground">
+                      <span className="flex items-center gap-1"><CalendarDays className="w-3 h-3" /> {e.date}</span>
+                      <span className="flex items-center gap-1"><MapPin className="w-3 h-3" /> {e.location}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -74,35 +73,19 @@ const EventsPage = () => {
         </div>
       </section>
 
-      {/* Event Types */}
       <section className="section-padding bg-background">
-        <div className="container-wide max-w-3xl">
-          <h2 className="text-3xl font-heading font-bold text-foreground mb-4">The Kinds of Moments That Bring Us Together</h2>
-          <p className="text-muted-foreground leading-relaxed mb-6">
-            BICKOSA events include reunions, annual meetings, the BICKOSA League (football and basketball), fundraising gatherings, milestone celebrations like the Silver Jubilee, school-focused activities, and community outreach efforts.
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {eventTypes.map((t) => (
-              <span key={t} className="px-4 py-2 rounded-full text-sm font-medium bg-muted text-muted-foreground">{t}</span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding bg-card">
         <div className="container-wide">
-          <h2 className="text-3xl font-heading font-bold text-foreground mb-3">Past Events & Highlights</h2>
-          <p className="text-muted-foreground mb-8">
-            Every event becomes part of the BICKOSA story. Explore recaps, highlights, and photo moments from gatherings that have strengthened the community over time.
-          </p>
-          <div className="grid md:grid-cols-2 gap-6">
+          <h2 className="text-[28px] sm:text-[32px] font-bold tracking-tight text-foreground leading-[1.15] mb-10">Past Events</h2>
+          <div className="border-t border-border">
             {past.map((e) => (
-              <div key={e.title} className="bento-card">
-                <h3 className="font-heading text-lg font-semibold text-foreground mb-2">{e.title}</h3>
-                <p className="text-muted-foreground text-sm mb-3">{e.description}</p>
-                <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
-                  <span className="flex items-center gap-1"><CalendarDays className="w-3 h-3" /> {e.date}</span>
-                  <span className="flex items-center gap-1"><MapPin className="w-3 h-3" /> {e.location}</span>
+              <div key={e.title} className="grid grid-cols-[1fr] sm:grid-cols-[100px_1fr] gap-4 sm:gap-8 py-7 border-b border-border">
+                <div>
+                  <p className="text-[13px] font-medium text-muted-foreground">{e.date}</p>
+                </div>
+                <div>
+                  <h3 className="text-[15px] font-semibold text-foreground mb-2">{e.title}</h3>
+                  <p className="text-[14px] text-muted-foreground leading-relaxed mb-2">{e.description}</p>
+                  <p className="text-[12px] text-muted-foreground/60 flex items-center gap-1"><MapPin className="w-3 h-3" /> {e.location}</p>
                 </div>
               </div>
             ))}
