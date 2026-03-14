@@ -45,14 +45,14 @@ const AboutSnapshot = () => {
         </BentoCard>
 
         <BentoCard variant="surface" col={6} minHeight={280} className="!p-0 overflow-hidden">
-          <div className="relative h-full min-h-[280px]">
+          <div className="relative h-[256px]">
             <img
               src={heroImg}
               alt="BCK SSS Community"
               className="w-full h-full object-cover"
             />
             <div
-              className="absolute -bottom-6 -left-4 sm:-left-6 rounded-bento-xl p-5 shadow-xl"
+              className="absolute bottom-4 left-4 sm:left-6 rounded-bento-xl p-5 shadow-xl"
               style={{ background: "var(--navy-900)" }}
             >
               <p
