@@ -1,8 +1,29 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "bickosa-website",
+  "description": "BICKOSA — Bishop Cipriano Kihangire Old Students Association. Alumni website for BCK SSS.",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "keywords": [
+    "bickosa",
+    "alumni",
+    "bck",
+    "bishop-cipriano-kihangire",
+    "uganda",
+    "kampala",
+    "react",
+    "vite"
+  ],
+  "author": "BICKOSA",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BICKOSA/bickosa-website"
+  },
+  "bugs": {
+    "url": "https://github.com/BICKOSA/bickosa-website/issues"
+  },
+  "homepage": "https://github.com/BICKOSA/bickosa-website#readme",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

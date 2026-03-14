@@ -12,3 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# When you have a sitemap, add it here, e.g.:
+# Sitemap: https://bickosa.com/sitemap.xml

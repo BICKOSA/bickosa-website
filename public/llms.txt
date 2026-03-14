@@ -1,0 +1,48 @@
+# BICKOSA
+
+Bishop Cipriano Kihangire Old Students Association — the official alumni website for former students of Bishop Cipriano Kihangire Senior Secondary School (BCK SSS), Bbiina/Luzira, Kampala, Uganda.
+
+This project is open source and hosted in a public organisation/repository; contributions are welcome (see CONTRIBUTING.md and LICENSE).
+
+## Purpose
+
+Preserving legacy, building community, and giving back. The site is a hub for alumni: events, stories, news, projects, governance, gallery, contact, and archive.
+
+## Tech stack
+
+- React 18, TypeScript, Vite 5
+- React Router 6
+- Tailwind CSS, shadcn/ui (Radix)
+- Design system: Bento grid (see docs/BENTO_STYLE.md); tokens: navy, gold, typography (display/sans/serif)
+
+## Key URLs (paths)
+
+- / — Home
+- /about — About BICKOSA
+- /school — BCK SSS (school info)
+- /history — History & legacy
+- /stories — Alumni stories
+- /news — News & updates
+- /events — Events
+- /projects — Projects & giving
+- /gallery — Gallery
+- /contact — Contact
+- /governance — Governance
+- /faq — FAQs
+- /archive — Archive
+
+## Codebase layout
+
+- src/pages/ — Route pages (Index, AboutPage, EventsPage, etc.)
+- src/components/ — Layout, Header, Footer, PageHero; bento/ (BentoGrid, BentoCard); home/ (HeroSection, AboutSnapshot, etc.)
+- src/config/metadata.ts — Per-page title, description, og:image for SEO/social
+- src/styles/bento.css — Bento grid and card classes (bc-*, section-eyebrow, section-heading)
+- public/meta/ — OG images (home.png, about.png, …)
+- docs/BENTO_STYLE.md — Design system (colors, cards, typography, layout)
+
+## For agents
+
+- Use BentoCard and BentoGrid from @/components/bento for content blocks; follow section-eyebrow → section-heading → section-sub for sections.
+- Page-level meta (title, description, og) is driven by src/config/metadata.ts and PageMeta (react-helmet-async).
+- Default site URL: https://bickosa.com (overridable via VITE_SITE_URL).
+- Repository: https://github.com/BICKOSA/bickosa-website

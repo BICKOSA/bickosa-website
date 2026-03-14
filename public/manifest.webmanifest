@@ -1,0 +1,21 @@
+{
+  "name": "BICKOSA — Bishop Cipriano Kihangire Alumni",
+  "short_name": "BICKOSA",
+  "description": "Bishop Cipriano Kihangire Old Students Association. Preserving legacy, building community, giving back.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "orientation": "portrait-primary",
+  "theme_color": "#0d1b3e",
+  "background_color": "#f7f8fc",
+  "lang": "en-UG",
+  "categories": ["education", "community"],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
