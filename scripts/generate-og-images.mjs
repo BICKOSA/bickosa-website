@@ -2,7 +2,8 @@
  * generate-og-images.mjs
  *
  * Generates 1200×630 Open Graph PNG images for every BICKOSA page.
- * Uses the bickosa-logo.png and the project's navy/gold brand colours.
+ * Uses the Bento design system: bento grid, design tokens, typography (eyebrow → title → text).
+ * See docs/BENTO_STYLE.md and src/styles/bento.css.
  *
  * Usage:
  *   bun run generate:og
@@ -18,16 +19,37 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
 const OUT_DIR = resolve(ROOT, "public/meta");
 
-// ─── Brand colours (from index.css) ───────────────────────────────────────────
-const NAVY      = "#111d3a";   // hsl(222 47% 11%)
-const NAVY_MID  = "#1b2d55";   // slightly lighter for gradient feel
-const GOLD      = "#d4922a";   // hsl(38 72% 52%)
-const GOLD_LIGHT = "#e8b45f";  // softer gold for description text
-const WHITE     = "#ffffff";
+// ─── Bento design tokens (from src/index.css / bento.css) ─────────────────────
+const NAVY_950 = "#040e22";
+const NAVY_900 = "#0d1b3e";
+const NAVY_700 = "#1a3060";
+const NAVY_600 = "#1e3d7a";
+const NAVY_200 = "#a3b8de";
+const NAVY_100 = "#dde5f4";
+const NAVY_50 = "#eef2fa";
+
+const GOLD_700 = "#8c5c00";
+const GOLD_600 = "#a87020";
+const GOLD_500 = "#c9a84c";
+const GOLD_400 = "#d4b86a";
+const GOLD_300 = "#e2cd96";
+const GOLD_200 = "#efddb8";
+const GOLD_50 = "#fdf8ed";
+
+const WHITE = "#ffffff";
+const SURFACE = "#f7f8fc";
+const SURFACE_ALT = "#f0f3fb";
+const BORDER = "#e4e8f2";
+const TEXT_SECONDARY = "#4a5470";
+
+// Bento layout
+const BENTO_GAP = 12;
+const RADIUS_2XL = 28; // 1.75rem
 
 // ─── Dimensions ───────────────────────────────────────────────────────────────
 const W = 1200;
 const H = 630;
+const PAD = 40;
 
 // ─── Logo ─────────────────────────────────────────────────────────────────────
 const logoPath  = resolve(ROOT, "src/assets/bickosa-logo.png");
@@ -159,86 +181,148 @@ function escapeXml(str) {
 }
 
 function buildSvg({ title, subtitle, label }) {
-  // Logo: scale to fit within 280×100 box, centred at top-left region
-  const logoW = 280;
-  const logoH = 100;
-  const logoX = 80;
-  const logoY = 72;
+  // Bento layout: white content card (left) + navy accent card (right)
+  const mainW = 800;
+  const mainH = H - PAD * 2;
+  const mainX = PAD;
+  const mainY = PAD;
 
-  // Decorative dots pattern (subtle)
-  const dots = Array.from({ length: 6 }, (_, row) =>
-    Array.from({ length: 10 }, (_, col) => {
-      const cx = 880 + col * 32;
-      const cy = 60 + row * 32;
-      return `<circle cx="${cx}" cy="${cy}" r="2" fill="${GOLD}" opacity="0.15"/>`;
-    }).join("")
-  ).join("");
+  const accentX = mainX + mainW + BENTO_GAP;
+  const accentW = W - accentX - PAD;
+  const accentH = mainH;
+  const accentY = PAD;
+
+  const innerPad = 44;
+  const logoW = 56;
+  const logoH = 56;
+  const logoX = mainX + innerPad;
+  const logoY = mainY + innerPad + 8;
+
+  // Title Y positioned after logo + eyebrow
+  const eyebrowY = logoY + logoH + 32;
+  const titleY = eyebrowY + 56;
+  const subtitleY = titleY + 74;
+
+  // bc-dots-dark on accent card
+  const dotSpacing = 22;
+  const dotsAccent = [];
+  for (let row = 0; row < Math.ceil(accentH / dotSpacing); row++) {
+    for (let col = 0; col < Math.ceil(accentW / dotSpacing); col++) {
+      const cx = accentX + 12 + col * dotSpacing;
+      const cy = accentY + 12 + row * dotSpacing;
+      if (cx < accentX + accentW - 12 && cy < accentY + accentH - 12) {
+        dotsAccent.push(`<circle cx="${cx}" cy="${cy}" r="1" fill="${WHITE}" opacity="0.055"/>`);
+      }
+    }
+  }
+
+  // Accent card centre for page label
+  const accentCX = accentX + accentW / 2;
+  const accentCY = accentY + accentH / 2;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
     width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <defs>
-    <!-- Background gradient: deep navy to slightly lighter navy -->
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"   stop-color="${NAVY}"/>
-      <stop offset="100%" stop-color="${NAVY_MID}"/>
+    <linearGradient id="gradNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="${NAVY_900}"/>
+      <stop offset="100%" stop-color="${NAVY_700}"/>
     </linearGradient>
-    <!-- Subtle left-side glow -->
-    <radialGradient id="glow" cx="0%" cy="100%" r="70%">
-      <stop offset="0%"   stop-color="${GOLD}" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="${NAVY}" stop-opacity="0"/>
+    <linearGradient id="accentBar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="${GOLD_500}"/>
+      <stop offset="100%" stop-color="${GOLD_300}"/>
+    </linearGradient>
+    <radialGradient id="glowGold" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="${GOLD_400}" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="${NAVY_900}" stop-opacity="0"/>
     </radialGradient>
   </defs>
 
-  <!-- Background -->
-  <rect width="${W}" height="${H}" fill="url(#bg)"/>
-  <rect width="${W}" height="${H}" fill="url(#glow)"/>
+  <!-- Page background (surface) -->
+  <rect width="${W}" height="${H}" fill="${SURFACE}"/>
 
-  <!-- Decorative dot grid (top-right) -->
-  ${dots}
+  <!-- ─── Main card (bc-white) ─────────────────────────────────────────── -->
+  <rect x="${mainX}" y="${mainY}" width="${mainW}" height="${mainH}"
+        rx="${RADIUS_2XL}" fill="${WHITE}" stroke="${BORDER}" stroke-width="1"/>
 
-  <!-- Gold accent bar – bottom -->
-  <rect x="0" y="${H - 8}" width="${W}" height="8" fill="${GOLD}"/>
+  <!-- bc-accent-bar (gold gradient top edge) -->
+  <rect x="${mainX}" y="${mainY}" width="${mainW}" height="4"
+        rx="${RADIUS_2XL}" fill="url(#accentBar)"/>
 
-  <!-- Gold accent bar – left edge -->
-  <rect x="0" y="0" width="6" height="${H}" fill="${GOLD}"/>
+  <!-- bc-border-left-gold -->
+  <rect x="${mainX}" y="${mainY + mainH * 0.18}" width="3.5" height="${mainH * 0.3}"
+        fill="${GOLD_500}" rx="2"/>
 
-  <!-- Horizontal rule under logo area -->
-  <line x1="${logoX}" y1="${logoY + logoH + 20}" x2="${logoX + 380}" y2="${logoY + logoH + 20}"
-        stroke="${GOLD}" stroke-width="1.5" opacity="0.4"/>
-
-  <!-- Logo image -->
+  <!-- Logo (on white = visible) -->
   <image href="${logoDataUri}"
     x="${logoX}" y="${logoY}"
     width="${logoW}" height="${logoH}"
-    preserveAspectRatio="xMinYMid meet"/>
+    preserveAspectRatio="xMidYMid meet"/>
 
-  <!-- Page label pill (top-right) -->
-  <rect x="${W - 180}" y="60" width="120" height="34" rx="17"
-        fill="none" stroke="${GOLD}" stroke-width="1.5" opacity="0.6"/>
-  <text x="${W - 120}" y="82" font-family="Georgia, 'Times New Roman', serif"
-        font-size="14" fill="${GOLD}" opacity="0.85" text-anchor="middle"
-        letter-spacing="2">${escapeXml(label.toUpperCase())}</text>
-
-  <!-- Main title -->
-  <text x="${logoX}" y="280"
+  <!-- Brand text next to logo -->
+  <text x="${logoX + logoW + 16}" y="${logoY + 24}"
         font-family="Georgia, 'Times New Roman', serif"
-        font-size="64" font-weight="bold"
-        fill="${WHITE}" letter-spacing="-1">
-    ${wrapText(title, logoX, 280, 76, 22)}
+        font-size="18" font-weight="700" fill="${NAVY_900}" letter-spacing="-0.01em">BICKOSA</text>
+  <text x="${logoX + logoW + 16}" y="${logoY + 46}"
+        font-family="Inter, -apple-system, sans-serif"
+        font-size="12" fill="${TEXT_SECONDARY}" letter-spacing="0.02em">Bishop Cipriano Kihangire Alumni</text>
+
+  <!-- bc-eyebrow -->
+  <text x="${logoX}" y="${eyebrowY}"
+        font-family="Inter, -apple-system, sans-serif"
+        font-size="12" font-weight="700" fill="${GOLD_600}"
+        letter-spacing="0.2em">${escapeXml(label.toUpperCase())}</text>
+
+  <!-- bc-title (navy on white) -->
+  <text x="${logoX}" y="${titleY}"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="52" font-weight="700" fill="${NAVY_900}" letter-spacing="-0.025em">
+    ${wrapText(title, logoX, titleY, 64, 26)}
   </text>
 
-  <!-- Subtitle / description -->
-  <text x="${logoX}" y="420"
-        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-        font-size="26" fill="${GOLD_LIGHT}" opacity="0.9" letter-spacing="0.3">
-    ${wrapText(subtitle, logoX, 420, 38, 48)}
+  <!-- bc-text (subtitle) -->
+  <text x="${logoX}" y="${subtitleY}"
+        font-family="Inter, -apple-system, sans-serif"
+        font-size="22" fill="${TEXT_SECONDARY}" letter-spacing="0.01em">
+    ${wrapText(subtitle, logoX, subtitleY, 32, 38)}
   </text>
 
-  <!-- Domain watermark (bottom-right) -->
-  <text x="${W - 80}" y="${H - 28}"
-        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-        font-size="16" fill="${WHITE}" opacity="0.3"
-        text-anchor="end" letter-spacing="1.5">BICKOSA.COM</text>
+  <!-- Domain (bottom of main card) -->
+  <text x="${logoX}" y="${mainY + mainH - innerPad + 10}"
+        font-family="Inter, -apple-system, sans-serif"
+        font-size="14" fill="${NAVY_200}" letter-spacing="0.06em">bickosa.com</text>
+
+  <!-- ─── Accent card (bc-grad-navy) ───────────────────────────────────── -->
+  <rect x="${accentX}" y="${accentY}" width="${accentW}" height="${accentH}"
+        rx="${RADIUS_2XL}" fill="url(#gradNavy)"/>
+
+  <!-- Gold glow on accent card -->
+  <rect x="${accentX}" y="${accentY}" width="${accentW}" height="${accentH}"
+        rx="${RADIUS_2XL}" fill="url(#glowGold)"/>
+
+  <!-- bc-dots-dark -->
+  ${dotsAccent.join("")}
+
+  <!-- Page label (centred, large, gold) -->
+  <text x="${accentCX}" y="${accentCY - 8}"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="48" font-weight="700" fill="${GOLD_500}"
+        text-anchor="middle" letter-spacing="-0.02em">${escapeXml(label)}</text>
+
+  <!-- Thin gold divider under label -->
+  <line x1="${accentCX - 32}" y1="${accentCY + 16}" x2="${accentCX + 32}" y2="${accentCY + 16}"
+        stroke="${GOLD_500}" stroke-width="2" opacity="0.5"/>
+
+  <!-- Tag: "Est. 1999" -->
+  <rect x="${accentCX - 44}" y="${accentCY + 32}" width="88" height="26" rx="13"
+        fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text x="${accentCX}" y="${accentCY + 50}"
+        font-family="Inter, -apple-system, sans-serif"
+        font-size="11" font-weight="600" fill="rgba(255,255,255,0.7)"
+        text-anchor="middle" letter-spacing="0.08em">EST. 1999</text>
+
+  <!-- Gold accent bar bottom of accent card -->
+  <rect x="${accentX}" y="${accentY + accentH - 4}" width="${accentW}" height="4"
+        rx="0 0 ${RADIUS_2XL} ${RADIUS_2XL}" fill="url(#accentBar)" opacity="0.7"/>
 </svg>`;
 }
 
