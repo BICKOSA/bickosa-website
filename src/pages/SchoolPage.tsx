@@ -1,13 +1,14 @@
 import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
-import heroImg from "@/assets/hero-school.jpg";
+import schoolCampus from "@/assets/school-courtyard.png";
+import schoolBuilding from "@/assets/school-green-roofs.png";
 
 const SchoolPage = () => {
   return (
     <Layout>
       <section className="page-hero relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <img src={heroImg} alt="" className="w-full h-full object-cover" />
+          <img src={schoolBuilding} alt="" className="w-full h-full object-cover" />
         </div>
         <div className="relative container-wide px-6 sm:px-8 lg:px-12">
           <div className="max-w-xl">
@@ -42,7 +43,7 @@ const SchoolPage = () => {
             </div>
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-lg">
-                <img src={heroImg} alt="BCK SSS Campus" className="w-full aspect-[4/3] object-cover" />
+                <img src={schoolCampus} alt="BCK SSS Campus" className="w-full aspect-[4/3] object-cover" />
               </div>
               <div className="absolute -bottom-5 -right-4 bg-navy rounded-lg p-5 shadow-xl">
                 <p className="text-[24px] font-bold text-gold tracking-tight">2,750+</p>

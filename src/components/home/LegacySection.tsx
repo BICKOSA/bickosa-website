@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import heroImg from "@/assets/hero-school.jpg";
+import heroImg from "@/assets/school-green-roofs.png";
 
 const values = [
   { title: "Catholic Foundation", description: "A school grounded in faith, character formation, and service to community." },

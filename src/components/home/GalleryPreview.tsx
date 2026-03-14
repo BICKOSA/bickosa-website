@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import heroImg from "@/assets/hero-school.jpg";
+import schoolCourtyard from "@/assets/school-courtyard.png";
+import schoolGreenRoofs from "@/assets/school-green-roofs.png";
+import schoolNoticeTerm from "@/assets/school-notice-term.png";
+import schoolNoticeVisitation from "@/assets/school-notice-visitation.png";
 
-const captions = [
-  "School Life",
-  "Alumni Reunion",
-  "Sports Day",
-  "Community",
-  "Celebrations",
-  "Heritage",
-  "Friendships",
-  "Campus",
+const galleryPreviewImages = [
+  { src: schoolCourtyard, alt: "School Life", caption: "School Life" },
+  { src: schoolGreenRoofs, alt: "Campus", caption: "Campus" },
+  { src: schoolNoticeTerm, alt: "School notice", caption: "Community" },
+  { src: schoolNoticeVisitation, alt: "Visitation day", caption: "Celebrations" },
 ];
 
 const GalleryPreview = () => {
@@ -34,25 +33,27 @@ const GalleryPreview = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
-            <div
-              key={i}
-              className={`relative group cursor-pointer rounded-lg overflow-hidden ${i === 0 ? "col-span-2 row-span-2" : ""}`}
-            >
-              <div className={`${i === 0 ? "aspect-square" : "aspect-[4/3]"}`}>
-                <img
-                  src={heroImg}
-                  alt={captions[i]}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  style={{ filter: `hue-rotate(${i * 30}deg) saturate(${0.6 + i * 0.07})` }}
-                />
-                <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/40 transition-colors duration-300" />
-                <div className="absolute bottom-0 left-0 right-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-[12px] font-medium text-primary-foreground">{captions[i]}</span>
+          {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => {
+            const img = galleryPreviewImages[i % galleryPreviewImages.length];
+            return (
+              <div
+                key={i}
+                className={`relative group cursor-pointer rounded-lg overflow-hidden ${i === 0 ? "col-span-2 row-span-2" : ""}`}
+              >
+                <div className={`${i === 0 ? "aspect-square" : "aspect-[4/3]"}`}>
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/40 transition-colors duration-300" />
+                  <div className="absolute bottom-0 left-0 right-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="text-[12px] font-medium text-primary-foreground">{img.caption}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

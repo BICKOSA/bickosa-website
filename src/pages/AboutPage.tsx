@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
 import { ArrowRight, Quote } from "lucide-react";
-import heroImg from "@/assets/hero-school.jpg";
+import heroImg from "@/assets/school-courtyard.png";
 
 const values = [
   { label: "Unity", description: "We are stronger when we stay connected.", accent: "bg-cobalt" },

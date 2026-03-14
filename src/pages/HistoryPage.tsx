@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
-import heroImg from "@/assets/hero-school.jpg";
+import heroImg from "@/assets/school-courtyard.png";
+import heritageImg from "@/assets/school-green-roofs.png";
 
 const timeline = [
   { year: "1999", title: "School Founded", description: "BCK SSS begins operations on 9 February 1999 with 120 students, founded by Fr. John Scalabrini in memory of Bishop Cipriano Biyehima Kihangire.", accent: "bg-gold" },
@@ -47,7 +48,7 @@ const HistoryPage = () => {
               </p>
             </div>
             <div className="rounded-xl overflow-hidden shadow-lg">
-              <img src={heroImg} alt="BCK SSS Heritage" className="w-full aspect-[3/4] object-cover" />
+              <img src={heritageImg} alt="BCK SSS Heritage" className="w-full aspect-[3/4] object-cover" />
             </div>
           </div>
         </div>

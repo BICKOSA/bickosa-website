@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import heroImg from "@/assets/hero-school.jpg";
+import heroImg from "@/assets/school-courtyard.png";
 
 const AboutSnapshot = () => {
   return (

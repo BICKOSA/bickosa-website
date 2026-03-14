@@ -1,6 +1,16 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
-import heroImg from "@/assets/hero-school.jpg";
+import schoolCourtyard from "@/assets/school-courtyard.png";
+import schoolGreenRoofs from "@/assets/school-green-roofs.png";
+import schoolNoticeTerm from "@/assets/school-notice-term.png";
+import schoolNoticeVisitation from "@/assets/school-notice-visitation.png";
+
+const galleryImages = [
+  { src: schoolCourtyard, alt: "BCK SSS campus courtyard" },
+  { src: schoolGreenRoofs, alt: "BCK SSS campus buildings" },
+  { src: schoolNoticeTerm, alt: "School notice" },
+  { src: schoolNoticeVisitation, alt: "Visitation day at BCK SSS" },
+];
 
 const categories = ["All", "School Life", "Alumni Events", "Sports", "Reunions", "Historic Moments", "Community", "Celebrations"];
 
@@ -41,22 +51,24 @@ const GalleryPage = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <div
-                key={i}
-                className={`group cursor-pointer rounded-lg overflow-hidden ${i === 0 ? "col-span-2 row-span-2" : ""}`}
-              >
-                <div className={`${i === 0 ? "aspect-square" : "aspect-[4/3]"} relative`}>
-                  <img
-                    src={heroImg}
-                    alt={`Gallery image ${i + 1}`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    style={{ filter: `hue-rotate(${i * 25}deg) saturate(${0.5 + i * 0.08})` }}
-                  />
-                  <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/30 transition-colors duration-300" />
+            {Array.from({ length: 12 }).map((_, i) => {
+              const img = galleryImages[i % galleryImages.length];
+              return (
+                <div
+                  key={i}
+                  className={`group cursor-pointer rounded-lg overflow-hidden ${i === 0 ? "col-span-2 row-span-2" : ""}`}
+                >
+                  <div className={`${i === 0 ? "aspect-square" : "aspect-[4/3]"} relative`}>
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/30 transition-colors duration-300" />
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
