@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@1,400;1,600&display=swap');
+@import './styles/bento.css';
 
 @tailwind base;
 @tailwind components;
@@ -6,33 +7,75 @@
 
 @layer base {
   :root {
-    --background: 40 18% 97%;
-    --foreground: 222 47% 11%;
+    /* BICKOSA Bento design tokens (hex) */
+    --navy-950: #040e22;
+    --navy-900: #0d1b3e;
+    --navy-800: #152347;
+    --navy-700: #1a3060;
+    --navy-600: #1e3d7a;
+    --navy-500: #254c97;
+    --navy-400: #3d64b0;
+    --navy-300: #6589c8;
+    --navy-200: #a3b8de;
+    --navy-100: #dde5f4;
+    --navy-50: #eef2fa;
+
+    --gold-700: #8c5c00;
+    --gold-600: #a87020;
+    --gold-500: #c9a84c;
+    --gold-400: #d4b86a;
+    --gold-300: #e2cd96;
+    --gold-200: #efddb8;
+    --gold-100: #f7efd8;
+    --gold-50: #fdf8ed;
+
+    --white: #ffffff;
+    --surface: #f7f8fc;
+    --surface-alt: #f0f3fb;
+    --border: #e4e8f2;
+    --border-soft: #eef0f6;
+    --text-primary: #0d1b3e;
+    --text-secondary: #4a5470;
+    --text-muted: #8a90a8;
+
+    /* Google Sans from CDN (index.html); fallback for headings/titles */
+    --font-display: 'Google Sans', 'Product Sans', system-ui, sans-serif;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
+
+    --radius-lg: 0.75rem;
+    --radius-xl: 1.25rem;
+    --radius-2xl: 1.75rem;
+    --bento-gap: 12px;
+
+    /* shadcn semantic (HSL) mapped to Bento */
+    --background: 228 33% 97%;
+    --foreground: 222 47% 16%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 222 47% 16%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 222 47% 16%;
 
-    --primary: 222 47% 11%;
+    --primary: 222 47% 16%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 214 32% 91%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 224 33% 93%;
+    --secondary-foreground: 222 47% 16%;
 
-    --muted: 38 15% 95%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 228 25% 95%;
+    --muted-foreground: 224 15% 45%;
 
-    --accent: 38 55% 50%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 43 49% 54%;
+    --accent-foreground: 222 47% 16%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 222 47% 11%;
+    --border: 224 33% 92%;
+    --input: 224 33% 92%;
+    --ring: 222 47% 16%;
 
     --radius: 0.5rem;
 
@@ -45,26 +88,26 @@
     --sidebar-border: 222 40% 18%;
     --sidebar-ring: 214 100% 60%;
 
-    /* Brand tokens */
-    --navy: 222 47% 11%;
-    --navy-light: 222 30% 22%;
+    /* Tailwind-friendly Bento refs (for utilities) */
+    --navy: 222 47% 16%;
+    --navy-light: 222 35% 28%;
     --navy-warm: 225 35% 16%;
-    --sky: 214 100% 60%;
-    --sky-light: 214 80% 72%;
-    --gold: 38 72% 52%;
-    --gold-light: 38 55% 68%;
+    --gold: 43 49% 54%;
+    --gold-light: 43 45% 65%;
     --gold-warm: 34 65% 46%;
-    --ivory: 40 18% 97%;
-    --warm-gray: 220 9% 46%;
-    --surface: 38 15% 95%;
+    --ivory: 228 33% 97%;
+    --warm-gray: 224 15% 45%;
+    --surface-hsl: 228 33% 97%;
     --surface-raised: 0 0% 100%;
 
-    /* Vibrant accents */
+    /* Optional accent palette (Tailwind) */
     --cobalt: 217 91% 50%;
     --coral: 12 76% 61%;
     --teal: 173 58% 39%;
     --crimson: 348 83% 47%;
     --amber: 32 95% 44%;
+    --sky: 214 100% 60%;
+    --sky-light: 214 80% 72%;
   }
 
   .dark {
@@ -80,7 +123,7 @@
     --secondary-foreground: 220 14% 96%;
     --muted: 222 30% 12%;
     --muted-foreground: 220 9% 55%;
-    --accent: 38 55% 50%;
+    --accent: 43 49% 54%;
     --accent-foreground: 222 47% 5%;
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 100%;
@@ -98,21 +141,130 @@
   }
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
-  * {
-    @apply border-border;
-  }
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    font-family: var(--font-sans);
+    background: var(--surface);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: var(--font-display);
     letter-spacing: -0.025em;
   }
+}
+
+/* Page shell */
+.page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 56px 32px 96px;
+}
+
+/* Inner page hero blocks should sit closer to header and match card radius */
+.page > .page-hero:first-child {
+  margin-top: -28px;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+}
+
+/* Spacing after hero so content below isn’t crammed */
+.page > .page-hero + * {
+  margin-top: 2.5rem;
+}
+@media (min-width: 640px) {
+  .page > .page-hero + * {
+    margin-top: 3rem;
+  }
+}
+
+/* Section typography */
+.section {
+  margin-bottom: 80px;
+}
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-600);
+  margin-bottom: 8px;
+}
+.section-heading {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-bottom: 6px;
+  line-height: 1.15;
+}
+.section-sub {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  max-width: 540px;
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+/* Top nav (Bento) */
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  margin-bottom: 60px;
+  border-bottom: 1px solid var(--border);
+}
+.topnav-brand {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy-900);
+  letter-spacing: 0.04em;
+}
+.topnav-brand span {
+  color: var(--gold-600);
+}
+.topnav-links {
+  display: flex;
+  gap: 28px;
+}
+.topnav-link {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-decoration: none;
+}
+.topnav-link:hover {
+  color: var(--navy-900);
+}
+.topnav-cta {
+  background: var(--navy-900);
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.topnav-cta:hover {
+  background: var(--navy-700);
 }
 
 @layer components {
@@ -126,21 +278,53 @@
     @apply max-w-6xl mx-auto;
   }
   .page-hero {
-    @apply py-20 sm:py-28 lg:py-32;
-    background: hsl(var(--navy));
+    @apply flex items-center py-16 sm:py-20;
+    background: var(--navy-900);
+    min-height: 420px;
+    max-height: 420px;
+  }
+  .page-hero__bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.12;
+    pointer-events: none;
+  }
+  .page-hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .page-hero__inner {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 32px 40px 32px 48px;
+  }
+  @media (min-width: 640px) {
+    .page-hero__inner {
+      padding: 40px 48px 40px 56px;
+    }
+  }
+  .page-hero__content {
+    max-width: 36rem; /* max-w-xl */
+  }
+  /* Card-like panels: use design-system radius (matches bento cards) */
+  .rounded-card {
+    border-radius: var(--radius-2xl);
   }
   .serif-accent {
-    font-family: 'Source Serif 4', Georgia, serif;
+    font-family: var(--font-serif);
     font-style: italic;
   }
   .serif-heading {
-    font-family: 'Source Serif 4', Georgia, serif;
+    font-family: var(--font-serif);
   }
   .gold-accent-bar {
     @apply w-10 h-1 rounded-full mb-6;
-    background: hsl(var(--gold));
+    background: var(--gold-500);
   }
   .warm-section {
-    background: hsl(var(--navy-warm));
+    background: var(--navy-800);
   }
 }

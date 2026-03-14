@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { BentoCard } from "@/components/bento";
 import heroImg from "@/assets/school-green-roofs.png";
 
 const values = [
@@ -11,54 +11,70 @@ const values = [
 
 const LegacySection = () => {
   return (
-    <section className="relative overflow-hidden">
-      {/* Split layout — image left, content right */}
-      <div className="grid lg:grid-cols-2 min-h-[600px]">
-        {/* Image side */}
-        <div className="relative hidden lg:block">
-          <img src={heroImg} alt="BCK SSS Heritage" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-navy/60" />
-          <div className="absolute bottom-10 left-10 right-10">
-            <div className="bg-navy/80 backdrop-blur-sm rounded-lg p-6">
-              <p className="serif-heading text-[24px] text-gold leading-[1.35] mb-2">
-                "Per Aspera Ad Astra"
-              </p>
-              <p className="text-[13px] text-primary-foreground/50">Through Hardship to the Stars — our school motto since 1999</p>
-            </div>
-          </div>
-        </div>
+    <section className="section">
+      <p className="section-eyebrow">Our Foundation</p>
+      <h2 className="section-heading">A Legacy Worth Preserving</h2>
+      <p className="section-sub">
+        The story of BICKOSA begins with BCK SSS — a school shaped by faith, discipline,
+        excellence, and the values that live on through its students and alumni.
+      </p>
 
-        {/* Content side */}
-        <div className="bg-navy px-6 sm:px-10 lg:px-16 py-20 sm:py-24 flex items-center">
-          <div className="max-w-lg">
-            <div className="w-10 h-1 rounded-full bg-gold mb-6" />
-            <p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-gold/70 mb-4">Our Foundation</p>
-            <h2 className="text-[32px] sm:text-[38px] font-bold tracking-tight text-primary-foreground leading-[1.12] mb-6">
-              A Legacy Worth Preserving
-            </h2>
-            <p className="text-[15px] text-primary-foreground/55 leading-[1.75] mb-10">
-              The story of BICKOSA begins with BCK SSS — a school shaped by faith, discipline, excellence, and the values that live on through its students and alumni.
+      <div className="bento">
+        <BentoCard variant="grad-navy" col={5} row2 minHeight={320} className="min-h-[320px]">
+          <div className="bc-dots-dark" aria-hidden />
+          <div
+            className="bc-glow glow-gold-soft"
+            style={{ width: 200, height: 200, bottom: -60, right: -40 }}
+            aria-hidden
+          />
+          <span className="bc-tag bc-tag-on-dark">BCK SSS · Luzira</span>
+          <div style={{ marginTop: 20, flex: 1 }}>
+            <p className="bc-quote on-dark" style={{ marginBottom: 12 }}>
+              &ldquo;Per Aspera Ad Astra&rdquo;
             </p>
-
-            <div className="space-y-6 mb-10">
-              {values.map((item, i) => (
-                <div key={item.title} className="flex items-start gap-4">
-                  <span className="text-[13px] font-bold text-gold/50 w-5 flex-shrink-0 pt-0.5">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3 className="text-[14px] font-semibold text-primary-foreground mb-1">{item.title}</h3>
-                    <p className="text-[13px] text-primary-foreground/45 leading-relaxed">{item.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <Link to="/school" className="inline-flex items-center gap-2 text-[14px] font-semibold text-gold hover:text-gold-light transition-colors">
-              Discover the school's story <ArrowRight className="w-4 h-4" />
+            <p className="bc-text on-dark text-sm">
+              Through Hardship to the Stars — our school motto since 1999
+            </p>
+          </div>
+          <div className="bc-footer">
+            <Link to="/school" className="bc-btn bc-btn-ghost-dark">
+              Discover the school →
             </Link>
           </div>
-        </div>
+        </BentoCard>
+
+        <BentoCard variant="white" col={7} minHeight={320}>
+          <div className="bc-accent-bar" aria-hidden />
+          <div className="bc-eyebrow">Our Values</div>
+          <div className="grid gap-4" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
+            {values.map((item, i) => (
+              <div key={item.title} className="flex items-start gap-3">
+                <span
+                  className="text-[13px] font-bold flex-shrink-0 pt-0.5 w-5"
+                  style={{ color: "var(--gold-600)" }}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="bc-title" style={{ fontSize: "0.9375rem", marginBottom: 4 }}>
+                    {item.title}
+                  </h3>
+                  <p className="bc-text sm">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="bc-footer">
+            <Link to="/school" className="bc-btn bc-btn-outline-navy">
+              Discover the school&apos;s story
+            </Link>
+            <span className="bc-arrow bc-arrow-light">→</span>
+          </div>
+        </BentoCard>
+
+        <BentoCard variant="surface" col={12} minHeight={0} className="!min-h-0 !p-0 overflow-hidden">
+          <img src={heroImg} alt="BCK SSS Heritage" className="w-full aspect-[2.5/1] object-cover" />
+        </BentoCard>
       </div>
     </section>
   );

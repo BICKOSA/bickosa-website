@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import { PageHero } from "@/components/PageHero";
 import { CalendarDays, MapPin } from "lucide-react";
 
 const upcoming = [
@@ -21,24 +22,16 @@ const EventsPage = () => {
 
   return (
     <Layout>
-      <section className="page-hero">
-        <div className="container-wide px-6 sm:px-8 lg:px-12">
-          <div className="max-w-xl">
-            <div className="gold-accent-bar" />
-            <p className="text-[12px] font-semibold uppercase tracking-[0.15em] mb-5 text-gold">Gatherings & Community Life</p>
-            <h1 className="text-[42px] sm:text-[52px] font-extrabold tracking-tight leading-[1.06] mb-5 text-primary-foreground">Events</h1>
-            <p className="text-[16px] leading-[1.7] text-primary-foreground/55">
-              BICKOSA events bring the alumni community to life — from reunions and meetings to sports, celebrations, and shared moments.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Gatherings & Community Life"
+        title="Events"
+        description="BICKOSA events bring the alumni community to life — from reunions and meetings to sports, celebrations, and shared moments."
+      />
 
       {featured && (
-        <section className="section-padding bg-background">
-          <div className="container-wide">
-            <div className="relative bg-navy rounded-xl p-8 sm:p-12 overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold via-gold-light to-gold/0" />
+        <section className="section">
+          <div className="relative rounded-bento-2xl p-8 sm:p-12 overflow-hidden" style={{ background: "var(--navy-900)" }}>
+              <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg, var(--gold-500), var(--gold-300))" }} />
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/10 border border-gold/20 mb-6">
                 <span className="w-2 h-2 rounded-full bg-gold" />
                 <span className="text-[11px] font-semibold uppercase tracking-wider text-gold">Featured · {featured.type}</span>
@@ -49,17 +42,16 @@ const EventsPage = () => {
                 <span className="flex items-center gap-1.5"><CalendarDays className="w-3.5 h-3.5" /> {featured.date}</span>
                 <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" /> {featured.location}</span>
               </div>
-            </div>
           </div>
         </section>
       )}
 
-      <section className="section-padding bg-muted">
-        <div className="container-wide">
-          <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-10">Upcoming Events</h2>
-          <div className="space-y-4">
-            {others.map((e) => (
-              <div key={e.title} className="bg-card border border-border rounded-xl p-7 hover:shadow-sm transition-shadow group">
+      <section className="section">
+        <p className="section-eyebrow">Calendar</p>
+        <h2 className="section-heading">Upcoming Events</h2>
+        <div className="space-y-4">
+          {others.map((e) => (
+            <div key={e.title} className="bg-card border border-border rounded-bento-2xl p-7 hover:shadow-sm transition-shadow group">
                 <div className="flex items-start gap-4">
                   <div className={`w-2 h-full min-h-[60px] rounded-full ${e.accent} flex-shrink-0 mt-1`} />
                   <div className="flex-1">
@@ -76,16 +68,15 @@ const EventsPage = () => {
                 </div>
               </div>
             ))}
-          </div>
         </div>
       </section>
 
-      <section className="section-padding bg-background">
-        <div className="container-wide">
-          <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-10">Past Events</h2>
-          <div className="space-y-0 border-t border-border">
+      <section className="section">
+        <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-10">Past Events</h2>
+        <div className="rounded-bento-2xl border border-border bg-card overflow-hidden">
+          <div className="divide-y divide-border">
             {past.map((e) => (
-              <div key={e.title} className="grid grid-cols-[1fr] sm:grid-cols-[100px_1fr] gap-4 sm:gap-8 py-7 border-b border-border">
+              <div key={e.title} className="grid grid-cols-[1fr] sm:grid-cols-[100px_1fr] gap-4 sm:gap-8 py-7 px-6 sm:px-8">
                 <div>
                   <p className="text-[13px] font-bold text-gold">{e.date}</p>
                 </div>

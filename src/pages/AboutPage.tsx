@@ -1,17 +1,19 @@
 import Layout from "@/components/Layout";
+import { PageHero } from "@/components/PageHero";
 import { Link } from "react-router-dom";
-import { ArrowRight, Quote } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import heroImg from "@/assets/school-courtyard.png";
+import { BentoCard } from "@/components/bento";
 
 const values = [
-  { label: "Unity", description: "We are stronger when we stay connected.", accent: "bg-cobalt" },
-  { label: "Excellence", description: "We carry forward a culture of growth, effort, and ambition.", accent: "bg-teal" },
-  { label: "Integrity", description: "We value honesty, responsibility, and moral character.", accent: "bg-gold" },
-  { label: "Service", description: "We believe in giving back with purpose.", accent: "bg-coral" },
-  { label: "Legacy", description: "We preserve the story and spirit of BCK.", accent: "bg-cobalt" },
-  { label: "Community", description: "We create room for belonging across generations.", accent: "bg-teal" },
-  { label: "Accountability", description: "We aim to act with transparency and trust.", accent: "bg-gold" },
-  { label: "Pride in Belonging", description: "We celebrate the identity that connects us.", accent: "bg-coral" },
+  { label: "Unity", description: "We are stronger when we stay connected." },
+  { label: "Excellence", description: "We carry forward a culture of growth, effort, and ambition." },
+  { label: "Integrity", description: "We value honesty, responsibility, and moral character." },
+  { label: "Service", description: "We believe in giving back with purpose." },
+  { label: "Legacy", description: "We preserve the story and spirit of BCK." },
+  { label: "Community", description: "We create room for belonging across generations." },
+  { label: "Accountability", description: "We aim to act with transparency and trust." },
+  { label: "Pride in Belonging", description: "We celebrate the identity that connects us." },
 ];
 
 const whatWeDo = [
@@ -25,138 +27,174 @@ const whatWeDo = [
 const AboutPage = () => {
   return (
     <Layout>
-      <section className="page-hero relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <img src={heroImg} alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="relative container-wide px-6 sm:px-8 lg:px-12">
-          <div className="max-w-xl">
-            <div className="gold-accent-bar" />
-            <p className="text-[12px] font-semibold uppercase tracking-[0.15em] mb-5 text-gold">Who We Are</p>
-            <h1 className="text-[42px] sm:text-[52px] font-extrabold tracking-tight leading-[1.06] mb-5 text-primary-foreground">
-              About BICKOSA
-            </h1>
-            <p className="text-[16px] leading-[1.7] text-primary-foreground/55">
-              The official alumni association of Bishop Cipriano Kihangire Senior Secondary School — a home for old students united by memory, identity, friendship, service, and shared commitment.
+      <PageHero
+        eyebrow="Who We Are"
+        title="About BICKOSA"
+        description="The official alumni association of Bishop Cipriano Kihangire Senior Secondary School — a home for old students united by memory, identity, friendship, service, and shared commitment."
+        image={heroImg}
+      />
+
+      <section className="section">
+        <p className="section-eyebrow">Community</p>
+        <h2 className="section-heading">A Community Built on Shared Roots</h2>
+        <p className="section-sub">
+          BICKOSA brings together former students of Bishop Cipriano Kihangire Senior Secondary
+          School across generations and locations.
+        </p>
+        <div className="bento">
+          <BentoCard variant="white" col={8} minHeight={220}>
+            <p className="bc-text">
+              It exists to preserve belonging beyond school years — creating space for old students
+              to reconnect, collaborate, support one another, and contribute meaningfully. At its
+              core, BICKOSA is about identity, continuity, and collective strength.
             </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding bg-background">
-        <div className="container-wide">
-          <div className="grid lg:grid-cols-[1fr_380px] gap-16 items-start">
-            <div>
-              <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-6">A Community Built on Shared Roots</h2>
-              <p className="text-[16px] text-muted-foreground leading-[1.75] mb-4">
-                BICKOSA brings together former students of Bishop Cipriano Kihangire Senior Secondary School across generations and locations. It exists to preserve belonging beyond school years — creating space for old students to reconnect, collaborate, support one another, and contribute meaningfully.
+          </BentoCard>
+          <BentoCard variant="navy-tint" col={4} minHeight={220}>
+            <div className="bc-border-left-gold" aria-hidden />
+            <div style={{ paddingLeft: 16 }}>
+              <p className="bc-quote">
+                &ldquo;What makes us strong is not where we are today, but where we come from — and
+                the bond that holds us together.&rdquo;
               </p>
-              <p className="text-[15px] text-muted-foreground leading-[1.75]">
-                At its core, BICKOSA is about identity, continuity, and collective strength.
-              </p>
+              <p className="bc-quote-attr">BICKOSA Community</p>
             </div>
-            <div className="bg-muted rounded-xl p-7 border-l-3 border-gold">
-              <Quote className="w-5 h-5 text-gold/50 mb-3" />
-              <p className="serif-heading text-[17px] text-foreground/75 leading-[1.6] mb-3">
-                "What makes us strong is not where we are today, but where we come from — and the bond that holds us together."
-              </p>
-              <p className="text-[12px] text-muted-foreground">BICKOSA Community</p>
+          </BentoCard>
+        </div>
+      </section>
+
+      <section className="section">
+        <p className="section-eyebrow">Mission & Vision</p>
+        <h2 className="section-heading">What We Stand For</h2>
+        <div className="bento">
+          <BentoCard variant="white" col={6} minHeight={240}>
+            <div className="bc-accent-bar-navy" aria-hidden />
+            <div
+              className="w-10 h-10 rounded-bento-lg flex items-center justify-center mb-5"
+              style={{ background: "var(--navy-50)", color: "var(--navy-700)", fontFamily: "var(--font-display)", fontWeight: 700 }}
+            >
+              M
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding bg-muted">
-        <div className="container-wide">
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-card border border-border rounded-xl p-8 sm:p-10">
-              <div className="w-10 h-10 rounded-lg bg-cobalt/10 flex items-center justify-center mb-5">
-                <span className="text-cobalt font-bold text-[16px]">M</span>
-              </div>
-              <h3 className="text-[22px] font-bold tracking-tight text-foreground mb-4">Our Mission</h3>
-              <p className="text-[15px] text-muted-foreground leading-[1.75]">
-                To unite old students of Bishop Cipriano Kihangire Senior Secondary School, preserve shared heritage, strengthen alumni relationships, and mobilize the community toward meaningful support for one another, the school, and society.
-              </p>
+            <h3 className="bc-title">Our Mission</h3>
+            <p className="bc-text">
+              To unite old students of Bishop Cipriano Kihangire Senior Secondary School, preserve
+              shared heritage, strengthen alumni relationships, and mobilize the community toward
+              meaningful support for one another, the school, and society.
+            </p>
+          </BentoCard>
+          <BentoCard variant="grad-navy" col={6} minHeight={240}>
+            <div className="bc-dots-dark" aria-hidden />
+            <div
+              className="w-10 h-10 rounded-bento-lg flex items-center justify-center mb-5"
+              style={{ background: "rgba(255,255,255,0.1)", color: "var(--gold-400)", fontFamily: "var(--font-display)", fontWeight: 700 }}
+            >
+              V
             </div>
-            <div className="bg-navy rounded-xl p-8 sm:p-10">
-              <div className="w-10 h-10 rounded-lg bg-gold/15 flex items-center justify-center mb-5">
-                <span className="text-gold font-bold text-[16px]">V</span>
-              </div>
-              <h3 className="text-[22px] font-bold tracking-tight text-primary-foreground mb-4">Our Vision</h3>
-              <p className="text-[15px] text-primary-foreground/55 leading-[1.75]">
-                To build a vibrant, trusted, and impactful alumni community that honors the legacy of BCK while creating long-term value for generations of students and old students.
-              </p>
+            <h3 className="bc-title on-dark">Our Vision</h3>
+            <p className="bc-text on-dark">
+              To build a vibrant, trusted, and impactful alumni community that honors the legacy of
+              BCK while creating long-term value for generations of students and old students.
+            </p>
+          </BentoCard>
+        </div>
+      </section>
+
+      <section className="section">
+        <p className="section-eyebrow">Values</p>
+        <h2 className="section-heading">Core Values</h2>
+        <div className="bento">
+          {values.map((v) => (
+            <BentoCard key={v.label} variant="surface" col={3} minHeight={160}>
+              <div className="bc-eyebrow">Value</div>
+              <h3 className="bc-title" style={{ fontSize: "1rem" }}>
+                {v.label}
+              </h3>
+              <p className="bc-text sm">{v.description}</p>
+            </BentoCard>
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <p className="section-eyebrow">Purpose</p>
+        <h2 className="section-heading">What BICKOSA Exists to Do</h2>
+        <div className="bento">
+          <BentoCard variant="white" col={12} minHeight={0} className="!min-h-0">
+            <div className="space-y-0">
+              {whatWeDo.map((item, i) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-4 py-5 border-b"
+                  style={{ borderColor: "var(--border-soft)" }}
+                >
+                  <span
+                    className="text-[13px] font-bold w-5 flex-shrink-0 pt-0.5"
+                    style={{ color: "var(--gold-600)" }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="text-[15px] leading-relaxed" style={{ color: "var(--text-primary)" }}>
+                    {item}
+                  </p>
+                </div>
+              ))}
             </div>
-          </div>
+          </BentoCard>
         </div>
       </section>
 
-      <section className="section-padding bg-background">
-        <div className="container-wide">
-          <div className="gold-accent-bar" />
-          <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-10">Core Values</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
-            {values.map((v) => (
-              <div key={v.label} className="group bg-card border border-border rounded-xl p-6 hover:shadow-sm transition-shadow">
-                <div className={`w-2 h-2 rounded-full ${v.accent} mb-4`} />
-                <p className="text-[14px] font-semibold text-foreground mb-1.5">{v.label}</p>
-                <p className="text-[13px] text-muted-foreground leading-relaxed">{v.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+      <section className="section">
+        <p className="section-eyebrow">Impact</p>
+        <h2 className="section-heading">Why BICKOSA Matters</h2>
+        <p className="section-sub">
+          Alumni associations help institutions live beyond the classroom. They preserve memory,
+          deepen identity, and turn shared experience into long-term value. It is not just about
+          looking back — it is also about building forward.
+        </p>
       </section>
 
-      <section className="section-padding bg-muted">
-        <div className="container-wide max-w-2xl">
-          <div className="gold-accent-bar" />
-          <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-6">What BICKOSA Exists to Do</h2>
-          <div className="space-y-0">
-            {whatWeDo.map((item, i) => (
-              <div key={item} className="flex items-start gap-4 py-5 border-b border-border">
-                <span className="text-[13px] font-bold text-gold/60 w-5 flex-shrink-0 pt-0.5">{String(i + 1).padStart(2, "0")}</span>
-                <p className="text-[15px] text-foreground leading-relaxed">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+      <section className="section">
+        <p className="section-eyebrow">Governance</p>
+        <h2 className="section-heading">Leadership & Governance</h2>
+        <p className="section-sub mb-8">
+          BICKOSA is stewarded by leaders committed to serving the alumni community with
+          responsibility, structure, and purpose.
+        </p>
+        <Link to="/governance" className="bc-btn bc-btn-navy">
+          View Governance <ArrowRight className="w-4 h-4 inline ml-1" />
+        </Link>
       </section>
 
-      <section className="section-padding bg-background">
-        <div className="container-wide max-w-2xl">
-          <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-6">Why BICKOSA Matters</h2>
-          <p className="text-[16px] text-muted-foreground leading-[1.75] mb-4">
-            Alumni associations help institutions live beyond the classroom. They preserve memory, deepen identity, and turn shared experience into long-term value.
-          </p>
-          <p className="text-[15px] text-muted-foreground leading-[1.75]">
-            It is not just about looking back. It is also about building forward.
-          </p>
-        </div>
-      </section>
-
-      <section className="section-padding bg-muted">
-        <div className="container-wide max-w-2xl">
-          <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-5">Leadership & Governance</h2>
-          <p className="text-[15px] text-muted-foreground leading-[1.75] mb-8">
-            BICKOSA is stewarded by leaders committed to serving the alumni community with responsibility, structure, and purpose.
-          </p>
-          <Link to="/governance" className="inline-flex items-center gap-2 text-[14px] font-semibold text-cobalt hover:text-cobalt/80 transition-colors">
-            View Governance <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </section>
-
-      <section className="bg-navy">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-20 sm:py-24 text-center">
-          <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-primary-foreground leading-[1.15] mb-4">Be Part of the Association</h2>
-          <p className="text-[15px] text-primary-foreground/50 leading-[1.75] mb-8 max-w-md mx-auto">
-            Whether you want to reconnect, contribute, or simply stay informed, there is a place for you within BICKOSA.
+      <section
+        className="section"
+        style={{
+          background: "var(--navy-900)",
+          marginLeft: "calc(-50vw + 50%)",
+          marginRight: "calc(-50vw + 50%)",
+          paddingLeft: "max(32px, calc(50vw - 640px))",
+          paddingRight: "max(32px, calc(50vw - 640px))",
+          paddingTop: 80,
+          paddingBottom: 80,
+        }}
+      >
+        <div className="max-w-[1280px] mx-auto text-center">
+          <h2
+            className="text-[30px] sm:text-[34px] font-bold tracking-tight leading-[1.15] mb-4"
+            style={{ fontFamily: "var(--font-display)", color: "var(--white)" }}
+          >
+            Be Part of the Association
+          </h2>
+          <p
+            className="text-[15px] leading-[1.75] mb-8 max-w-md mx-auto"
+            style={{ color: "var(--navy-200)" }}
+          >
+            Whether you want to reconnect, contribute, or simply stay informed, there is a place for
+            you within BICKOSA.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <Link to="/contact" className="inline-flex items-center h-11 px-6 text-[14px] font-semibold bg-gold text-navy rounded-md hover:bg-gold-light transition-colors">
+            <Link to="/contact" className="bc-btn bc-btn-gold">
               Contact BICKOSA
             </Link>
-            <Link to="/events" className="inline-flex items-center h-11 px-6 text-[14px] font-medium border border-primary-foreground/20 text-primary-foreground rounded-md hover:bg-primary-foreground/10 transition-colors">
+            <Link to="/events" className="bc-btn bc-btn-ghost-dark">
               Explore Events
             </Link>
           </div>

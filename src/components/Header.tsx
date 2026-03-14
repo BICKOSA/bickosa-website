@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/bickosa-logo.png";
+import { cn } from "@/lib/utils";
 
 const navLinks = [
   { label: "About", path: "/about" },
@@ -28,38 +29,55 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/60">
-      <div className="max-w-6xl mx-auto flex items-center justify-between h-[56px] px-6 sm:px-8 lg:px-12">
-        <Link to="/" className="flex items-center gap-2.5">
-          <img src={logo} alt="BICKOSA" className="h-8 w-auto" />
-          <span className="text-[15px] font-bold tracking-tight text-foreground">BICKOSA</span>
+    <header
+      className="fixed top-0 left-0 right-0 z-50 border-b"
+      style={{
+        background: "var(--white)",
+        borderColor: "var(--border)",
+      }}
+    >
+      <nav className="topnav max-w-[1280px] mx-auto px-6 sm:px-8" style={{ marginBottom: 0 }}>
+        <Link to="/" className="topnav-brand flex items-center gap-2.5">
+          <img src={logo} alt="BICKOSA" className="h-7 w-auto" />
+          BICKOSA<span>.</span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-0.5">
+        <div className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className={`px-3 py-1.5 text-[13px] font-medium transition-colors rounded-md ${
-                isActive(link.path)
-                  ? "text-foreground bg-muted"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
+              className={cn(
+                "topnav-link",
+                isActive(link.path) && "!text-[var(--navy-900)] font-600"
+              )}
             >
               {link.label}
             </Link>
           ))}
           <div className="relative group">
-            <button className="px-3 py-1.5 text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md">
+            <button
+              type="button"
+              className="topnav-link cursor-pointer bg-transparent border-none"
+            >
               More
             </button>
-            <div className="absolute right-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150">
-              <div className="bg-card border border-border rounded-lg shadow-lg py-1 min-w-[160px]">
+            <div className="absolute right-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-10">
+              <div
+                className="rounded-xl border py-1 min-w-[180px] shadow-lg"
+                style={{
+                  background: "var(--white)",
+                  borderColor: "var(--border)",
+                }}
+              >
                 {moreLinks.map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}
-                    className="block px-4 py-2 text-[13px] text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                    className="block px-4 py-2.5 text-[13px] transition-colors hover:bg-[var(--surface-alt)]"
+                    style={{
+                      color: "var(--text-secondary)",
+                    }}
                   >
                     {link.label}
                   </Link>
@@ -67,49 +85,56 @@ const Header = () => {
               </div>
             </div>
           </div>
-        </nav>
+        </div>
 
         <div className="hidden lg:block">
-          <Link
-            to="/contact"
-            className="text-[13px] font-semibold text-primary-foreground bg-navy px-4 py-2 rounded-md hover:bg-navy-light transition-colors"
-          >
-            Get in Touch
+          <Link to="/contact" className="topnav-cta">
+            Join BICKOSA
           </Link>
         </div>
 
         <button
+          type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden p-1.5 rounded-md text-foreground hover:bg-muted transition-colors"
+          className="lg:hidden p-1.5 rounded-md transition-colors hover:bg-[var(--surface-alt)]"
+          style={{ color: "var(--navy-900)" }}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
-      </div>
+      </nav>
 
       {isOpen && (
-        <div className="lg:hidden bg-background border-t border-border">
-          <nav className="max-w-6xl mx-auto px-6 py-4 flex flex-col">
+        <div
+          className="lg:hidden border-t"
+          style={{ background: "var(--white)", borderColor: "var(--border)" }}
+        >
+          <nav className="max-w-[1280px] mx-auto px-6 py-4 flex flex-col gap-0.5">
             {[...navLinks, ...moreLinks].map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`px-3 py-2.5 text-[14px] font-medium transition-colors rounded-md ${
+                className={cn(
+                  "px-3 py-2.5 text-[14px] font-medium transition-colors rounded-md",
                   isActive(link.path)
-                    ? "text-foreground bg-muted"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
+                    ? "bg-[var(--surface-alt)]"
+                    : "hover:bg-[var(--surface-alt)]"
+                )}
+                style={{
+                  color: isActive(link.path) ? "var(--navy-900)" : "var(--text-secondary)",
+                }}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="mt-3 pt-3 border-t border-border">
+            <div className="mt-3 pt-3 border-t" style={{ borderColor: "var(--border)" }}>
               <Link
                 to="/contact"
                 onClick={() => setIsOpen(false)}
-                className="inline-flex items-center justify-center w-full h-10 text-[14px] font-semibold text-primary-foreground bg-navy rounded-md"
+                className="topnav-cta inline-flex justify-center w-full"
               >
-                Get in Touch
+                Join BICKOSA
               </Link>
             </div>
           </nav>

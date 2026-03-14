@@ -1,46 +1,76 @@
 import Layout from "@/components/Layout";
+import { PageHero } from "@/components/PageHero";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { BentoCard } from "@/components/bento";
 
 const faqs = [
-  { q: "What is BICKOSA?", a: "BICKOSA is the Bishop Cipriano Kihangire Old Students Association, the alumni community of Bishop Cipriano Kihangire Senior Secondary School." },
-  { q: "Who can engage with BICKOSA?", a: "BICKOSA primarily serves former students of the school, while also creating space for partners, supporters, and the wider BCK community to connect where appropriate." },
-  { q: "How can I stay updated?", a: "You can stay updated through the website, official social channels, and public announcements shared by the association." },
-  { q: "How can I support a project or event?", a: "Visit the Projects & Giving page or contact the association directly to express your interest." },
-  { q: "How can I share my alumni story?", a: "Reach out through the Contact page and the team will guide you through the next steps." },
-  { q: "Will there be a member platform later?", a: "Yes. The current phase focuses on the public website. More alumni-specific digital tools may be introduced in later phases." },
+  {
+    q: "What is BICKOSA?",
+    a: "BICKOSA is the Bishop Cipriano Kihangire Old Students Association, the alumni community of Bishop Cipriano Kihangire Senior Secondary School.",
+  },
+  {
+    q: "Who can engage with BICKOSA?",
+    a: "BICKOSA primarily serves former students of the school, while also creating space for partners, supporters, and the wider BCK community to connect where appropriate.",
+  },
+  {
+    q: "How can I stay updated?",
+    a: "You can stay updated through the website, official social channels, and public announcements shared by the association.",
+  },
+  {
+    q: "How can I support a project or event?",
+    a: "Visit the Projects & Giving page or contact the association directly to express your interest.",
+  },
+  {
+    q: "How can I share my alumni story?",
+    a: "Reach out through the Contact page and the team will guide you through the next steps.",
+  },
+  {
+    q: "Will there be a member platform later?",
+    a: "Yes. The current phase focuses on the public website. More alumni-specific digital tools may be introduced in later phases.",
+  },
 ];
 
 const FAQPage = () => {
   return (
     <Layout>
-      <section className="page-hero">
-        <div className="container-wide px-6 sm:px-8 lg:px-12">
-          <div className="max-w-xl">
-            <div className="gold-accent-bar" />
-            <p className="text-[12px] font-semibold uppercase tracking-[0.15em] mb-5 text-gold">Common Questions</p>
-            <h1 className="text-[42px] sm:text-[52px] font-extrabold tracking-tight leading-[1.06] mb-5 text-primary-foreground">FAQs</h1>
-            <p className="text-[16px] leading-[1.7] text-primary-foreground/55">
-              Answers to common questions about BICKOSA, engagement, projects, and staying connected.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Common Questions"
+        title="FAQs"
+        description="Answers to common questions about BICKOSA, engagement, projects, and staying connected."
+      />
 
-      <section className="section-padding bg-background">
-        <div className="container-wide max-w-2xl">
-          <Accordion type="single" collapsible className="space-y-3">
+      <section className="section">
+        <p className="section-eyebrow">Help</p>
+        <h2 className="section-heading">Frequently Asked Questions</h2>
+        <p className="section-sub">
+          Quick answers to what we get asked most.
+        </p>
+
+        <BentoCard variant="white" col={12} minHeight={0} className="!min-h-0 !p-0">
+          <Accordion type="single" collapsible className="divide-y" style={{ borderColor: "var(--border)" }}>
             {faqs.map((faq, i) => (
-              <AccordionItem key={i} value={`faq-${i}`} className="bg-card border border-border rounded-xl px-6 overflow-hidden">
-                <AccordionTrigger className="text-left text-[15px] font-semibold text-foreground hover:no-underline py-5">
+              <AccordionItem
+                key={i}
+                value={`faq-${i}`}
+                className="px-6 py-4 border-0 border-b last:border-b-0"
+                style={{ borderColor: "var(--border)" }}
+              >
+                <AccordionTrigger
+                  className="text-left text-[15px] font-semibold hover:no-underline py-2"
+                  style={{ color: "var(--navy-900)", fontFamily: "var(--font-sans)" }}
+                >
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-[14px] text-muted-foreground leading-[1.75] pb-5">
+                <AccordionContent
+                  className="text-[14px] leading-[1.75] pb-2"
+                  style={{ color: "var(--text-secondary)" }}
+                >
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
-        </div>
+        </BentoCard>
       </section>
     </Layout>
   );

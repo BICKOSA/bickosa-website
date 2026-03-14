@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
+import { PageHero } from "@/components/PageHero";
 import schoolCourtyard from "@/assets/school-courtyard.png";
 import schoolGreenRoofs from "@/assets/school-green-roofs.png";
 import schoolNoticeTerm from "@/assets/school-notice-term.png";
@@ -19,27 +20,20 @@ const GalleryPage = () => {
 
   return (
     <Layout>
-      <section className="page-hero">
-        <div className="container-wide px-6 sm:px-8 lg:px-12">
-          <div className="max-w-xl">
-            <div className="gold-accent-bar" />
-            <p className="text-[12px] font-semibold uppercase tracking-[0.15em] mb-5 text-gold">Visual Archive</p>
-            <h1 className="text-[42px] sm:text-[52px] font-extrabold tracking-tight leading-[1.06] mb-5 text-primary-foreground">Gallery</h1>
-            <p className="text-[16px] leading-[1.7] text-primary-foreground/55">
-              A curated visual archive of school memories, alumni moments, events, and the shared experiences that define BICKOSA.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Visual Archive"
+        title="Gallery"
+        description="A curated visual archive of school memories, alumni moments, events, and the shared experiences that define BICKOSA."
+        image={schoolCourtyard}
+      />
 
-      <section className="section-padding bg-background">
-        <div className="container-wide">
-          <div className="flex flex-wrap gap-2 mb-12">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActive(cat)}
-                className={`px-4 py-2 text-[13px] font-medium rounded-md transition-all ${
+      <section className="section">
+        <div className="flex flex-wrap gap-2 mb-12">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActive(cat)}
+              className={`px-4 py-2 text-[13px] font-medium rounded-bento-lg transition-all ${
                   active === cat
                     ? "bg-navy text-primary-foreground"
                     : "bg-muted text-muted-foreground hover:text-foreground hover:bg-border"
@@ -56,7 +50,7 @@ const GalleryPage = () => {
               return (
                 <div
                   key={i}
-                  className={`group cursor-pointer rounded-lg overflow-hidden ${i === 0 ? "col-span-2 row-span-2" : ""}`}
+                  className={`group cursor-pointer rounded-bento-2xl overflow-hidden ${i === 0 ? "col-span-2 row-span-2" : ""}`}
                 >
                   <div className={`${i === 0 ? "aspect-square" : "aspect-[4/3]"} relative`}>
                     <img
@@ -69,7 +63,6 @@ const GalleryPage = () => {
                 </div>
               );
             })}
-          </div>
         </div>
       </section>
     </Layout>

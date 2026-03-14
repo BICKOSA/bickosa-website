@@ -1,6 +1,8 @@
 import Layout from "@/components/Layout";
+import { PageHero } from "@/components/PageHero";
 import { Link } from "react-router-dom";
 import { ArrowRight, Quote } from "lucide-react";
+import schoolCourtyard from "@/assets/school-courtyard.png";
 
 const featured = {
   name: "Teopista Nabakiibi",
@@ -21,31 +23,22 @@ const stories = [
 const StoriesPage = () => {
   return (
     <Layout>
-      <section className="page-hero">
-        <div className="container-wide px-6 sm:px-8 lg:px-12">
-          <div className="max-w-xl">
-            <div className="gold-accent-bar" />
-            <p className="text-[12px] font-semibold uppercase tracking-[0.15em] mb-5 text-gold">Our People</p>
-            <h1 className="text-[42px] sm:text-[52px] font-extrabold tracking-tight leading-[1.06] mb-5 text-primary-foreground">Alumni Stories</h1>
-            <p className="text-[16px] leading-[1.7] text-primary-foreground/55">
-              The BICKOSA community is made up of many journeys — shaped by different callings but connected by one shared foundation.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Our People"
+        title="Alumni Stories"
+        description="The BICKOSA community is made up of many journeys — shaped by different callings but connected by one shared foundation."
+        image={schoolCourtyard}
+      />
 
-      <section className="section-padding bg-background">
-        <div className="container-wide max-w-2xl">
-          <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-6">Every Story Carries the Legacy Forward</h2>
+      <section className="section max-w-2xl">
+        <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-6">Every Story Carries the Legacy Forward</h2>
           <p className="text-[16px] text-muted-foreground leading-[1.75]">
             Alumni stories preserve memory, build pride, inspire younger generations, and remind the community of the many ways a BCK foundation can shape a life.
-          </p>
-        </div>
+        </p>
       </section>
 
       {/* Featured story */}
-      <section className="section-padding bg-muted">
-        <div className="container-wide">
+      <section className="section">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/10 border border-gold/20 mb-8">
             <span className="w-2 h-2 rounded-full bg-gold" />
             <span className="text-[11px] font-semibold uppercase tracking-wider text-gold">Featured Story</span>
@@ -64,16 +57,14 @@ const StoriesPage = () => {
               <p className="text-[16px] text-foreground/80 leading-[1.8]">{featured.story}</p>
             </div>
           </div>
-        </div>
       </section>
 
       {/* More stories */}
-      <section className="section-padding bg-background">
-        <div className="container-wide">
-          <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-10">More Stories from the Community</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {stories.map((s) => (
-              <div key={s.name} className="bg-card border border-border rounded-xl p-7 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 group">
+      <section className="section">
+        <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-10">More Stories from the Community</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {stories.map((s) => (
+            <div key={s.name} className="bg-card border border-border rounded-bento-2xl p-7 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 group">
                 <div className="flex items-center gap-2 mb-5">
                   <div className={`w-2 h-2 rounded-full ${s.accent}`} />
                   <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{s.tag}</span>
@@ -90,17 +81,16 @@ const StoriesPage = () => {
                 </div>
               </div>
             ))}
-          </div>
         </div>
       </section>
 
-      <section className="bg-navy">
+      <section className="rounded-bento-2xl overflow-hidden mt-10" style={{ background: "var(--navy-900)" }}>
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-20 sm:py-24 text-center">
           <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-primary-foreground leading-[1.15] mb-4">Have a Story to Share?</h2>
           <p className="text-[15px] text-primary-foreground/50 leading-[1.75] mb-8 max-w-md mx-auto">
             If you would like to share your story, reflection, or experience, we would love to hear from you.
           </p>
-          <Link to="/contact" className="inline-flex items-center gap-2 h-11 px-6 text-[14px] font-semibold bg-gold text-navy rounded-md hover:bg-gold-light transition-colors">
+          <Link to="/contact" className="inline-flex items-center gap-2 h-11 px-6 text-[14px] font-semibold bg-gold text-navy rounded-bento-xl hover:bg-gold-light transition-colors">
             Contact BICKOSA <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

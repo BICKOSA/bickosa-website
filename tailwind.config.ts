@@ -63,7 +63,7 @@ export default {
         },
         ivory: "hsl(var(--ivory))",
         "warm-gray": "hsl(var(--warm-gray))",
-        surface: "hsl(var(--surface))",
+        surface: "hsl(var(--surface-hsl))",
         "surface-raised": "hsl(var(--surface-raised))",
         cobalt: "hsl(var(--cobalt))",
         coral: "hsl(var(--coral))",
@@ -85,6 +85,9 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        "bento-lg": "var(--radius-lg)",
+        "bento-xl": "var(--radius-xl)",
+        "bento-2xl": "var(--radius-2xl)",
       },
       keyframes: {
         "accordion-down": {

@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import { PageHero } from "@/components/PageHero";
 import { Link } from "react-router-dom";
 import heroImg from "@/assets/school-courtyard.png";
 import heritageImg from "@/assets/school-green-roofs.png";
@@ -17,27 +18,15 @@ const timeline = [
 const HistoryPage = () => {
   return (
     <Layout>
-      <section className="page-hero relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <img src={heroImg} alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="relative container-wide px-6 sm:px-8 lg:px-12">
-          <div className="max-w-xl">
-            <div className="gold-accent-bar" />
-            <p className="text-[12px] font-semibold uppercase tracking-[0.15em] mb-5 text-gold">Our Story</p>
-            <h1 className="text-[42px] sm:text-[52px] font-extrabold tracking-tight leading-[1.06] mb-5 text-primary-foreground">
-              History & Legacy
-            </h1>
-            <p className="text-[16px] leading-[1.7] text-primary-foreground/55">
-              A journey of growth, identity, community, and enduring values — from 1999 to today.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Our Story"
+        title="History & Legacy"
+        description="A journey of growth, identity, community, and enduring values — from 1999 to today."
+        image={heroImg}
+      />
 
-      <section className="section-padding bg-background">
-        <div className="container-wide">
-          <div className="grid lg:grid-cols-[1fr_380px] gap-16 items-start">
+      <section className="section">
+        <div className="grid lg:grid-cols-[1fr_380px] gap-16 items-start">
             <div>
               <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-6">A Story Worth Remembering</h2>
               <p className="text-[16px] text-muted-foreground leading-[1.75] mb-4">
@@ -47,16 +36,14 @@ const HistoryPage = () => {
                 BICKOSA exists to help preserve that story — not as nostalgia alone, but as a living inheritance.
               </p>
             </div>
-            <div className="rounded-xl overflow-hidden shadow-lg">
+            <div className="rounded-bento-2xl overflow-hidden shadow-lg">
               <img src={heritageImg} alt="BCK SSS Heritage" className="w-full aspect-[3/4] object-cover" />
             </div>
-          </div>
         </div>
       </section>
 
-      <section className="section-padding bg-muted">
-        <div className="container-wide max-w-3xl">
-          <div className="gold-accent-bar" />
+      <section className="section max-w-3xl">
+          <p className="section-eyebrow">Timeline</p>
           <p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-gold mb-4">Through the Years</p>
           <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-12">Key Milestones</h2>
 
@@ -83,12 +70,10 @@ const HistoryPage = () => {
               ))}
             </div>
           </div>
-        </div>
       </section>
 
-      <section className="section-padding bg-background">
-        <div className="container-wide max-w-2xl">
-          <div className="gold-accent-bar" />
+      <section className="section max-w-2xl">
+          <p className="section-eyebrow">Impact</p>
           <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-6">The Meaning Behind the Name</h2>
           <p className="text-[15px] text-muted-foreground leading-[1.75] mb-4">
             The school is named in honour of <strong className="text-foreground font-medium">Bishop Cipriano Biyehima Kihangire</strong> (1918–1990), a Ugandan Catholic bishop whose ecclesiastical service included major roles in Gulu and Hoima.
@@ -96,10 +81,9 @@ const HistoryPage = () => {
           <p className="text-[15px] text-muted-foreground leading-[1.75]">
             The school was built by <strong className="text-foreground font-medium">Fr. John Scalabrini</strong>, a Catholic missionary who established schools and social services across the Luzira/Nakawa area of Kampala.
           </p>
-        </div>
       </section>
 
-      <section className="bg-navy">
+      <section className="rounded-bento-2xl overflow-hidden mt-10" style={{ background: "var(--navy-900)" }}>
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-20 sm:py-28 text-center">
           <p className="serif-heading text-[30px] sm:text-[36px] text-gold leading-[1.3] mb-4">
             "Per Aspera Ad Astra"
@@ -111,16 +95,14 @@ const HistoryPage = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-background">
-        <div className="container-wide text-center max-w-lg">
-          <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-4">Memory, Identity, and Belonging</h2>
+      <section className="section text-center max-w-lg mx-auto">
+        <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-4">Memory, Identity, and Belonging</h2>
           <p className="text-[15px] text-muted-foreground leading-[1.75] mb-6">
             What people remember most about school is rarely only academic. It is the friendships, routines, values, and the feeling of belonging to something bigger.
           </p>
-          <p className="text-[13px] text-muted-foreground">
-            Have a memory to share? <Link to="/contact" className="text-cobalt font-semibold hover:text-cobalt/80 transition-colors">Contact us</Link> to contribute.
-          </p>
-        </div>
+        <p className="text-[13px] text-muted-foreground">
+          Have a memory to share? <Link to="/contact" className="text-cobalt font-semibold hover:text-cobalt/80 transition-colors">Contact us</Link> to contribute.
+        </p>
       </section>
     </Layout>
   );

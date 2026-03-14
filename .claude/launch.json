@@ -1,0 +1,20 @@
+{
+  "servers": [
+    {
+      "id": "dev",
+      "name": "Vite Dev Server",
+      "command": "bun run dev",
+      "cwd": ".",
+      "url": "http://localhost:8080",
+      "description": "Hot-reloading development server (vite)"
+    },
+    {
+      "id": "preview",
+      "name": "Vite Preview Server",
+      "command": "bun run preview",
+      "cwd": ".",
+      "url": "http://localhost:4173",
+      "description": "Serves the production build locally (vite preview)"
+    }
+  ]
+}
