@@ -60,7 +60,6 @@ const HeroSection = () => {
               }}
             />
           </div>
-          <div className="bc-dots-dark z-[2]" aria-hidden />
           <div
             className="bc-glow glow-gold-soft z-[2]"
             style={{ width: 320, height: 320, bottom: -80, right: -60 }}
