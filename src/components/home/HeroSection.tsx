@@ -82,9 +82,7 @@ const HeroSection = () => {
               Bishop Cipriano Kihangire
             </div>
             <h1 className="bc-title xl on-dark">
-              Welcome
-              <br />
-              Back,
+              Welcome Back,
               <br />
               <span style={{ color: "var(--gold-400)" }}>Old Student.</span>
             </h1>

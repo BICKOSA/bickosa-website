@@ -28,21 +28,30 @@ const GalleryPage = () => {
       />
 
       <section className="section">
+        <p className="section-eyebrow">Visual Archive</p>
+        <h2 className="section-heading">Browse by Category</h2>
+        <p className="section-sub mb-8">Filter images by theme to explore school life, alumni events, and historic moments.</p>
         <div className="flex flex-wrap gap-2 mb-12">
           {categories.map((cat) => (
             <button
               key={cat}
+              type="button"
               onClick={() => setActive(cat)}
               className={`px-4 py-2 text-[13px] font-medium rounded-bento-lg transition-all ${
-                  active === cat
-                    ? "bg-navy text-primary-foreground"
-                    : "bg-muted text-muted-foreground hover:text-foreground hover:bg-border"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+                active === cat
+                  ? "text-white"
+                  : "hover:opacity-90"
+              }`}
+              style={
+                active === cat
+                  ? { background: "var(--navy-900)", color: "var(--white)" }
+                  : { background: "var(--surface-alt)", color: "var(--text-secondary)" }
+              }
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
             {Array.from({ length: 12 }).map((_, i) => {
@@ -58,7 +67,7 @@ const GalleryPage = () => {
                       alt={img.alt}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/30 transition-colors duration-300" />
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "rgba(13, 27, 62, 0.3)" }} />
                   </div>
                 </div>
               );

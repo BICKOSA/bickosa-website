@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
+import { BentoCard } from "@/components/bento";
 import { Link } from "react-router-dom";
 import { ArrowRight, Quote } from "lucide-react";
 import schoolCourtyard from "@/assets/school-courtyard.png";
@@ -31,66 +32,69 @@ const StoriesPage = () => {
       />
 
       <section className="section max-w-2xl">
-        <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-6">Every Story Carries the Legacy Forward</h2>
-          <p className="text-[16px] text-muted-foreground leading-[1.75]">
-            Alumni stories preserve memory, build pride, inspire younger generations, and remind the community of the many ways a BCK foundation can shape a life.
+        <p className="section-eyebrow">Voices of BCK</p>
+        <h2 className="section-heading">Every Story Carries the Legacy Forward</h2>
+        <p className="section-sub">
+          Alumni stories preserve memory, build pride, inspire younger generations, and remind the community of the many ways a BCK foundation can shape a life.
         </p>
       </section>
 
       {/* Featured story */}
       <section className="section">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/10 border border-gold/20 mb-8">
-            <span className="w-2 h-2 rounded-full bg-gold" />
-            <span className="text-[11px] font-semibold uppercase tracking-wider text-gold">Featured Story</span>
-          </div>
-          <div className="grid md:grid-cols-[280px_1fr] gap-10 items-start">
-            <div>
-              <div className="w-20 h-20 rounded-full bg-navy flex items-center justify-center mb-5">
-                <span className="text-2xl font-bold text-gold">{featured.name[0]}</span>
+        <div className="bento">
+          <BentoCard variant="white" col={12} minHeight={200} className="min-h-0">
+            <div className="flex items-center gap-2 mb-6">
+              <span className="bc-tag bc-tag-gold">Featured Story</span>
+            </div>
+            <div className="grid md:grid-cols-[280px_1fr] gap-10 items-start">
+              <div>
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mb-5" style={{ background: "var(--navy-900)" }}>
+                  <span className="text-2xl font-bold" style={{ color: "var(--gold-500)", fontFamily: "var(--font-display)" }}>{featured.name[0]}</span>
+                </div>
+                <h3 className="text-[18px] font-bold mb-1" style={{ color: "var(--navy-900)" }}>{featured.name}</h3>
+                <p className="text-[13px] font-medium mt-1" style={{ color: "hsl(var(--cobalt))" }}>{featured.role}</p>
+                <p className="text-[12px] mt-0.5" style={{ color: "var(--text-secondary)" }}>{featured.cohort}</p>
               </div>
-              <h3 className="text-[18px] font-bold text-foreground">{featured.name}</h3>
-              <p className="text-[13px] text-cobalt font-medium mt-1">{featured.role}</p>
-              <p className="text-[12px] text-muted-foreground mt-0.5">{featured.cohort}</p>
+              <div>
+                <Quote className="w-6 h-6 mb-4" style={{ color: "var(--gold-400)" }} />
+                <p className="text-[16px] leading-[1.8]" style={{ color: "var(--navy-700)" }}>{featured.story}</p>
+              </div>
             </div>
-            <div>
-              <Quote className="w-6 h-6 text-gold/30 mb-4" />
-              <p className="text-[16px] text-foreground/80 leading-[1.8]">{featured.story}</p>
-            </div>
-          </div>
+          </BentoCard>
+        </div>
       </section>
 
       {/* More stories */}
       <section className="section">
-        <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-10">More Stories from the Community</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <p className="section-eyebrow">Community</p>
+        <h2 className="section-heading">More Stories from the Community</h2>
+        <div className="bento">
           {stories.map((s) => (
-            <div key={s.name} className="bg-card border border-border rounded-bento-2xl p-7 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 group">
-                <div className="flex items-center gap-2 mb-5">
-                  <div className={`w-2 h-2 rounded-full ${s.accent}`} />
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{s.tag}</span>
+            <BentoCard key={s.name} variant="white" col={4} minHeight={260}>
+              <div className="bc-eyebrow">{s.tag}</div>
+              <p className="bc-quote" style={{ fontSize: "0.875rem", marginBottom: 16 }}>&ldquo;{s.excerpt}&rdquo;</p>
+              <div className="bc-divider" />
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "var(--navy-900)", color: "var(--gold-400)", fontFamily: "var(--font-display)", fontSize: "12px", fontWeight: 700 }}>
+                  {s.name[0]}
                 </div>
-                <p className="text-[14px] text-foreground/75 leading-[1.75] mb-6 serif-heading">"{s.excerpt}"</p>
-                <div className="pt-4 border-t border-border flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-navy flex items-center justify-center flex-shrink-0">
-                    <span className="text-[12px] font-bold text-gold">{s.name[0]}</span>
-                  </div>
-                  <div>
-                    <p className="text-[13px] font-semibold text-foreground">{s.name}</p>
-                    <p className="text-[11px] text-muted-foreground">{s.role} · {s.cohort}</p>
-                  </div>
+                <div>
+                  <p className="text-[13px] font-semibold" style={{ color: "var(--navy-900)" }}>{s.name}</p>
+                  <p className="bc-text sm" style={{ marginTop: 0 }}>{s.role} · {s.cohort}</p>
                 </div>
               </div>
-            ))}
+            </BentoCard>
+          ))}
         </div>
       </section>
 
       <section className="rounded-bento-2xl overflow-hidden mt-10" style={{ background: "var(--navy-900)" }}>
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-20 sm:py-24 text-center">
-          <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-primary-foreground leading-[1.15] mb-4">Have a Story to Share?</h2>
-          <p className="text-[15px] text-primary-foreground/50 leading-[1.75] mb-8 max-w-md mx-auto">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 py-20 sm:py-24 text-center">
+          <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight leading-[1.15] mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--white)" }}>Have a Story to Share?</h2>
+          <p className="text-[15px] leading-[1.75] mb-8 max-w-md mx-auto" style={{ color: "var(--navy-200)" }}>
             If you would like to share your story, reflection, or experience, we would love to hear from you.
           </p>
-          <Link to="/contact" className="inline-flex items-center gap-2 h-11 px-6 text-[14px] font-semibold bg-gold text-navy rounded-bento-xl hover:bg-gold-light transition-colors">
+          <Link to="/contact" className="bc-btn bc-btn-gold inline-flex items-center gap-2">
             Contact BICKOSA <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

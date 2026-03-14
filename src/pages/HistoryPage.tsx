@@ -28,11 +28,12 @@ const HistoryPage = () => {
       <section className="section">
         <div className="grid lg:grid-cols-[1fr_380px] gap-16 items-start">
             <div>
-              <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-6">A Story Worth Remembering</h2>
-              <p className="text-[16px] text-muted-foreground leading-[1.75] mb-4">
+              <p className="section-eyebrow">Our Story</p>
+              <h2 className="section-heading">A Story Worth Remembering</h2>
+              <p className="section-sub">
                 Every institution is built not only through time, but through the people who pass through it. The legacy of BCK lives in classrooms, friendships, traditions, and the many lives shaped by the school's values.
               </p>
-              <p className="text-[15px] text-muted-foreground leading-[1.75]">
+              <p className="text-[15px] leading-[1.75]" style={{ color: "var(--text-secondary)" }}>
                 BICKOSA exists to help preserve that story — not as nostalgia alone, but as a living inheritance.
               </p>
             </div>
@@ -44,27 +45,24 @@ const HistoryPage = () => {
 
       <section className="section max-w-3xl">
           <p className="section-eyebrow">Timeline</p>
-          <p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-gold mb-4">Through the Years</p>
-          <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-12">Key Milestones</h2>
+          <h2 className="section-heading mb-12">Key Milestones</h2>
 
           <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-[15px] top-0 bottom-0 w-px bg-border" />
+            <div className="absolute left-[15px] top-0 bottom-0 w-px" style={{ background: "var(--border)" }} />
 
             <div className="space-y-0">
               {timeline.map((item, i) => (
                 <div key={i} className="relative flex gap-8 pb-10 last:pb-0">
-                  {/* Timeline dot */}
                   <div className="relative flex-shrink-0">
-                    <div className={`w-[31px] h-[31px] rounded-full border-[3px] border-background flex items-center justify-center z-10 relative ${item.accent}`}>
-                      <div className="w-2 h-2 rounded-full bg-background" />
+                    <div className={`w-[31px] h-[31px] rounded-full border-[3px] flex items-center justify-center z-10 relative ${item.accent}`} style={{ borderColor: "var(--surface)" }}>
+                      <div className="w-2 h-2 rounded-full" style={{ background: "var(--surface)" }} />
                     </div>
                   </div>
 
-                  <div className="flex-1 pb-8 border-b border-border last:border-b-0">
-                    <p className="text-[13px] font-bold text-gold mb-1">{item.year}</p>
-                    <h3 className="text-[16px] font-semibold text-foreground mb-2">{item.title}</h3>
-                    <p className="text-[14px] text-muted-foreground leading-[1.75]">{item.description}</p>
+                  <div className="flex-1 pb-8 border-b last:border-b-0" style={{ borderColor: "var(--border)" }}>
+                    <p className="text-[13px] font-bold mb-1" style={{ color: "var(--gold-600)" }}>{item.year}</p>
+                    <h3 className="text-[16px] font-semibold mb-2" style={{ color: "var(--navy-900)" }}>{item.title}</h3>
+                    <p className="text-[14px] leading-[1.75]" style={{ color: "var(--text-secondary)" }}>{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -74,34 +72,35 @@ const HistoryPage = () => {
 
       <section className="section max-w-2xl">
           <p className="section-eyebrow">Impact</p>
-          <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-6">The Meaning Behind the Name</h2>
-          <p className="text-[15px] text-muted-foreground leading-[1.75] mb-4">
-            The school is named in honour of <strong className="text-foreground font-medium">Bishop Cipriano Biyehima Kihangire</strong> (1918–1990), a Ugandan Catholic bishop whose ecclesiastical service included major roles in Gulu and Hoima.
+          <h2 className="section-heading">The Meaning Behind the Name</h2>
+          <p className="text-[15px] leading-[1.75] mb-4" style={{ color: "var(--text-secondary)" }}>
+            The school is named in honour of <strong className="font-medium" style={{ color: "var(--navy-900)" }}>Bishop Cipriano Biyehima Kihangire</strong> (1918–1990), a Ugandan Catholic bishop whose ecclesiastical service included major roles in Gulu and Hoima.
           </p>
-          <p className="text-[15px] text-muted-foreground leading-[1.75]">
-            The school was built by <strong className="text-foreground font-medium">Fr. John Scalabrini</strong>, a Catholic missionary who established schools and social services across the Luzira/Nakawa area of Kampala.
+          <p className="text-[15px] leading-[1.75]" style={{ color: "var(--text-secondary)" }}>
+            The school was built by <strong className="font-medium" style={{ color: "var(--navy-900)" }}>Fr. John Scalabrini</strong>, a Catholic missionary who established schools and social services across the Luzira/Nakawa area of Kampala.
           </p>
       </section>
 
       <section className="rounded-bento-2xl overflow-hidden mt-10" style={{ background: "var(--navy-900)" }}>
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-20 sm:py-28 text-center">
-          <p className="serif-heading text-[30px] sm:text-[36px] text-gold leading-[1.3] mb-4">
-            "Per Aspera Ad Astra"
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 py-20 sm:py-28 text-center">
+          <p className="serif-heading text-[30px] sm:text-[36px] leading-[1.3] mb-4" style={{ color: "var(--gold-500)" }}>
+            &ldquo;Per Aspera Ad Astra&rdquo;
           </p>
-          <p className="text-[15px] text-primary-foreground/50 mb-2">Through Hardship to the Stars</p>
-          <p className="text-[14px] text-primary-foreground/35 leading-[1.7] mt-6 max-w-md mx-auto">
+          <p className="text-[15px] mb-2" style={{ color: "var(--navy-200)" }}>Through Hardship to the Stars</p>
+          <p className="text-[14px] leading-[1.7] mt-6 max-w-md mx-auto" style={{ color: "var(--navy-300)" }}>
             This motto captures something deeply familiar to many who have passed through BCK — the belief that growth requires discipline, resilience, and perseverance.
           </p>
         </div>
       </section>
 
       <section className="section text-center max-w-lg mx-auto">
-        <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-4">Memory, Identity, and Belonging</h2>
-          <p className="text-[15px] text-muted-foreground leading-[1.75] mb-6">
-            What people remember most about school is rarely only academic. It is the friendships, routines, values, and the feeling of belonging to something bigger.
-          </p>
-        <p className="text-[13px] text-muted-foreground">
-          Have a memory to share? <Link to="/contact" className="text-cobalt font-semibold hover:text-cobalt/80 transition-colors">Contact us</Link> to contribute.
+        <p className="section-eyebrow">Community</p>
+        <h2 className="section-heading">Memory, Identity, and Belonging</h2>
+        <p className="text-[15px] leading-[1.75] mb-6" style={{ color: "var(--text-secondary)" }}>
+          What people remember most about school is rarely only academic. It is the friendships, routines, values, and the feeling of belonging to something bigger.
+        </p>
+        <p className="text-[13px]" style={{ color: "var(--text-secondary)" }}>
+          Have a memory to share? <Link to="/contact" className="font-semibold transition-colors hover:opacity-90" style={{ color: "hsl(var(--cobalt))" }}>Contact us</Link> to contribute.
         </p>
       </section>
     </Layout>

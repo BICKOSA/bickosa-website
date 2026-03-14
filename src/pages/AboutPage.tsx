@@ -164,31 +164,16 @@ const AboutPage = () => {
         </Link>
       </section>
 
-      <section
-        className="section"
-        style={{
-          background: "var(--navy-900)",
-          marginLeft: "calc(-50vw + 50%)",
-          marginRight: "calc(-50vw + 50%)",
-          paddingLeft: "max(32px, calc(50vw - 640px))",
-          paddingRight: "max(32px, calc(50vw - 640px))",
-          paddingTop: 80,
-          paddingBottom: 80,
-        }}
-      >
-        <div className="max-w-[1280px] mx-auto text-center">
+      <section className="rounded-bento-2xl overflow-hidden mt-10" style={{ background: "var(--navy-900)" }}>
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 py-20 sm:py-24 text-center">
           <h2
             className="text-[30px] sm:text-[34px] font-bold tracking-tight leading-[1.15] mb-4"
             style={{ fontFamily: "var(--font-display)", color: "var(--white)" }}
           >
             Be Part of the Association
           </h2>
-          <p
-            className="text-[15px] leading-[1.75] mb-8 max-w-md mx-auto"
-            style={{ color: "var(--navy-200)" }}
-          >
-            Whether you want to reconnect, contribute, or simply stay informed, there is a place for
-            you within BICKOSA.
+          <p className="text-[15px] leading-[1.75] mb-8 max-w-md mx-auto" style={{ color: "var(--navy-200)" }}>
+            Whether you want to reconnect, contribute, or simply stay informed, there is a place for you within BICKOSA.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link to="/contact" className="bc-btn bc-btn-gold">

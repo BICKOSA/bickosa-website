@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
+import { BentoCard } from "@/components/bento";
 import { Link } from "react-router-dom";
 import { ArrowRight, Heart, School, Users, Target } from "lucide-react";
 
@@ -26,56 +27,57 @@ const ProjectsPage = () => {
       />
 
       <section className="section max-w-2xl">
-        <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-6">Why Giving Back Matters</h2>
-          <p className="text-[16px] text-muted-foreground leading-[1.75]">
-            A strong alumni association does more than preserve memory — it helps build the future. Through projects, campaigns, and collective support, alumni contribute toward initiatives that strengthen the school and reflect BCK values.
+        <p className="section-eyebrow">Impact</p>
+        <h2 className="section-heading">Why Giving Back Matters</h2>
+        <p className="section-sub">
+          A strong alumni association does more than preserve memory — it helps build the future. Through projects, campaigns, and collective support, alumni contribute toward initiatives that strengthen the school and reflect BCK values.
         </p>
       </section>
 
       <section className="section">
         <p className="section-eyebrow">Initiatives</p>
         <h2 className="section-heading">Featured Projects</h2>
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="bento">
           {projects.map((p) => (
-            <div key={p.title} className="bg-card border border-border rounded-bento-2xl p-7 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">
+            <BentoCard key={p.title} variant="white" col={4} minHeight={260}>
               <div className={`w-10 h-10 rounded-bento-lg ${p.bgAccent} flex items-center justify-center mb-5`}>
-                  <p.icon className={`w-5 h-5 ${p.accent}`} />
-                </div>
-                <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-gold/10 mb-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-gold">{p.status}</span>
-                </div>
-                <h3 className="text-[16px] font-semibold text-foreground mb-2">{p.title}</h3>
-                <p className="text-[14px] text-muted-foreground leading-[1.7] mb-2">{p.description}</p>
-                <p className="text-[13px] text-muted-foreground/60">{p.impact}</p>
+                <p.icon className={`w-5 h-5 ${p.accent}`} />
               </div>
-            ))}
+              <span className="bc-tag bc-tag-gold mb-3">{p.status}</span>
+              <h3 className="bc-title mb-2" style={{ fontSize: "1rem" }}>{p.title}</h3>
+              <p className="bc-text sm mb-2">{p.description}</p>
+              <p className="bc-text sm" style={{ color: "var(--text-muted)" }}>{p.impact}</p>
+            </BentoCard>
+          ))}
         </div>
       </section>
 
       <section className="section">
-        <h2 className="text-[30px] sm:text-[34px] font-bold tracking-tight text-foreground leading-[1.15] mb-10">Ways to Support</h2>
-        <div className="grid sm:grid-cols-2 gap-5 mb-10">
+        <p className="section-eyebrow">Get Involved</p>
+        <h2 className="section-heading">Ways to Support</h2>
+        <div className="bento mb-10">
           {waysToSupport.map((w) => (
-            <div key={w.title} className="flex items-start gap-4 bg-card border border-border rounded-bento-2xl p-6 hover:shadow-sm transition-shadow">
+            <BentoCard key={w.title} variant="surface" col={6} minHeight={140} className="min-h-0">
+              <div className="flex items-start gap-4">
                 <div className={`w-2 h-2 rounded-full ${w.accent} flex-shrink-0 mt-2`} />
                 <div>
-                  <h3 className="text-[15px] font-semibold text-foreground mb-1.5">{w.title}</h3>
-                  <p className="text-[14px] text-muted-foreground leading-relaxed">{w.description}</p>
+                  <h3 className="bc-title mb-1.5" style={{ fontSize: "0.9375rem" }}>{w.title}</h3>
+                  <p className="bc-text sm" style={{ marginBottom: 0 }}>{w.description}</p>
                 </div>
               </div>
-            ))}
+            </BentoCard>
+          ))}
         </div>
-        <Link to="/contact" className="inline-flex items-center gap-2 h-11 px-6 text-[14px] font-semibold bg-navy text-primary-foreground rounded-bento-xl hover:bg-navy-light transition-colors" style={{ background: "var(--navy-900)" }}>
+        <Link to="/contact" className="bc-btn bc-btn-navy inline-flex items-center gap-2">
           Contact us to contribute <ArrowRight className="w-4 h-4" />
         </Link>
       </section>
 
       <section className="rounded-bento-2xl overflow-hidden mt-10" style={{ background: "var(--navy-900)" }}>
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-20 sm:py-24 text-center">
-          <Target className="w-6 h-6 text-gold mx-auto mb-4" />
-          <h2 className="text-[28px] font-bold tracking-tight text-primary-foreground mb-4">Built on Trust and Accountability</h2>
-          <p className="text-[15px] text-primary-foreground/50 leading-[1.75] max-w-md mx-auto">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 py-20 sm:py-24 text-center">
+          <Target className="w-6 h-6 mx-auto mb-4" style={{ color: "var(--gold-500)" }} />
+          <h2 className="text-[28px] font-bold tracking-tight mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--white)" }}>Built on Trust and Accountability</h2>
+          <p className="text-[15px] leading-[1.75] max-w-md mx-auto" style={{ color: "var(--navy-200)" }}>
             Impact grows where trust is strong. BICKOSA approaches projects and contributions with clarity, responsibility, and a commitment to stewardship.
           </p>
         </div>

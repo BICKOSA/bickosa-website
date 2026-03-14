@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
+import { BentoCard } from "@/components/bento";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import heroCampus2 from "@/assets/hero-campus-2.png";
@@ -28,47 +29,46 @@ const NewsPage = () => {
 
       {featured && (
         <section className="section">
-          <div className="relative rounded-bento-2xl p-8 sm:p-12 overflow-hidden" style={{ background: "var(--navy-900)" }}>
-              <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg, var(--gold-500), var(--gold-300))" }} />
-              <div className="flex items-center gap-2 mb-5">
-                <div className="w-2 h-2 rounded-full bg-gold" />
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-gold/70">{featured.category}</span>
-              </div>
-              <h2 className="text-[26px] sm:text-[32px] font-bold tracking-tight leading-[1.12] mb-4 text-primary-foreground">{featured.title}</h2>
-              <p className="text-[15px] leading-[1.75] mb-4 max-w-xl text-primary-foreground/55">{featured.excerpt}</p>
-              <p className="text-[12px] text-primary-foreground/30">{featured.date}</p>
+          <div className="bento">
+            <BentoCard variant="grad-navy" col={12} minHeight={200} className="min-h-0 relative">
+              <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-[var(--radius-2xl)]" style={{ background: "linear-gradient(90deg, var(--gold-500), var(--gold-300))" }} aria-hidden />
+              <div className="bc-eyebrow" style={{ color: "var(--gold-400)" }}>{featured.category}</div>
+              <h2 className="bc-title xl on-dark mb-4">{featured.title}</h2>
+              <p className="bc-text on-dark mb-4 max-w-xl">{featured.excerpt}</p>
+              <p className="text-[12px]" style={{ color: "var(--navy-300)" }}>{featured.date}</p>
+            </BentoCard>
           </div>
         </section>
       )}
 
       <section className="section">
-        <div className="space-y-4">
+        <p className="section-eyebrow">Latest</p>
+        <h2 className="section-heading">News & Announcements</h2>
+        <div className="bento">
           {others.map((a) => (
-            <article key={a.title} className="bg-card border border-border rounded-bento-2xl p-7 hover:shadow-sm transition-shadow group">
-                <div className="grid grid-cols-[1fr] sm:grid-cols-[100px_1fr] gap-4 sm:gap-8">
-                  <div>
-                    <p className="text-[12px] font-medium text-muted-foreground">{a.date}</p>
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className={`w-2 h-2 rounded-full ${a.accent}`} />
-                      <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{a.category}</span>
-                    </div>
-                    <h3 className="text-[16px] font-semibold text-foreground leading-snug mb-2 group-hover:text-cobalt transition-colors">{a.title}</h3>
-                    <p className="text-[14px] text-muted-foreground leading-[1.65]">{a.excerpt}</p>
-                  </div>
+            <BentoCard key={a.title} variant="white" col={6} minHeight={160} className="min-h-0">
+              <div className="grid grid-cols-[1fr] sm:grid-cols-[100px_1fr] gap-4 sm:gap-8">
+                <div>
+                  <p className="text-[12px] font-medium" style={{ color: "var(--text-muted)" }}>{a.date}</p>
                 </div>
-              </article>
-            ))}
+                <div>
+                  <div className="bc-eyebrow">{a.category}</div>
+                  <h3 className="bc-title mb-2" style={{ fontSize: "1rem" }}>{a.title}</h3>
+                  <p className="bc-text sm">{a.excerpt}</p>
+                </div>
+              </div>
+            </BentoCard>
+          ))}
         </div>
       </section>
 
       <section className="section text-center max-w-lg mx-auto">
-          <h2 className="text-[28px] font-bold tracking-tight text-foreground mb-4">Looking for Older Updates?</h2>
-          <p className="text-[15px] text-muted-foreground leading-[1.75] mb-8">Browse previous announcements, milestones, and archived community updates.</p>
-          <Link to="/archive" className="inline-flex items-center gap-2 h-11 px-6 text-[14px] font-medium text-foreground border border-border rounded-bento-xl hover:bg-muted transition-colors">
-            Browse Archive <ArrowRight className="w-4 h-4" />
-          </Link>
+        <p className="section-eyebrow">Archive</p>
+        <h2 className="section-heading">Looking for Older Updates?</h2>
+        <p className="section-sub mb-8">Browse previous announcements, milestones, and archived community updates.</p>
+        <Link to="/archive" className="bc-btn bc-btn-outline inline-flex items-center gap-2">
+          Browse Archive <ArrowRight className="w-4 h-4" />
+        </Link>
       </section>
     </Layout>
   );
