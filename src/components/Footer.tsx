@@ -110,11 +110,11 @@ const Footer = () => {
               <li>P.O. Box 27477</li>
               <li>
                 <a
-                  href="mailto:info@bickosa.org"
+                  href="mailto:info@updates.bickosa.com"
                   className="transition-colors hover:opacity-90"
                   style={{ color: "var(--gold-400)" }}
                 >
-                  info@bickosa.org
+                  info@updates.bickosa.com
                 </a>
               </li>
             </ul>

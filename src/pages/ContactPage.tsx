@@ -131,8 +131,8 @@ const ContactPage = () => {
                 <p className="text-[13px] font-semibold mb-1.5" style={{ color: "var(--navy-900)" }}>
                   Email
                 </p>
-                <a href="mailto:info@bickosa.org" className="text-[14px]" style={{ color: "var(--navy-600)" }}>
-                  info@bickosa.org
+                <a href="mailto:info@updates.bickosa.com" className="text-[14px]" style={{ color: "var(--navy-600)" }}>
+                  info@updates.bickosa.com
                 </a>
               </div>
               <div>
