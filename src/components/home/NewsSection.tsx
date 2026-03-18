@@ -20,7 +20,7 @@ const articles = [
     category: "Alumni Achievement",
     title: "BCK Alumnus Appointed to National Health Advisory Board",
     excerpt:
-      "Dr. Peter Lubega, Class of 1998, has been appointed to serve on the national health policy advisory committee.",
+      "Dr. Peter Lubega, Class of 1999, has been appointed to serve on the national health policy advisory committee.",
     date: "February 5, 2026",
   },
 ];
