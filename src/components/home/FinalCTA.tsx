@@ -38,9 +38,14 @@ const FinalCTA = () => {
           </p>
 
           <div className="flex flex-wrap justify-center gap-3">
-            <Link to="/about" className="bc-btn bc-btn-gold">
-              Stay Connected
-            </Link>
+            <a
+              href="https://portal.bickosa.com/join"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bc-btn bc-btn-gold"
+            >
+              Join BICKOSA
+            </a>
             <Link to="/contact" className="bc-btn bc-btn-ghost-dark">
               Contact BICKOSA →
             </Link>
