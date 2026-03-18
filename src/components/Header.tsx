@@ -30,7 +30,7 @@ const Header = () => {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 border-b"
+      className="fixed top-10 left-0 right-0 z-50 border-b"
       style={{
         background: "var(--white)",
         borderColor: "var(--border)",
@@ -88,9 +88,14 @@ const Header = () => {
         </div>
 
         <div className="hidden lg:block">
-          <Link to="/contact" className="topnav-cta">
+          <a
+            href="https://portal.bickosa.com/join"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="topnav-cta"
+          >
             Join BICKOSA
-          </Link>
+          </a>
         </div>
 
         <button
@@ -129,13 +134,15 @@ const Header = () => {
               </Link>
             ))}
             <div className="mt-3 pt-3 border-t" style={{ borderColor: "var(--border)" }}>
-              <Link
-                to="/contact"
+              <a
+                href="https://portal.bickosa.com/join"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
                 className="topnav-cta inline-flex justify-center w-full"
               >
                 Join BICKOSA
-              </Link>
+              </a>
             </div>
           </nav>
         </div>

@@ -95,9 +95,14 @@ const HeroSection = () => {
             style={{ paddingTop: 24, borderTop: "1px solid rgba(255,255,255,0.1)" }}
           >
             <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-              <Link to="/contact" className="bc-btn bc-btn-gold">
+              <a
+                href="https://portal.bickosa.com/join"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bc-btn bc-btn-gold"
+              >
                 Join BICKOSA
-              </Link>
+              </a>
               <Link to="/about" className="bc-btn bc-btn-ghost-dark">
                 Explore →
               </Link>
@@ -136,9 +141,14 @@ const HeroSection = () => {
             Events, the alumni directory, the sports league, and mentorship.
           </p>
           <div className="bc-footer">
-            <Link to="/contact" className="bc-btn bc-btn-navy">
+            <a
+              href="https://portal.bickosa.com/join"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bc-btn bc-btn-navy"
+            >
               Register Now
-            </Link>
+            </a>
             <Link to="/about" className="bc-arrow bc-arrow-light" aria-label="Explore">
               →
             </Link>
