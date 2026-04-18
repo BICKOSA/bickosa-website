@@ -96,6 +96,18 @@ export const PAGE_METADATA: Record<string, PageMetaConfig> = {
       "Publications, historic notices, anniversary materials, event records, and legacy stories from the BICKOSA archive.",
     ogImage: "/meta/archive.png",
   },
+  "/privacy-policy": {
+    title: `Privacy Policy | ${SITE_NAME}`,
+    description:
+      "How BICKOSA handles information shared through the website, association communications, events, and alumni engagement.",
+    ogImage: "/meta/home.png",
+  },
+  "/terms-of-use": {
+    title: `Terms of Use | ${SITE_NAME}`,
+    description:
+      "The basic conditions for using the BICKOSA website and engaging with public association content.",
+    ogImage: "/meta/home.png",
+  },
 };
 
 /** Default meta when path is not in PAGE_METADATA (e.g. 404). */

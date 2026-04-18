@@ -84,6 +84,8 @@ const Footer = () => {
                 { label: "Gallery", path: "/gallery" },
                 { label: "Governance", path: "/governance" },
                 { label: "FAQs", path: "/faq" },
+                { label: "Privacy Policy", path: "/privacy-policy" },
+                { label: "Terms of Use", path: "/terms-of-use" },
               ].map((link) => (
                 <li key={link.path}>
                   <Link
@@ -128,9 +130,11 @@ const Footer = () => {
           <p className="text-[11px]" style={{ color: "var(--navy-400)" }}>
             © {new Date().getFullYear()} BICKOSA. All rights reserved.
           </p>
-          <p className="text-[11px]" style={{ color: "var(--navy-400)" }}>
-            Bishop Cipriano Kihangire Senior Secondary School Alumni
-          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px]" style={{ color: "var(--navy-400)" }}>
+            <span>Bishop Cipriano Kihangire Senior Secondary School Alumni</span>
+            <Link to="/privacy-policy" className="transition-colors hover:opacity-90">Privacy</Link>
+            <Link to="/terms-of-use" className="transition-colors hover:opacity-90">Terms</Link>
+          </div>
         </div>
       </div>
     </footer>

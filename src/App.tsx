@@ -19,6 +19,8 @@ import ContactPage from "./pages/ContactPage";
 import GovernancePage from "./pages/GovernancePage";
 import FAQPage from "./pages/FAQPage";
 import ArchivePage from "./pages/ArchivePage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsOfUsePage from "./pages/TermsOfUsePage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -52,6 +54,8 @@ const App = () => (
             <Route path="/governance" element={<GovernancePage />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/archive" element={<ArchivePage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms-of-use" element={<TermsOfUsePage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

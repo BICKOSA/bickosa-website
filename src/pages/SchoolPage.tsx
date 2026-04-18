@@ -24,7 +24,7 @@ const SchoolPage = () => {
                 Bishop Cipriano Kihangire Senior Secondary School, located in Bbiina/Luzira, Kampala, is a private Catholic secondary school offering both O-Level and A-Level education as a mixed day and boarding institution. Founded by Fr. John Scalabrini in 1999, the school began operations on 9 February 1999 with 120 students.
               </p>
               <p className="text-[15px] text-muted-foreground leading-[1.75] mb-4">
-                Named in honour of Bishop Cipriano Biyehima Kihangire (1918–1990), the school is part of the Emmaus/Fondazione ecosystem. As of 2022, it serves over 2,750 secondary students.
+                Named in honour of Bishop Cipriano Biyehima Kihangire since its founding in 1999, the school is part of the Emmaus/Fondazione ecosystem. As of 2022, it serves over 2,750 secondary students.
               </p>
               <div className="flex items-center gap-3 mt-6 text-[13px] text-muted-foreground">
                 <span className="w-2 h-2 rounded-full bg-teal" />

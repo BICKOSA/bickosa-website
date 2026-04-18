@@ -74,7 +74,7 @@ const HistoryPage = () => {
           <p className="section-eyebrow">Impact</p>
           <h2 className="section-heading">The Meaning Behind the Name</h2>
           <p className="text-[15px] leading-[1.75] mb-4" style={{ color: "var(--text-secondary)" }}>
-            The school is named in honour of <strong className="font-medium" style={{ color: "var(--navy-900)" }}>Bishop Cipriano Biyehima Kihangire</strong> (1918–1990), a Ugandan Catholic bishop whose ecclesiastical service included major roles in Gulu and Hoima.
+            The school is named in honour of <strong className="font-medium" style={{ color: "var(--navy-900)" }}>Bishop Cipriano Biyehima Kihangire</strong>, whose legacy has been part of the school's identity since its founding in 1999.
           </p>
           <p className="text-[15px] leading-[1.75]" style={{ color: "var(--text-secondary)" }}>
             The school was built by <strong className="font-medium" style={{ color: "var(--navy-900)" }}>Fr. John Scalabrini</strong>, a Catholic missionary who established schools and social services across the Luzira/Nakawa area of Kampala.
