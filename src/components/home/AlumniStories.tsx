@@ -4,7 +4,7 @@ import { BentoCard } from "@/components/bento";
 const stories = [
   {
     name: "Dr. Sarah Nakamya",
-    cohort: "Class of 1995",
+    cohort: "Class of 1999",
     role: "Medical Practitioner",
     excerpt:
       "BCK taught me resilience and compassion — values I carry into my medical practice every day.",

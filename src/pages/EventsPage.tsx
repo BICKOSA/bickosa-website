@@ -5,17 +5,9 @@ import { CalendarDays, MapPin } from "lucide-react";
 
 const upcoming = [
   { title: "BICKOSA Annual General Meeting 2026", date: "May 24, 2026", location: "Bishop Cipriano Kihangire SS Day Section — Main Hall", description: "Join fellow alumni for the annual gathering to review progress, elect leaders, and chart the way forward.", type: "AGM", featured: true, accent: "bg-gold" },
-  { title: "Class of 2005 Reunion", date: "May 22, 2026", location: "Kampala Serena Hotel", description: "A special reunion celebrating over 20 years since graduation.", type: "Reunion", accent: "bg-coral" },
-  { title: "BICKOSA League Season 3", date: "June 8, 2026", location: "BCK Sports Ground", description: "The alumni football and basketball tournament returns, building on the success of 13 teams in Season 2.", type: "Sports", accent: "bg-teal" },
-  { title: "School Founder's Day Celebration", date: "July 20, 2026", location: "BCK SSS Campus", description: "Celebrating the legacy of Bishop Cipriano Biyehima Kihangire and the vision of Fr. John Scalabrini.", type: "Milestone", accent: "bg-cobalt" },
 ];
 
-const past = [
-  { title: "BCK SSS Silver Jubilee (25 Years)", date: "2024", location: "BCK SSS Campus", description: "A landmark celebration marking 25 years since the school's founding in 1999, including fundraising toward a new academic block." },
-  { title: "BICKOSA League Season 2", date: "2024", location: "BCK Sports Ground", description: "13 teams competed in the structured alumni football competition." },
-  { title: "BICKOSA League Launch", date: "2023", location: "BCK Sports Ground", description: "The Old Students Association launched its first structured alumni football competition." },
-  { title: "BICKOSA COVID-19 Relief Drive", date: "August 22, 2020", location: "BCK SSS Staff Quarters", description: "Alumni organized a relief drive including tree planting and urban backyard farming demonstration." },
-];
+const past: { title: string; date: string; location: string; description: string }[] = [];
 
 const EventsPage = () => {
   const featured = upcoming.find((e) => e.featured);
@@ -46,6 +38,7 @@ const EventsPage = () => {
         </section>
       )}
 
+      {others.length > 0 && (
       <section className="section">
         <p className="section-eyebrow">Calendar</p>
         <h2 className="section-heading">Upcoming Events</h2>
@@ -68,7 +61,9 @@ const EventsPage = () => {
           ))}
         </div>
       </section>
+      )}
 
+      {past.length > 0 && (
       <section className="section">
         <p className="section-eyebrow">History</p>
         <h2 className="section-heading">Past Events</h2>
@@ -89,6 +84,7 @@ const EventsPage = () => {
           </div>
         </div>
       </section>
+      )}
     </Layout>
   );
 };
