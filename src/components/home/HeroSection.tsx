@@ -221,6 +221,14 @@ const HeroSection = () => {
             >
               Register Now
             </a>
+            <a
+              href="https://portal.bickosa.com/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bc-btn bc-btn-outline"
+            >
+              Member Login
+            </a>
             <Link to="/about" className="bc-arrow bc-arrow-light" aria-label="Explore">
               →
             </Link>

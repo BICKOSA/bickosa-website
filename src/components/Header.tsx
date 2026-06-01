@@ -87,7 +87,16 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex items-center gap-3">
+          <a
+            href="https://portal.bickosa.com/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="topnav-link text-[13px]"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            Member Login
+          </a>
           <a
             href="https://portal.bickosa.com/join"
             target="_blank"
@@ -133,7 +142,7 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
-            <div className="mt-3 pt-3 border-t" style={{ borderColor: "var(--border)" }}>
+            <div className="mt-3 pt-3 border-t flex flex-col gap-2" style={{ borderColor: "var(--border)" }}>
               <a
                 href="https://portal.bickosa.com/join"
                 target="_blank"
@@ -142,6 +151,19 @@ const Header = () => {
                 className="topnav-cta inline-flex justify-center w-full"
               >
                 Join BICKOSA
+              </a>
+              <a
+                href="https://portal.bickosa.com/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="inline-flex justify-center w-full px-4 py-2 text-[13px] font-medium rounded-lg border transition-colors hover:bg-[var(--surface-alt)]"
+                style={{
+                  color: "var(--text-secondary)",
+                  borderColor: "var(--border)",
+                }}
+              >
+                Member Login
               </a>
             </div>
           </nav>
